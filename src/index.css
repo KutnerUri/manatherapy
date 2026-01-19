@@ -3,12 +3,10 @@
   background-color: #f3efe6;
   font-family: "Georgia", "Times New Roman", "Times", serif;
   --color-text: #141414;
-  --color-bg: #f3efe6;
   --color-surface: #f8f2e8;
   --color-surface-alt: #efe7d8;
   --color-overlay-light: rgba(255, 255, 255, 0.6);
   --color-overlay-dark: rgba(0, 0, 0, 0.08);
-  --color-accent: #b33c2c;
   --color-invert: #f1efe6;
 }
 
@@ -124,68 +122,87 @@ body {
 }
 
 .slide-color.blue {
-  background:
-    linear-gradient(
+  background: linear-gradient(
       to bottom,
       rgba(232, 243, 255, 0.28) 0%,
       transparent 15%,
       transparent 85%,
       rgba(191, 245, 240, 0.3) 100%
     ),
-    radial-gradient(circle at 85% 85%, rgba(168, 209, 175, 0.24), transparent 55%),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(168, 209, 175, 0.24),
+      transparent 55%
+    ),
     linear-gradient(160deg, #e6f0fb 0%, #c7d7ec 55%, #b3c8e2 100%);
 }
 
 .slide-color.green {
-  background:
-    linear-gradient(
+  background: linear-gradient(
       to bottom,
       rgba(191, 245, 240, 0.3) 0%,
       transparent 15%,
       transparent 85%,
       rgba(255, 242, 178, 0.32) 100%
     ),
-    radial-gradient(circle at 85% 85%, rgba(234, 146, 130, 0.2), transparent 55%),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(234, 146, 130, 0.2),
+      transparent 55%
+    ),
     linear-gradient(160deg, #e7f1e2 0%, #cfe3cc 55%, #b7d0b3 100%);
 }
 
 .slide-color.red {
-  background:
-    linear-gradient(
+  background: linear-gradient(
       to bottom,
       rgba(255, 242, 178, 0.32) 0%,
       transparent 15%,
       transparent 85%,
       rgba(255, 213, 166, 0.34) 100%
     ),
-    radial-gradient(circle at 85% 85%, rgba(245, 228, 160, 0.24), transparent 55%),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(245, 228, 160, 0.24),
+      transparent 55%
+    ),
     linear-gradient(160deg, #f0b4a6 0%, #d47264 55%, #c95752 100%);
 }
 
 .slide-color.yellow {
-  background:
-    linear-gradient(
+  background: linear-gradient(
       to bottom,
       rgba(255, 213, 166, 0.34) 0%,
       transparent 15%,
       transparent 85%,
       rgba(255, 250, 240, 0.36) 100%
     ),
-    radial-gradient(circle at 85% 85%, rgba(120, 104, 164, 0.2), transparent 60%),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(120, 104, 164, 0.2),
+      transparent 60%
+    ),
     linear-gradient(160deg, #fff9ef 0%, #f7eed2 55%, #f1db9b 100%);
 }
 
 .slide-color.black {
-  background:
-    linear-gradient(
+  background: linear-gradient(
       to bottom,
       rgba(40, 24, 56, 0.18) 0%,
-      transparent 15%,
-      transparent 100%,
+      transparent 15%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      #080008 0%,
+      rgba(8, 0, 8, 0.92) 40%,
       transparent 100%
     ),
-    radial-gradient(circle at 50% 50%, #080008 0%, rgba(8, 0, 8, 0.92) 40%, transparent 100%),
-    radial-gradient(circle at 50% 50%, rgba(78, 38, 112, 0.32) 0%, rgba(78, 38, 112, 0.12) 55%, transparent 75%),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(78, 38, 112, 0.32) 0%,
+      rgba(78, 38, 112, 0.12) 55%,
+      transparent 75%
+    ),
     linear-gradient(160deg, #240a34 0%, #120012 55%, #080008 100%);
   color: var(--color-invert);
 }
@@ -196,12 +213,6 @@ body {
 
 .slide-finale {
   background: linear-gradient(130deg, #f5e6cf 0%, #f0d7b8 55%, #e9c7b0);
-}
-
-.color-title {
-  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  margin: 0 0 0.5rem;
 }
 
 .color-sub {
@@ -319,8 +330,6 @@ body {
   --card-frame: #ebeae4;
   --card-frame-strong: #d7d4cc;
   --card-surface-soft: #fbfbf8;
-  --card-media: #e6e4dd;
-  --card-stripe: rgba(146, 140, 130, 0.32);
   --card-text: #2a2a24;
   --card-text-muted: rgba(42, 42, 36, 0.6);
 }
@@ -330,19 +339,16 @@ body {
   --card-frame: #edc9c0;
   --card-frame-strong: #dfab9f;
   --card-surface-soft: #fbeee9;
-  --card-media: #e5c7be;
-  --card-stripe: rgba(128, 98, 92, 0.32);
   --card-text: #3a1f1c;
   --card-text-muted: rgba(58, 31, 28, 0.6);
 }
 
+/* keep blue, we'll need it later */
 .spell-card.blue {
   --card-surface: #e6efff;
   --card-frame: #d2e1f6;
   --card-frame-strong: #b7c9e5;
   --card-surface-soft: #f4f8ff;
-  --card-media: #d3e0f4;
-  --card-stripe: rgba(108, 123, 146, 0.32);
   --card-text: #1b2738;
   --card-text-muted: rgba(27, 39, 56, 0.6);
 }
@@ -352,8 +358,6 @@ body {
   --card-frame: hsl(62, 35%, 90%);
   --card-frame-strong: hsl(23, 38%, 76%);
   --card-surface-soft: #fbfbf4;
-  --card-media: #e4d1c6;
-  --card-stripe: rgba(142, 98, 90, 0.32);
   --card-text: #2b2622;
   --card-text-muted: rgba(43, 38, 34, 0.6);
   transform: none;
