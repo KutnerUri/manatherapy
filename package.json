@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.ts",
-    "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify-whitespace --minify-identifiers --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
-    "start": "NODE_ENV=production bun src/index.ts"
+    "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --external=*.{jpeg,jpg,png,gif,svg,webp,ttf,eot,woff,woff2} --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "postbuild": "cp -R src/assets dist/"
   },
   "devDependencies": {
     "@types/bun": "latest"
