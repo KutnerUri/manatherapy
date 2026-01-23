@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -111,7 +111,7 @@
         <div class="slide-inner" dir="rtl">
           <div class="color-logo">
             <img src="./assets/logos/sun.webp" alt="Yellow mana logo" />
-            <p class="color-sub">שיוויון</p>
+            <p class="color-sub">הוגנות</p>
           </div>
         </div>
       </section>
@@ -125,20 +125,31 @@
         </div>
       </section>
 
-      <section class="slide text-slide slide-finale" data-slide="10">
-        <div class="slide-inner">
-          <div class="pentagon">
-            <div class="mana-circle blue">כחול</div>
-            <div class="mana-circle green">ירוק</div>
-            <div class="mana-circle red">אדום</div>
-            <div class="mana-circle yellow">צהוב</div>
-            <div class="mana-circle black">שחור</div>
+      <section class="slide slide-finale" data-slide="10">
+        <!-- <div class="slide-inner finale-inner" dir="rtl"> -->
+        <h2 class="section-title finale-title">סוגי המאנות</h2>
+        <div class="pentagon">
+          <div class="mana-circle blue">
+            <span class="mana-label">כחול</span>
           </div>
-          <div class="down-arrow" dir="rtl">
-            <span class="arrow">↓</span>
-            <span class="label">לדוגמאות</span>
+          <div class="mana-circle green">
+            <span class="mana-label">ירוק</span>
+          </div>
+          <div class="mana-circle red">
+            <span class="mana-label">אדום</span>
+          </div>
+          <div class="mana-circle yellow">
+            <span class="mana-label">צהוב</span>
+          </div>
+          <div class="mana-circle black">
+            <span class="mana-label">שחור</span>
           </div>
         </div>
+        <div class="down-arrow">
+          <span class="arrow">↓</span>
+          <span class="label">לדוגמאות</span>
+        </div>
+        <!-- </div> -->
       </section>
 
       <section class="slide slide-card" data-slide="11">
@@ -171,7 +182,7 @@
         <div class="combo-row">
           <article class="spell-card white base">
             <div class="card-header">
-              <strong class="card-title">recipe</strong>
+              <strong class="card-title">מתכון</strong>
               <span class="mana-group">
                 <span class="mana-cost white" aria-label="White mana cost"
                   >1</span
@@ -187,12 +198,15 @@
               />
             </div>
             <div class="card-body">
-              <p>basic ingredients</p>
+              <p>
+                מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים והכמויות
+                הנדרשות ליצירת מאכל מוגמר
+              </p>
             </div>
           </article>
           <article class="spell-card red overlap">
             <div class="card-header">
-              <strong class="card-title">אפיה</strong>
+              <strong class="card-title">בישול</strong>
               <span class="mana-group">
                 <span class="mana-cost red" aria-label="Red mana cost">1</span>
                 <span class="mana-cost red" aria-label="Red mana cost">1</span>
@@ -206,13 +220,13 @@
               />
             </div>
             <div class="card-body">
-              <p>heat + craft</p>
+              <p>עבד מרכיבים, הכנס לתבנית, השתמש בתנור</p>
             </div>
           </article>
           <div class="combo-equals">=</div>
           <article class="spell-card result">
             <div class="card-header">
-              <strong class="card-title">bake cake</strong>
+              <strong class="card-title">אפיית עוגה</strong>
               <span class="mana-group">
                 <span class="mana-cost white" aria-label="White mana cost"
                   >1</span
@@ -229,7 +243,7 @@
               />
             </div>
             <div class="card-body">
-              <p>flavor becomes outcome</p>
+              <p> צור עוגה טעימה ומוכנה להגשה</p>
             </div>
           </article>
         </div>

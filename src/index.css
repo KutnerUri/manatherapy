@@ -160,7 +160,7 @@ body {
 
 .slide-color.red {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  "Lucida Sans", Arial, sans-serif;
   background: linear-gradient(
       to bottom,
       rgba(255, 242, 178, 0.32) 0%,
@@ -221,7 +221,33 @@ body {
 }
 
 .slide-finale {
-  background: linear-gradient(130deg, #f5e6cf 0%, #f0d7b8 55%, #e9c7b0);
+  background:
+    radial-gradient(
+      circle at 50% 14%,
+      rgba(244, 166, 151, 0.45),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 18% 33%,
+      rgba(175, 206, 166, 0.4),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 82% 33%,
+      rgba(250, 221, 150, 0.4),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 25% 78%,
+      rgba(160, 188, 219, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(circle at 75% 78%, rgba(40, 46, 56, 0.35), transparent 60%),
+    linear-gradient(130deg, #f5e6cf 0%, #f0d7b8 55%, #e9c7b0);
+}
+
+.finale-title {
+  margin: 0;
 }
 
 .color-sub {
@@ -243,66 +269,147 @@ body {
 
 .pentagon {
   position: relative;
-  width: min(70vw, 520px);
+  width: min(76vw, 560px);
   aspect-ratio: 1 / 1;
-  margin: 0 auto 3rem;
+  margin: 0;
+  --orbit: clamp(140px, 23vw, 230px);
 }
 
 .mana-circle {
   position: absolute;
-  width: clamp(90px, 18vw, 130px);
-  height: clamp(90px, 18vw, 130px);
+  left: 50%;
+  top: 50%;
+  width: 14vw;
+  height: 14vw;
   border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
   display: grid;
   place-items: center;
-  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
-  letter-spacing: 0.06em;
-  font-weight: 600;
-  color: var(--color-text);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  font-size: clamp(1.05rem, 2.6vw, 1.6rem);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--mana-text, var(--color-text));
+  --shine-opacity: 0.23;
+  --shine-opacity: 0.23;
+  background-image:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 255, 255, var(--shine-opacity)),
+      transparent 60%
+    ),
+    var(--mana-image),
+    radial-gradient(circle at 30% 20%, var(--mana-base), var(--mana-deep) 70%);
+  background-size:
+    100% 100%,
+    175% 175%,
+    100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, var(--shadow-alpha, 0.16)),
+    0 0 24px var(--mana-glow, rgba(0, 0, 0, 0.12)),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease,
+    box-shadow 0.2s ease;
+  transition-delay: var(--delay, 0s);
+
+  /* initial state */
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+
+  user-select: none;
 }
 
-.pentagon .blue {
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  background: radial-gradient(circle at top, #d7e6f4, #9fb8d6 70%);
+.mana-label {
+  z-index: 2;
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
 }
 
-.pentagon .black {
-  top: 28%;
-  right: 0;
-  transform: translate(12%, 0);
-  background: radial-gradient(circle at top, #3a3f4a, #16181f 70%);
-  color: var(--color-invert);
+.mana-circle.red .mana-label,
+.mana-circle.green .mana-label,
+.mana-circle.blue .mana-label {
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.35);
 }
 
-.pentagon .yellow {
-  top: 28%;
-  left: 0;
-  transform: translate(-12%, 0);
-  background: radial-gradient(circle at top, #f8e7b7, #f2c85f 70%);
+.slide.is-active .mana-circle {
+  opacity: 1;
+  transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(1);
 }
 
-.pentagon .red {
-  bottom: 0;
-  right: 22%;
-  transform: translate(0, 12%);
-  background: radial-gradient(circle at top, #f4c2b4, #f08d7b 70%);
+.mana-circle:active {
+  transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(0.95);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-.pentagon .green {
-  bottom: 0;
-  left: 22%;
-  transform: translate(0, 12%);
-  background: radial-gradient(circle at top, #dbe9d4, #9fbf98 70%);
+.mana-circle.red {
+  --x: calc(var(--orbit) * 0.588);
+  --y: calc(var(--orbit) * 0.809);
+  --delay: 0.2s;
+  --mana-image: url("./assets/logos/fire.webp");
+  --mana-base: #f5c6bb;
+  --mana-deep: #f08d7b;
+  --mana-glow: rgba(240, 141, 123, 0.4);
+  --mana-text: #3b0f0a;
+}
+
+.mana-circle.green {
+  --x: calc(var(--orbit) * 0.951);
+  --y: calc(var(--orbit) * -0.309);
+  --delay: 0.1s;
+  --mana-image: url("./assets/logos/plant.webp");
+  --mana-base: #dfeedd;
+  --mana-deep: #9fbf98;
+  --mana-glow: rgba(159, 191, 152, 0.4);
+  --mana-text: #0d2b17;
+}
+
+.mana-circle.yellow {
+  --x: calc(var(--orbit) * -0.588);
+  --y: calc(var(--orbit) * 0.809);
+  --delay: 0.3s;
+  --mana-image: url("./assets/logos/sun.webp");
+  --shadow-alpha: 0.12;
+  --mana-base: #faedc5;
+  --mana-deep: #f2c85f;
+  --mana-glow: rgba(242, 200, 95, 0.4);
+  --mana-text: #4a3512;
+}
+
+.mana-circle.blue {
+  --x: 0px;
+  --y: calc(var(--orbit) * -1);
+  --delay: 0s;
+  --mana-image: url("./assets/logos/water.webp");
+  --mana-base: #d7e6f4;
+  --mana-deep: #9fb8d6;
+  --mana-glow: rgba(159, 184, 214, 0.4);
+  --mana-text: #08192a;
+}
+
+.mana-circle.black {
+  --x: calc(var(--orbit) * -0.951);
+  --y: calc(var(--orbit) * -0.309);
+  --delay: 0.4s;
+  --mana-image: url("./assets/logos/metal.webp");
+  --shadow-alpha: 0.12;
+  --mana-base: #3a3f4a;
+  --mana-deep: #16181f;
+  --mana-glow: rgba(22, 24, 31, 0.35);
+  --mana-text: #f1efe6;
 }
 
 .down-arrow {
   display: grid;
   justify-items: center;
   gap: 0.4rem;
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+  letter-spacing: 0.08em;
 }
 
 .down-arrow .arrow {
@@ -496,5 +603,41 @@ body {
 
   .slide-inner {
     width: 100%;
+  }
+
+  .pentagon {
+    width: 100%;
+    aspect-ratio: auto;
+    display: grid;
+    gap: 4vh;
+    justify-items: center;
+  }
+
+  .mana-circle {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 23vh;
+    height: 9vh;
+    background-size:
+      100% 100%,
+      210% auto,
+      100% 100%;
+  }
+
+  .slide.is-active .mana-circle {
+    transform: scale(1);
+  }
+
+  .mana-circle:active {
+    transform: scale(0.95);
+  }
+
+  .mana-label {
+    font-size: 3vh;
+  }
+
+  .down-arrow {
+    width: min(15vh, 200px);
   }
 }
