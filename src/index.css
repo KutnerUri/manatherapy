@@ -258,6 +258,12 @@ body {
   text-transform: uppercase;
 }
 
+.color-subtitle {
+  font-size: 38px;
+  margin: 0;
+  opacity: 0.62;
+}
+
 .color-logo {
   text-align: center;
 }
@@ -272,15 +278,15 @@ body {
   width: min(76vw, 560px);
   aspect-ratio: 1 / 1;
   margin: 0;
-  --orbit: clamp(140px, 23vw, 230px);
+  --orbit: 23vmin;
 }
 
 .mana-circle {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 14vw;
-  height: 14vw;
+  width: 23vmin;
+  height: 23vmin;
   border-radius: 999px;
   overflow: hidden;
   isolation: isolate;
