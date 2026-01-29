@@ -62,7 +62,7 @@
 
       <section class="slide text-slide slide-spell" data-slide="3">
         <div class="slide-inner" dir="rtl">
-          <div class="body">
+          <div class="slide-body">
             <p>מה שרבים אינם מבינים הוא</p>
             <p>לא רק שכל כישוף דורש מחיר,</p>
             <p>שהמחיר הוא משאבים שחייבים להתאים לדרישות הכישוף.</p>
@@ -85,7 +85,7 @@
           <div class="color-logo">
             <img src="./assets/logos/water.webp" alt="Blue mana logo" />
             <p class="color-sub">טוהר</p>
-            <p class="color-subtitle">דיוק הבנות</p>
+            <p class="color-subtitle">השלמת ידע</p>
           </div>
         </div>
       </section>
@@ -95,7 +95,7 @@
           <div class="color-logo">
             <img src="./assets/logos/plant.webp" alt="Green mana logo" />
             <p class="color-sub">נאמנות</p>
-            <p class="color-subtitle">התמדה בזהויות</p>
+            <p class="color-subtitle">צמיחת זהויות</p>
           </div>
         </div>
       </section>
@@ -105,7 +105,7 @@
           <div class="color-logo">
             <img src="./assets/logos/fire.webp" alt="Red mana logo" />
             <p class="color-sub">חופש</p>
-            <p class="color-subtitle">הנעה לפעולה</p>
+            <p class="color-subtitle">מימוש דחפים</p>
           </div>
         </div>
       </section>
@@ -115,7 +115,7 @@
           <div class="color-logo">
             <img src="./assets/logos/sun.webp" alt="Yellow mana logo" />
             <p class="color-sub">הוגנות</p>
-            <p class="color-subtitle">סידור מאזן</p>
+            <p class="color-subtitle">ניהול סיכונים</p>
           </div>
         </div>
       </section>
@@ -131,10 +131,9 @@
       </section>
 
       <section class="slide slide-finale" data-slide="10">
-        <!-- <div class="slide-inner finale-inner" dir="rtl"> -->
         <h2 class="section-title finale-title">סוגי המאנות</h2>
         <div class="pentagon">
-          <div class="mana-circle blue">
+          <div class="circle blue">
             <span class="mana-label">כחול</span>
           </div>
           <div class="mana-circle green">
@@ -154,80 +153,87 @@
           <span class="arrow">↓</span>
           <span class="label">לדוגמאות</span>
         </div>
-        <!-- </div> -->
       </section>
 
       <section class="slide slide-card" data-slide="11">
-        <div class="slide-inner">
-          <article class="spell-card white" dir="rtl">
-            <div class="card-header">
-              <strong class="card-title">נהיגה</strong>
-              <span class="mana-group">
-                <span class="mana-cost white" aria-label="White mana cost"
-                  >1</span
-                >
-              </span>
-            </div>
-            <div class="card-image">
-              <img
-                src="./assets/driving.jpg"
-                alt="Driving spell illustration"
-              />
-            </div>
-            <div class="card-body">
-              <p>שליטה ברכב</p>
-              <p>ציות לתמרורים</p>
-              <p>השתלבות בתנועה</p>
-            </div>
-          </article>
-        </div>
+        <article class="spell-card white" dir="rtl">
+          <div class="card-header">
+            <strong class="card-title">נהיגה</strong>
+            <span class="mana-group">
+              <span class="mana-cost white" aria-label="White mana cost"
+                >1</span
+              >
+            </span>
+          </div>
+          <div class="card-image">
+            <img
+              src="./assets/driving.jpg"
+              alt="Driving spell illustration"
+              class="main"
+            />
+          </div>
+          <div class="card-body">
+            <p>שליטה ברכב</p>
+            <p>ציות לתמרורים</p>
+            <p>השתלבות בתנועה</p>
+          </div>
+        </article>
       </section>
 
       <section class="slide slide-combo" data-slide="12">
         <div class="combo-row">
-          <article class="spell-card white base">
-            <div class="card-header">
-              <strong class="card-title">מתכון</strong>
-              <span class="mana-group">
-                <span class="mana-cost white" aria-label="White mana cost"
-                  >1</span
-                >
-              </span>
-            </div>
+          <div class="card-stack">
+            <article class="spell-card white base">
+              <div class="card-header">
+                <strong class="card-title">מתכון</strong>
+                <span class="mana-group">
+                  <span class="mana-cost white" aria-label="White mana cost"
+                    >1</span
+                  >
+                </span>
+              </div>
 
-            <div class="card-image">
-              <img
-                src="./assets/recipe.jpg"
-                alt="Recipe spell illustration"
-                draggable="false"
-              />
-            </div>
-            <div class="card-body">
-              <p>
-                מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים והכמויות
-                הנדרשות ליצירת מאכל מוגמר
-              </p>
-            </div>
-          </article>
-          <article class="spell-card red overlap">
-            <div class="card-header">
-              <strong class="card-title">בישול</strong>
-              <span class="mana-group">
-                <span class="mana-cost red" aria-label="Red mana cost">1</span>
-                <span class="mana-cost red" aria-label="Red mana cost">1</span>
-              </span>
-            </div>
-            <div class="card-image">
-              <img
-                src="./assets/baking.jpg"
-                alt="Baking spell illustration"
-                draggable="false"
-              />
-            </div>
-            <div class="card-body">
-              <p>עבד מרכיבים, הכנס לתבנית, השתמש בתנור</p>
-            </div>
-          </article>
+              <div class="card-image">
+                <img
+                  src="./assets/recipe.jpg"
+                  alt="Recipe spell illustration"
+                  draggable="false"
+                  class="main"
+                />
+              </div>
+              <div class="card-body">
+                <p>
+                  מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים
+                  והכמויות הנדרשות ליצירת מאכל מוגמר
+                </p>
+              </div>
+            </article>
+            <article class="spell-card red overlap">
+              <div class="card-header">
+                <strong class="card-title">בישול</strong>
+                <span class="mana-group">
+                  <span class="mana-cost red" aria-label="Red mana cost"
+                    >1</span
+                  >
+                  <span class="mana-cost red" aria-label="Red mana cost"
+                    >1</span
+                  >
+                </span>
+              </div>
+              <div class="card-image">
+                <img
+                  src="./assets/baking.jpg"
+                  alt="Baking spell illustration"
+                  draggable="false"
+                  class="main"
+                />
+              </div>
+              <div class="card-body">
+                <p>עבד מרכיבים, הכנס לתבנית, השתמש בתנור</p>
+              </div>
+            </article>
+          </div>
+
           <div class="combo-equals">=</div>
           <article class="spell-card result">
             <div class="card-header">
@@ -245,6 +251,7 @@
                 src="./assets/baking-cake.jpg"
                 alt="Bake a cake spell illustration"
                 draggable="false"
+                class="main"
               />
             </div>
             <div class="card-body">
