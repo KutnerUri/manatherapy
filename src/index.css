@@ -490,6 +490,10 @@ body {
   flex: none;
 }
 
+[dir="rtl"] .spell-card {
+  transform: rotate(2deg);
+}
+
 .spell-card.white {
   --card-surface: #f7f7f3;
   --card-frame: #ebeae4;
@@ -644,10 +648,18 @@ body {
   transform: rotate(-4deg);
 }
 
+[dir="rtl"] .base {
+  transform: rotate(4deg);
+}
+
 .overlap {
-  margin-left: -8em;
+  margin-inline-start: -8em;
   margin-top: 2em;
   transform: rotate(4deg);
+}
+
+[dir="rtl"] .overlap {
+  transform: rotate(-4deg);
 }
 
 @keyframes line-fade {
