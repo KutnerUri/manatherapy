@@ -1,17 +1,34 @@
 ---
+type Props = {
+  class?: string;
+  title?: string;
+  costs?: Array<
+    | string
+    | {
+        color: string;
+        value?: string;
+        label?: string;
+      }
+  >;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  imageClass?: string;
+  draggable?: boolean;
+  bodyLines?: string[];
+};
+
 const {
-  className = "",
-  title,
+  class: className,
+  title = "",
   costs = [],
   image,
-  imageAlt,
+  imageAlt = "",
   imageClass = "main",
   draggable,
   bodyLines = [],
-} = Astro.props;
+} = Astro.props as Props;
 
-const classes = ["spell-card", className].filter(Boolean).join(" ");
-const imageSrc = image && (image.src ?? image);
+const imageSrc = image?.src;
 const costItems = costs.map((cost) => {
   if (typeof cost === "string") {
     return { color: cost, value: "1", label: `${cost} mana cost` };
@@ -24,7 +41,7 @@ const costItems = costs.map((cost) => {
 });
 ---
 
-<article class={classes}>
+<article class:list={["spell-card", className]}>
   <div class="card-header">
     <strong class="card-title">{title}</strong>
     <span class="mana-group">
@@ -49,3 +66,170 @@ const costItems = costs.map((cost) => {
     {bodyLines.map((line) => <p>{line}</p>)}
   </div>
 </article>
+
+<style>
+  .spell-card {
+    font-size: 3vmin;
+    height: round(21em, 2px);
+    width: round(13em, 2px);
+    background: var(--card-surface, #f2f4f8);
+    border-radius: 0.62em;
+    padding: round(0.38em, 1px);
+    display: grid;
+    grid-template-rows: auto 38% 1fr;
+    gap: 0.5em;
+    font-family: "Georgia", "Times New Roman", "Times", serif;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow:
+      0 0.95em 2.2em rgba(0, 0, 0, 0.18),
+      inset 0 0.03em 0 rgba(255, 255, 255, 0.9),
+      inset 0 -0.06em 0.19em rgba(0, 0, 0, 0.06);
+    transform: rotate(-2deg);
+    background-image: linear-gradient(
+      160deg,
+      var(--card-surface-soft, #f8f9fc),
+      var(--card-surface, #f2f4f8)
+    );
+    flex: none;
+  }
+
+  [dir="rtl"] .spell-card {
+    transform: rotate(2deg);
+  }
+
+  .spell-card.white {
+    --card-surface: #f7f7f3;
+    --card-frame: #ebeae4;
+    --card-frame-strong: #d7d4cc;
+    --card-surface-soft: #fbfbf8;
+    --card-text: #2a2a24;
+    --card-text-muted: rgba(42, 42, 36, 0.6);
+  }
+
+  .spell-card.red {
+    --card-surface: #f6e1dc;
+    --card-frame: #edc9c0;
+    --card-frame-strong: #dfab9f;
+    --card-surface-soft: #fbeee9;
+    --card-text: #3a1f1c;
+    --card-text-muted: rgba(58, 31, 28, 0.6);
+  }
+
+  /* keep blue, we'll need it later */
+  .spell-card.blue {
+    --card-surface: #e6efff;
+    --card-frame: #d2e1f6;
+    --card-frame-strong: #b7c9e5;
+    --card-surface-soft: #f4f8ff;
+    --card-text: #1b2738;
+    --card-text-muted: rgba(27, 39, 56, 0.6);
+  }
+
+  .spell-card.result {
+    --card-surface: #f1d8cf;
+    --card-frame: hsl(62, 35%, 90%);
+    --card-frame-strong: hsl(23, 38%, 76%);
+    --card-surface-soft: #fbfbf4;
+    --card-text: #2b2622;
+    --card-text-muted: rgba(43, 38, 34, 0.6);
+    transform: none;
+  }
+
+  .spell-card .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    font-size: 1em;
+    letter-spacing: 0.04em;
+    color: var(--card-text, #1b2738);
+    padding: 0.25em 0.45em;
+    background: linear-gradient(
+      180deg,
+      var(--card-frame, #d8e0ee),
+      var(--card-frame-strong, #c1cadd)
+    );
+    border-radius: 0.38em;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 0.03em 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .spell-card .card-title {
+    font-weight: 700;
+  }
+
+  .spell-card .mana-group {
+    display: inline-flex;
+    gap: 0.1em;
+  }
+
+  .spell-card .mana-cost {
+    width: round(1.23em, 2px);
+    height: round(1.23em, 2px);
+    border-radius: 50%;
+    font-size: round(0.85em, 1px);
+    color: #1b2738;
+    background: radial-gradient(circle at top, #f1f4fb, #d0d7e6 70%);
+    box-shadow:
+      inset 0 0 0.23em rgba(255, 255, 255, 0.7),
+      0 0.23em 0.38em rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    display: grid;
+    place-items: center;
+    font-family: math;
+    user-select: none;
+  }
+
+  .spell-card .mana-cost.white {
+    color: #3a3a3a;
+    background: radial-gradient(circle at top, #ffffff, #d9d9d3 70%);
+  }
+
+  .spell-card .mana-cost.red {
+    color: #6b1e1e;
+    background: radial-gradient(circle at top, #f7d8d1, #e59f93 70%);
+  }
+
+  .spell-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.55em;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .spell-card .card-body {
+    background: #ffffff;
+    border-radius: 0.55em;
+    padding: 0.75em;
+    display: grid;
+    align-content: start;
+    gap: 0.4em;
+    font-size: 0.8em;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--card-text, #1b2738);
+  }
+
+  .spell-card .card-body p {
+    margin: 0;
+  }
+
+  .base {
+    transform: rotate(-4deg);
+  }
+
+  [dir="rtl"] .base {
+    transform: rotate(4deg);
+  }
+
+  .overlap {
+    margin-inline-start: -8em;
+    margin-top: 2em;
+    transform: rotate(4deg);
+  }
+
+  [dir="rtl"] .overlap {
+    transform: rotate(-4deg);
+  }
+</style>

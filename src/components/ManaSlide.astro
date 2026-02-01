@@ -1,17 +1,162 @@
 ---
 import Slide from "./Slide.astro";
 
-const { slide, colorClass = "", logo, logoAlt, sub, subtitle } = Astro.props;
-const logoSrc = logo && (logo.src ?? logo);
-const classes = ["slide-color", colorClass].filter(Boolean).join(" ");
+type Props = {
+  slide: number;
+  colorClass: "blue" | "green" | "red" | "yellow" | "black";
+  logo: ImageMetadata;
+  logoAlt: string;
+  sub: string;
+  subtitle: string;
+  class?: string;
+};
+
+const {
+  slide,
+  colorClass,
+  logo,
+  logoAlt = "",
+  sub = "",
+  subtitle = "",
+  class: className,
+  ...rest
+} = Astro.props as Props;
 ---
 
-<Slide className={classes} slide={slide}>
+<Slide
+  class={["slide-color", colorClass, className].filter(Boolean).join(" ")}
+  {...rest}
+  slide={slide}
+>
   <div class="slide-inner">
     <div class="color-logo">
-      <img src={logoSrc} alt={logoAlt} />
+      <img src={logo.src} alt={logoAlt} />
       <p class="color-sub">{sub}</p>
       <p class="color-subtitle">{subtitle}</p>
     </div>
+    <slot />
   </div>
 </Slide>
+
+<style>
+  .slide-color.blue {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(232, 243, 255, 0.28) 0%,
+        transparent 15%,
+        transparent 85%,
+        rgba(191, 245, 240, 0.3) 100%
+      ),
+      radial-gradient(
+        circle at 85% 85%,
+        rgba(168, 209, 175, 0.24),
+        transparent 55%
+      ),
+      linear-gradient(160deg, #e6f0fb 0%, #c7d7ec 55%, #b3c8e2 100%);
+  }
+
+  .slide-color.green {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(191, 245, 240, 0.3) 0%,
+        transparent 15%,
+        transparent 85%,
+        rgba(255, 242, 178, 0.32) 100%
+      ),
+      radial-gradient(
+        circle at 85% 85%,
+        rgba(234, 146, 130, 0.2),
+        transparent 55%
+      ),
+      linear-gradient(160deg, #e7f1e2 0%, #cfe3cc 55%, #b7d0b3 100%);
+  }
+
+  .slide-color.red {
+    font-family:
+      "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+      Arial, sans-serif;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(255, 242, 178, 0.32) 0%,
+        transparent 15%,
+        transparent 85%,
+        rgba(255, 213, 166, 0.34) 100%
+      ),
+      radial-gradient(
+        circle at 85% 85%,
+        rgba(245, 228, 160, 0.24),
+        transparent 55%
+      ),
+      linear-gradient(160deg, #f0b4a6 0%, #d47264 55%, #c95752 100%);
+  }
+
+  .slide-color.yellow {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(255, 213, 166, 0.34) 0%,
+        transparent 15%,
+        transparent 85%,
+        rgba(255, 250, 240, 0.36) 100%
+      ),
+      radial-gradient(
+        circle at 85% 85%,
+        rgba(120, 104, 164, 0.2),
+        transparent 60%
+      ),
+      linear-gradient(160deg, #fff9ef 0%, #f7eed2 55%, #f1db9b 100%);
+  }
+
+  .slide-color.black {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    background:
+      linear-gradient(to bottom, rgba(40, 24, 56, 0.18) 0%, transparent 15%),
+      radial-gradient(
+        circle at 50% 50%,
+        #080008 0%,
+        rgba(8, 0, 8, 0.92) 40%,
+        transparent 100%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(78, 38, 112, 0.32) 0%,
+        rgba(78, 38, 112, 0.12) 55%,
+        transparent 75%
+      ),
+      linear-gradient(160deg, #240a34 0%, #120012 55%, #080008 100%);
+    color: var(--color-invert);
+  }
+
+  .slide-color.black .color-sub {
+    color: rgba(241, 239, 230, 0.8);
+  }
+
+  .color-sub {
+    font-size: 100px;
+    margin: 0;
+    margin-top: -14vmin;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .color-subtitle {
+    font-size: 38px;
+    margin: 0;
+    opacity: 0.62;
+  }
+
+  .color-logo {
+    text-align: center;
+  }
+
+  .color-logo img {
+    width: min(62vh, 100vw);
+    height: auto;
+  }
+</style>

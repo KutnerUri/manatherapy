@@ -29,7 +29,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 
 <Layout title={title} description={description}>
   <Slideshow>
-    <Slide className="text-slide slide-hero" slide={0}>
+    <Slide class="text-slide slide-hero" slide={0}>
       <div class="slide-inner">
         <h1 class="title">מאנה תרפיה</h1>
       </div>
@@ -40,7 +40,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       </div>
     </Slide>
 
-    <Slide className="text-slide slide-intro" slide={1}>
+    <Slide class="text-slide slide-intro" slide={1}>
       <div class="slide-inner">
         <h2 class="section-title">מאנה תרפיה</h2>
         <div class="lines">
@@ -55,7 +55,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       </div>
     </Slide>
 
-    <Slide className="text-slide slide-spell" slide={2}>
+    <Slide class="text-slide slide-spell" slide={2}>
       <div class="slide-inner">
         <div class="body">
           <p>בחיי היום-יום שלנו אנחנו מטילים כשפים.</p>
@@ -67,7 +67,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       </div>
     </Slide>
 
-    <Slide className="text-slide slide-spell" slide={3}>
+    <Slide class="text-slide slide-spell" slide={3}>
       <div class="slide-inner">
         <div class="body">
           <p>מה שרבים אינם מבינים הוא</p>
@@ -78,7 +78,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       </div>
     </Slide>
 
-    <Slide className="text-slide slide-colors" slide={4}>
+    <Slide class="text-slide slide-colors" slide={4}>
       <div class="slide-inner">
         <h2 class="section-title">חמישה צבעים</h2>
         <p class="lead">מאנה מחולקת לחמישה צבעים.</p>
@@ -132,7 +132,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       subtitle="סיפוק צרכים"
     />
 
-    <Slide className="slide-finale" slide={10}>
+    <Slide class="slide-finale" slide={10}>
       <h2 class="section-title finale-title">למד עוד</h2>
       <div class="pentagon">
         <div class="mana-circle blue">
@@ -157,9 +157,9 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       </div>
     </Slide>
 
-    <Slide className="slide-card" slide={11}>
+    <Slide class="slide-card" slide={11}>
       <SpellCard
-        className="white"
+        class="white"
         title="נהיגה"
         costs={["white"]}
         image={drivingImage}
@@ -168,11 +168,11 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       />
     </Slide>
 
-    <Slide className="slide-combo" slide={12}>
+    <Slide class="slide-combo" slide={12}>
       <div class="combo-row">
         <div class="card-stack">
           <SpellCard
-            className="white base"
+            class="white base"
             title="מתכון"
             costs={["white"]}
             image={recipeImage}
@@ -181,7 +181,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
             bodyLines={recipeLines}
           />
           <SpellCard
-            className="red overlap"
+            class="red overlap"
             title="בישול"
             costs={["red", "red"]}
             image={bakingImage}
@@ -193,7 +193,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 
         <div class="combo-equals">=</div>
         <SpellCard
-          className="result"
+          class="result"
           title="אפיית עוגה"
           costs={["white", "red", "red"]}
           image={bakingCakeImage}
