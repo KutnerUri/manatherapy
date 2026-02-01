@@ -1,8 +1,13 @@
 import { serve } from "bun";
 import index from "./index.html";
+import black from "./black.html";
 
 const server = serve({
   routes: {
+    "/": index,
+    "/black": black,
+    "/black/": black,
+    "/black.html": black,
     "/*": index,
   },
 
