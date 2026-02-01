@@ -2,6 +2,7 @@
 import "../index.css";
 import Layout from "../layouts/Layout.astro";
 import ManaSlide from "../components/ManaSlide.astro";
+import ScrollHint from "../components/ScrollHint.astro";
 import Slide from "../components/Slide.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
@@ -33,11 +34,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
       <div class="slide-inner">
         <h1 class="title">מאנה תרפיה</h1>
       </div>
-      <div class="scroll-hint" aria-hidden="true">
-        המשך
-        <br />
-        <span class="scroll-arrow">↓</span>
-      </div>
+      <ScrollHint />
     </Slide>
 
     <Slide class="text-slide slide-intro" slide={1}>

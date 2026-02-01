@@ -1,6 +1,7 @@
 ---
 import "../black.css";
 import Layout from "../layouts/Layout.astro";
+import ScrollHint from "../components/ScrollHint.astro";
 import Slide from "../components/Slide.astro";
 import Slideshow from "../components/Slideshow.astro";
 import metalLogo from "../assets/logos/metal.webp";
@@ -20,11 +21,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
       subtitle="סיפוק צרכים"
       slide={0}
     >
-      <div class="scroll-hint" aria-hidden="true">
-        המשך
-        <br />
-        <span class="scroll-arrow">↓</span>
-      </div>
+      <ScrollHint />
     </ManaSlide>
 
     <Slide class="text-slide slide-black-intro" slide={1}>
@@ -138,39 +135,6 @@ const description = "Black mana - honor, pragmatism, and survival.";
 
 <style>
   .scroll-hint {
-    position: absolute;
-    bottom: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(20, 20, 20, 0.55);
-    user-select: none;
-    opacity: 0;
-    animation: hint-fade 2300ms ease-in-out alternate infinite;
-    animation-delay: 3800ms;
-    text-align: center;
-    font-size: 1.5rem;
-
     color: rgba(241, 239, 230, 0.7);
-  }
-
-  .scroll-arrow {
-    font-size: 1.62em;
-    line-height: 1;
-  }
-
-  @keyframes hint-fade {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .scroll-hint {
-      animation: none;
-      opacity: 0.7;
-    }
   }
 </style>
