@@ -1,0 +1,51 @@
+---
+const {
+  className = "",
+  title,
+  costs = [],
+  image,
+  imageAlt,
+  imageClass = "main",
+  draggable,
+  bodyLines = [],
+} = Astro.props;
+
+const classes = ["spell-card", className].filter(Boolean).join(" ");
+const imageSrc = image && (image.src ?? image);
+const costItems = costs.map((cost) => {
+  if (typeof cost === "string") {
+    return { color: cost, value: "1", label: `${cost} mana cost` };
+  }
+  return {
+    color: cost.color,
+    value: cost.value ?? "1",
+    label: cost.label ?? `${cost.color} mana cost`,
+  };
+});
+---
+
+<article class={classes}>
+  <div class="card-header">
+    <strong class="card-title">{title}</strong>
+    <span class="mana-group">
+      {
+        costItems.map((cost) => (
+          <span class={`mana-cost ${cost.color}`} aria-label={cost.label}>
+            {cost.value}
+          </span>
+        ))
+      }
+    </span>
+  </div>
+  <div class="card-image">
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      draggable={draggable}
+      class={imageClass}
+    />
+  </div>
+  <div class="card-body">
+    {bodyLines.map((line) => <p>{line}</p>)}
+  </div>
+</article>

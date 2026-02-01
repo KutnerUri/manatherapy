@@ -1,0 +1,52 @@
+---
+import defaultOgImage from "../assets/5-elem.jpg";
+import defaultFavicon from "../favicon.svg";
+
+const {
+  title = "",
+  description,
+  lang = "en",
+  dir = "rtl",
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = defaultOgImage,
+  twitterTitle = ogTitle,
+  twitterDescription = ogDescription,
+  twitterImage = ogImage,
+  favicon = defaultFavicon,
+} = Astro.props;
+
+const ogImageSrc = ogImage && (ogImage.src ?? ogImage);
+const twitterImageSrc = twitterImage && (twitterImage.src ?? twitterImage);
+const faviconSrc = favicon && (favicon.src ?? favicon);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {description && <meta name="description" content={description} />}
+    {ogTitle && <meta property="og:title" content={ogTitle} />}
+    {
+      ogDescription && (
+        <meta property="og:description" content={ogDescription} />
+      )
+    }
+    {ogImageSrc && <meta property="og:image" content={ogImageSrc} />}
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
+    {
+      twitterDescription && (
+        <meta name="twitter:description" content={twitterDescription} />
+      )
+    }
+    {twitterImageSrc && <meta name="twitter:image" content={twitterImageSrc} />}
+    {faviconSrc && <link rel="icon" href={faviconSrc} type="image/svg+xml" />}
+    <title>{title}</title>
+  </head>
+  <body dir={dir}>
+    <slot />
+  </body>
+</html>

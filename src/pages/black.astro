@@ -1,162 +1,137 @@
 ---
 import "../black.css";
-import fiveElem from "../assets/5-elem.jpg";
+import Layout from "../layouts/Layout.astro";
+import Slide from "../components/Slide.astro";
+import Slideshow from "../components/Slideshow.astro";
 import metalLogo from "../assets/logos/metal.webp";
-import favicon from "../favicon.svg";
+
+const title = "כבוד — מאנה תרפיה";
+const description = "Black mana - honor, pragmatism, and survival.";
 ---
 
-<!doctype html>
-<html lang="he">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Black mana - honor, pragmatism, and survival."
-    />
-    <meta property="og:title" content="כבוד — מאנה תרפיה" />
-    <meta
-      property="og:description"
-      content="Black mana - honor, pragmatism, and survival."
-    />
-    <meta property="og:image" content={fiveElem.src} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="כבוד — מאנה תרפיה" />
-    <meta
-      name="twitter:description"
-      content="Black mana - honor, pragmatism, and survival."
-    />
-    <meta name="twitter:image" content={fiveElem.src} />
-    <link rel="icon" href={favicon.src} type="image/svg+xml" />
-    <title>כבוד — מאנה תרפיה</title>
-  </head>
-  <body dir="rtl">
-    <main class="deck deck-black">
-      <section class="slide slide-color black black-hero" data-slide="0">
-        <div class="slide-inner">
-          <img src={metalLogo.src} alt="Black mana logo" />
-          <p class="color-sub">כבוד</p>
-          <p class="color-subtitle">סיפוק צרכים</p>
-        </div>
+<Layout title={title} description={description} lang="he">
+  <Slideshow className="deck-black">
+    <Slide className="slide-color black black-hero" slide={0}>
+      <div class="slide-inner">
+        <img src={metalLogo.src} alt="Black mana logo" />
+        <p class="color-sub">כבוד</p>
+        <p class="color-subtitle">סיפוק צרכים</p>
+      </div>
 
-        <div class="scroll-hint" aria-hidden="true">
-          המשך
-          <br />
-          <span class="scroll-arrow">↓</span>
-        </div>
-      </section>
+      <div class="scroll-hint" aria-hidden="true">
+        המשך
+        <br />
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </Slide>
 
-      <section class="slide text-slide slide-black-intro" data-slide="1">
-        <div class="slide-inner">
-          <h2 class="section-title">כבוד הוא הכוח לדאוג לעצמנו.</h2>
-          <div class="body">
-            <p>הוא שואל:</p>
-            <p>מה אנחנו רוצים,</p>
-            <p>ואיך משיגים את זה</p>
-          </div>
+    <Slide className="text-slide slide-black-intro" slide={1}>
+      <div class="slide-inner">
+        <h2 class="section-title">כבוד הוא הכוח לדאוג לעצמנו.</h2>
+        <div class="body">
+          <p>הוא שואל:</p>
+          <p>מה אנחנו רוצים,</p>
+          <p>ואיך משיגים את זה</p>
         </div>
-      </section>
+      </div>
+    </Slide>
 
-      <section class="slide text-slide slide-black-worldview" data-slide="2">
-        <div class="slide-inner">
-          <h2 class="section-title">תפיסת עולם</h2>
-          <div class="body">
-            <p>כבוד מניח שהעולם קשה,</p>
-            <p>שהמשאבים מוגבלים,</p>
-            <p>ושאף אחד לא יבוא להציל אותך.</p>
-          </div>
-          <div class="body">
-            <p>מתוך ההנחה הזו, כבוד מעריך:</p>
-            <p>תועלת עצמית,</p>
-            <p>אמביציה,</p>
-            <p>והתמודדות עם אמיתות לא נעימות.</p>
-          </div>
-          <div class="body">
+    <Slide className="text-slide slide-black-worldview" slide={2}>
+      <div class="slide-inner">
+        <h2 class="section-title">תפיסת עולם</h2>
+        <div class="body">
+          <p>כבוד מניח שהעולם קשה,</p>
+          <p>שהמשאבים מוגבלים,</p>
+          <p>ושאף אחד לא יבוא להציל אותך.</p>
+        </div>
+        <div class="body">
+          <p>מתוך ההנחה הזו, כבוד מעריך:</p>
+          <p>תועלת עצמית,</p>
+          <p>אמביציה,</p>
+          <p>והתמודדות עם אמיתות לא נעימות.</p>
+        </div>
+        <div class="body">
+          <p>כבוד לא מתחבא מאחורי כוונות טובות, דיונים תאורטיים, ותיורצים.</p>
+          <p>הוא אומר: אם אתה רוצה משהו - אתה משלם.</p>
+        </div>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-black-why" slide={3}>
+      <div class="slide-inner">
+        <h2 class="section-title">למה צריך כבוד</h2>
+        <div class="body">
+          <p>כבוד נותן לנו אנכיות -</p>
+          <p>
+            נקודת מבט סובייקטיבית שממנה ניתן לקבל החלטות, גם אם הן קשות.
+          </p>
+          <p>בלעדיו - אין עצמי. כל דבר הופך להיות מרוחק ותאורטי</p>
+        </div>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-black-allows" slide={4}>
+      <div class="slide-inner">
+        <h2 class="section-title">מה כבוד מאפשר לנו</h2>
+        <div class="body">
+          <p>לבחור.</p>
+          <p>להציב גבולות.</p>
+          <p>לשאת מחירים.</p>
+          <p>ולהשיג מה שאנחנו רוצים.</p>
+        </div>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-black-creation" slide={5}>
+      <div class="slide-inner">
+        <h2 class="section-title">יצירה של מאנה שחורה</h2>
+        <div class="creation-grid">
+          <article class="creation-card">
+            <h3>בדיקת רצון</h3>
+            <p>בכל פעם שיש ספק, לשאול - מה אני רוצה?</p>
+          </article>
+          <article class="creation-card">
+            <h3>הערכה לרצון</h3>
+            <p>אם אני רוצה את זה, זה חשוב</p>
+          </article>
+          <article class="creation-card">
+            <h3>מודעות למחיר</h3>
+            <p>מה המחיר המלא למה שאני רוצה? האם אני מוכן לשלם אותו?</p>
+          </article>
+          <article class="creation-card">
+            <h3>הערכה לסיפוק</h3>
+            <p>האם אני מרוצה ממה שקיבלתי?</p>
+          </article>
+        </div>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-black-development" slide={6}>
+      <div class="slide-inner">
+        <h2 class="section-title">התפתחות</h2>
+        <div class="development-grid">
+          <article class="development-card">
+            <h3>כבוד ילדותי</h3>
             <p>
-              כבוד לא מתחבא מאחורי כוונות טובות, דיונים תאורטיים, ותיורצים.
+              כבוד לא מפותח ממהר לספק צרכים, אך נוטה להתעלם מהמחיר ומההשפעה שלו
+              על אחרים והעתיד.
             </p>
-            <p>הוא אומר: אם אתה רוצה משהו - אתה משלם.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide text-slide slide-black-why" data-slide="3">
-        <div class="slide-inner">
-          <h2 class="section-title">למה צריך כבוד</h2>
-          <div class="body">
-            <p>כבוד נותן לנו אנכיות -</p>
             <p>
-              נקודת מבט סובייקטיבית שממנה ניתן לקבל החלטות, גם אם הן קשות.
+              הוא מבלבל בין סיפוק מיידי וסיפוק אמיתי, מתקשה להציב גבולות ברורים,
+              וכשדברים משתבשים הוא חוזר וחוזר וחוזר לתחושת קורבנות.
             </p>
-            <p>בלעדיו - אין עצמי. כל דבר הופך להיות מרוחק ותאורטי</p>
-          </div>
+          </article>
+          <article class="development-card">
+            <h3>כבוד בוגר</h3>
+            <p>כבוד בוגר מכיר בצרכים ומספק אותם במידה הנכונה.</p>
+            <p>
+              הוא מסוגל לדחות סיפוק או לתת לרצון להתפוגג, מקבל החלטות מתוך
+              חישוב עלות־תועלת בריא, מציב גבולות שקטים וברורים, ולוקח אחריות
+              מלאה על התוצאות.
+            </p>
+          </article>
         </div>
-      </section>
-
-      <section class="slide text-slide slide-black-allows" data-slide="4">
-        <div class="slide-inner">
-          <h2 class="section-title">מה כבוד מאפשר לנו</h2>
-          <div class="body">
-            <p>לבחור.</p>
-            <p>להציב גבולות.</p>
-            <p>לשאת מחירים.</p>
-            <p>ולהשיג מה שאנחנו רוצים.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide text-slide slide-black-creation" data-slide="5">
-        <div class="slide-inner">
-          <h2 class="section-title">יצירה של מאנה שחורה</h2>
-          <div class="creation-grid">
-            <article class="creation-card">
-              <h3>בדיקת רצון</h3>
-              <p>בכל פעם שיש ספק, לשאול - מה אני רוצה?</p>
-            </article>
-            <article class="creation-card">
-              <h3>הערכה לרצון</h3>
-              <p>אם אני רוצה את זה, זה חשוב</p>
-            </article>
-            <article class="creation-card">
-              <h3>מודעות למחיר</h3>
-              <p>מה המחיר המלא למה שאני רוצה? האם אני מוכן לשלם אותו?</p>
-            </article>
-            <article class="creation-card">
-              <h3>הערכה לסיפוק</h3>
-              <p>האם אני מרוצה ממה שקיבלתי?</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide text-slide slide-black-development" data-slide="6">
-        <div class="slide-inner">
-          <h2 class="section-title">התפתחות</h2>
-          <div class="development-grid">
-            <article class="development-card">
-              <h3>כבוד ילדותי</h3>
-              <p>
-                כבוד לא מפותח ממהר לספק צרכים, אך נוטה להתעלם מהמחיר ומההשפעה שלו
-                על אחרים והעתיד.
-              </p>
-              <p>
-                הוא מבלבל בין סיפוק מיידי וסיפוק אמיתי, מתקשה להציב גבולות ברורים,
-                וכשדברים משתבשים הוא חוזר וחוזר וחוזר לתחושת קורבנות.
-              </p>
-            </article>
-            <article class="development-card">
-              <h3>כבוד בוגר</h3>
-              <p>כבוד בוגר מכיר בצרכים ומספק אותם במידה הנכונה.</p>
-              <p>
-                הוא מסוגל לדחות סיפוק או לתת לרצון להתפוגג, מקבל החלטות מתוך
-                חישוב עלות־תועלת בריא, מציב גבולות שקטים וברורים, ולוקח אחריות
-                מלאה על התוצאות.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
+      </div>
+    </Slide>
+  </Slideshow>
+</Layout>

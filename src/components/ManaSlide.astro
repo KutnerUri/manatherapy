@@ -1,0 +1,17 @@
+---
+import Slide from "./Slide.astro";
+
+const { slide, colorClass = "", logo, logoAlt, sub, subtitle } = Astro.props;
+const logoSrc = logo && (logo.src ?? logo);
+const classes = ["slide-color", colorClass].filter(Boolean).join(" ");
+---
+
+<Slide className={classes} slide={slide}>
+  <div class="slide-inner">
+    <div class="color-logo">
+      <img src={logoSrc} alt={logoAlt} />
+      <p class="color-sub">{sub}</p>
+      <p class="color-subtitle">{subtitle}</p>
+    </div>
+  </div>
+</Slide>

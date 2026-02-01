@@ -1,283 +1,207 @@
 ---
 import "../index.css";
+import Layout from "../layouts/Layout.astro";
+import ManaSlide from "../components/ManaSlide.astro";
+import Slide from "../components/Slide.astro";
+import Slideshow from "../components/Slideshow.astro";
+import SpellCard from "../components/SpellCard.astro";
 import bakingCakeImage from "../assets/baking-cake.jpg";
 import bakingImage from "../assets/baking.jpg";
 import drivingImage from "../assets/driving.jpg";
-import fiveElem from "../assets/5-elem.jpg";
 import fireLogo from "../assets/logos/fire.webp";
 import metalLogo from "../assets/logos/metal.webp";
 import plantLogo from "../assets/logos/plant.webp";
 import recipeImage from "../assets/recipe.jpg";
 import sunLogo from "../assets/logos/sun.webp";
-import favicon from "../favicon.svg";
 import water from "../assets/logos/water.webp";
+
+const title = "Manatherapy";
+const description =
+  "Mana theory - the resources of life, the five types of resources, and doing magic in daily life.";
+
+const drivingLines = ["שליטה ברכב", "ציות לתמרורים", "השתלבות בתנועה"];
+const recipeLines = [
+  "מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים והכמויות הנדרשות ליצירת מאכל מוגמר",
+];
+const bakingLines = ["עבד מרכיבים, הכנס לתבנית, השתמש בתנור"];
+const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Mana theory - the resources of life, the five types of resources, and doing magic in daily life."
+<Layout title={title} description={description}>
+  <Slideshow>
+    <Slide className="text-slide slide-hero" slide={0}>
+      <div class="slide-inner">
+        <h1 class="title">מאנה תרפיה</h1>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        המשך
+        <br />
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-intro" slide={1}>
+      <div class="slide-inner">
+        <h2 class="section-title">מאנה תרפיה</h2>
+        <div class="lines">
+          <p class="line" style="--delay: 0.1s">
+            מאנה תרפיה היא תורה שמסבירה מדוע דברים אינם קורים
+          </p>
+          <p class="line" style="--delay: 0.6s">
+            מה צריך כדי לגרום לדברים לקרות
+          </p>
+          <p class="line" style="--delay: 1.1s">ואיך להשיג את זה.</p>
+        </div>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-spell" slide={2}>
+      <div class="slide-inner">
+        <div class="body">
+          <p>בחיי היום-יום שלנו אנחנו מטילים כשפים.</p>
+          <p>אני קורא להם כשפים שכן הם לא פחות מקסם.</p>
+          <p>עם מספיק אנרגיה אנחנו יכולים להזיז הרים.</p>
+          <p>להדליק אש</p>
+          <p>ולשנות את חיינו.</p>
+        </div>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-spell" slide={3}>
+      <div class="slide-inner">
+        <div class="body">
+          <p>מה שרבים אינם מבינים הוא</p>
+          <p>לא רק שכל כישוף דורש מחיר,</p>
+          <p>שהמחיר הוא משאבים שחייבים להתאים לדרישות הכישוף.</p>
+          <p>למשאבים האלה אני קורא מאנה.</p>
+        </div>
+      </div>
+    </Slide>
+
+    <Slide className="text-slide slide-colors" slide={4}>
+      <div class="slide-inner">
+        <h2 class="section-title">חמישה צבעים</h2>
+        <p class="lead">מאנה מחולקת לחמישה צבעים.</p>
+        <p class="lead">הצבעים האלה שרירותיים</p>
+        <p class="lead">אך מצאתי אותם לנכונים ומדויקים.</p>
+      </div>
+    </Slide>
+
+    <ManaSlide
+      slide={5}
+      colorClass="blue"
+      logo={water}
+      logoAlt="Blue mana logo"
+      sub="טוהר"
+      subtitle="השלמת ידע"
     />
-    <meta property="og:title" content="Manatherapy" />
-    <meta
-      property="og:description"
-      content="Mana theory - the resources of life, the five types of resources, and doing magic in daily life."
+
+    <ManaSlide
+      slide={6}
+      colorClass="green"
+      logo={plantLogo}
+      logoAlt="Green mana logo"
+      sub="נאמנות"
+      subtitle="צמיחת זהויות"
     />
-    <meta property="og:image" content={fiveElem.src} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Manatherapy" />
-    <meta
-      name="twitter:description"
-      content="Mana theory - the resources of life, the five types of resources, and doing magic in daily life."
+
+    <ManaSlide
+      slide={7}
+      colorClass="red"
+      logo={fireLogo}
+      logoAlt="Red mana logo"
+      sub="חופש"
+      subtitle="מימוש דחפים"
     />
-    <meta name="twitter:image" content={fiveElem.src} />
-    <link rel="icon" href={favicon.src} type="image/svg+xml" />
-    <!-- <link rel="stylesheet" href="../index.css" /> -->
-    <title>Manatherapy</title>
-  </head>
-  <body dir="rtl">
-    <main class="deck">
-      <section class="slide text-slide slide-hero" data-slide="0">
-        <div class="slide-inner">
-          <h1 class="title">מאנה תרפיה</h1>
-        </div>
-        <div class="scroll-hint" aria-hidden="true">
-          המשך
-          <br />
-          <span class="scroll-arrow">↓</span>
-        </div>
-      </section>
 
-      <section class="slide text-slide slide-intro" data-slide="1">
-        <div class="slide-inner">
-          <h2 class="section-title">מאנה תרפיה</h2>
-          <div class="lines">
-            <p class="line" style="--delay: 0.1s">
-              מאנה תרפיה היא תורה שמסבירה מדוע דברים אינם קורים
-            </p>
-            <p class="line" style="--delay: 0.6s">
-              מה צריך כדי לגרום לדברים לקרות
-            </p>
-            <p class="line" style="--delay: 1.1s">ואיך להשיג את זה.</p>
-          </div>
+    <ManaSlide
+      slide={8}
+      colorClass="yellow"
+      logo={sunLogo}
+      logoAlt="Yellow mana logo"
+      sub="הוגנות"
+      subtitle="ניהול סיכונים"
+    />
+
+    <ManaSlide
+      slide={9}
+      colorClass="black"
+      logo={metalLogo}
+      logoAlt="Black mana logo"
+      sub="כבוד"
+      subtitle="סיפוק צרכים"
+    />
+
+    <Slide className="slide-finale" slide={10}>
+      <h2 class="section-title finale-title">למד עוד</h2>
+      <div class="pentagon">
+        <div class="mana-circle blue">
+          <span class="mana-label">כחול</span>
         </div>
-      </section>
-
-      <section class="slide text-slide slide-spell" data-slide="2">
-        <div class="slide-inner">
-          <div class="body">
-            <p>בחיי היום-יום שלנו אנחנו מטילים כשפים.</p>
-            <p>אני קורא להם כשפים שכן הם לא פחות מקסם.</p>
-            <p>עם מספיק אנרגיה אנחנו יכולים להזיז הרים.</p>
-            <p>להדליק אש</p>
-            <p>ולשנות את חיינו.</p>
-          </div>
+        <div class="mana-circle green">
+          <span class="mana-label">ירוק</span>
         </div>
-      </section>
-
-      <section class="slide text-slide slide-spell" data-slide="3">
-        <div class="slide-inner">
-          <div class="body">
-            <p>מה שרבים אינם מבינים הוא</p>
-            <p>לא רק שכל כישוף דורש מחיר,</p>
-            <p>שהמחיר הוא משאבים שחייבים להתאים לדרישות הכישוף.</p>
-            <p>למשאבים האלה אני קורא מאנה.</p>
-          </div>
+        <div class="mana-circle red">
+          <span class="mana-label">אדום</span>
         </div>
-      </section>
-
-      <section class="slide text-slide slide-colors" data-slide="4">
-        <div class="slide-inner">
-          <h2 class="section-title">חמישה צבעים</h2>
-          <p class="lead">מאנה מחולקת לחמישה צבעים.</p>
-          <p class="lead">הצבעים האלה שרירותיים</p>
-          <p class="lead">אך מצאתי אותם לנכונים ומדויקים.</p>
+        <div class="mana-circle yellow">
+          <span class="mana-label">צהוב</span>
         </div>
-      </section>
-
-      <section class="slide slide-color blue" data-slide="5">
-        <div class="slide-inner">
-          <div class="color-logo">
-            <img src={water.src} alt="Blue mana logo" />
-            <p class="color-sub">טוהר</p>
-            <p class="color-subtitle">השלמת ידע</p>
-          </div>
+        <div class="mana-circle black">
+          <span class="mana-label">שחור</span>
         </div>
-      </section>
+      </div>
+      <div class="down-arrow">
+        <span class="label">לדוגמאות</span>
+        <span class="arrow">↓</span>
+      </div>
+    </Slide>
 
-      <section class="slide slide-color green" data-slide="6">
-        <div class="slide-inner">
-          <div class="color-logo">
-            <img src={plantLogo.src} alt="Green mana logo" />
-            <p class="color-sub">נאמנות</p>
-            <p class="color-subtitle">צמיחת זהויות</p>
-          </div>
+    <Slide className="slide-card" slide={11}>
+      <SpellCard
+        className="white"
+        title="נהיגה"
+        costs={["white"]}
+        image={drivingImage}
+        imageAlt="Driving spell illustration"
+        bodyLines={drivingLines}
+      />
+    </Slide>
+
+    <Slide className="slide-combo" slide={12}>
+      <div class="combo-row">
+        <div class="card-stack">
+          <SpellCard
+            className="white base"
+            title="מתכון"
+            costs={["white"]}
+            image={recipeImage}
+            imageAlt="Recipe spell illustration"
+            draggable={false}
+            bodyLines={recipeLines}
+          />
+          <SpellCard
+            className="red overlap"
+            title="בישול"
+            costs={["red", "red"]}
+            image={bakingImage}
+            imageAlt="Baking spell illustration"
+            draggable={false}
+            bodyLines={bakingLines}
+          />
         </div>
-      </section>
 
-      <section class="slide slide-color red" data-slide="7">
-        <div class="slide-inner">
-          <div class="color-logo">
-            <img src={fireLogo.src} alt="Red mana logo" />
-            <p class="color-sub">חופש</p>
-            <p class="color-subtitle">מימוש דחפים</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide slide-color yellow" data-slide="8">
-        <div class="slide-inner">
-          <div class="color-logo">
-            <img src={sunLogo.src} alt="Yellow mana logo" />
-            <p class="color-sub">הוגנות</p>
-            <p class="color-subtitle">ניהול סיכונים</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide slide-color black" data-slide="9">
-        <div class="slide-inner">
-          <div class="color-logo">
-            <img src={metalLogo.src} alt="Black mana logo" />
-            <p class="color-sub">כבוד</p>
-            <p class="color-subtitle">סיפוק צרכים</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide slide-finale" data-slide="10">
-        <h2 class="section-title finale-title">למד עוד</h2>
-        <div class="pentagon">
-          <div class="mana-circle blue">
-            <span class="mana-label">כחול</span>
-          </div>
-          <div class="mana-circle green">
-            <span class="mana-label">ירוק</span>
-          </div>
-          <div class="mana-circle red">
-            <span class="mana-label">אדום</span>
-          </div>
-          <div class="mana-circle yellow">
-            <span class="mana-label">צהוב</span>
-          </div>
-          <div class="mana-circle black">
-            <span class="mana-label">שחור</span>
-          </div>
-        </div>
-        <div class="down-arrow">
-          <span class="label">לדוגמאות</span>
-          <span class="arrow">↓</span>
-        </div>
-      </section>
-
-      <section class="slide slide-card" data-slide="11">
-        <article class="spell-card white">
-          <div class="card-header">
-            <strong class="card-title">נהיגה</strong>
-            <span class="mana-group">
-              <span class="mana-cost white" aria-label="White mana cost">1</span
-              >
-            </span>
-          </div>
-          <div class="card-image">
-            <img
-              src={drivingImage.src}
-              alt="Driving spell illustration"
-              class="main"
-            />
-          </div>
-          <div class="card-body">
-            <p>שליטה ברכב</p>
-            <p>ציות לתמרורים</p>
-            <p>השתלבות בתנועה</p>
-          </div>
-        </article>
-      </section>
-
-      <section class="slide slide-combo" data-slide="12">
-        <div class="combo-row">
-          <div class="card-stack">
-            <article class="spell-card white base">
-              <div class="card-header">
-                <strong class="card-title">מתכון</strong>
-                <span class="mana-group">
-                  <span class="mana-cost white" aria-label="White mana cost"
-                    >1</span
-                  >
-                </span>
-              </div>
-
-              <div class="card-image">
-                <img
-                  src={recipeImage.src}
-                  alt="Recipe spell illustration"
-                  draggable="false"
-                  class="main"
-                />
-              </div>
-              <div class="card-body">
-                <p>
-                  מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים
-                  והכמויות הנדרשות ליצירת מאכל מוגמר
-                </p>
-              </div>
-            </article>
-            <article class="spell-card red overlap">
-              <div class="card-header">
-                <strong class="card-title">בישול</strong>
-                <span class="mana-group">
-                  <span class="mana-cost red" aria-label="Red mana cost">1</span
-                  >
-                  <span class="mana-cost red" aria-label="Red mana cost">1</span
-                  >
-                </span>
-              </div>
-              <div class="card-image">
-                <img
-                  src={bakingImage.src}
-                  alt="Baking spell illustration"
-                  draggable="false"
-                  class="main"
-                />
-              </div>
-              <div class="card-body">
-                <p>עבד מרכיבים, הכנס לתבנית, השתמש בתנור</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="combo-equals">=</div>
-          <article class="spell-card result">
-            <div class="card-header">
-              <strong class="card-title">אפיית עוגה</strong>
-              <span class="mana-group">
-                <span class="mana-cost white" aria-label="White mana cost"
-                  >1</span
-                >
-                <span class="mana-cost red" aria-label="Red mana cost">1</span>
-                <span class="mana-cost red" aria-label="Red mana cost">1</span>
-              </span>
-            </div>
-            <div class="card-image">
-              <img
-                src={bakingCakeImage.src}
-                alt="Bake a cake spell illustration"
-                draggable="false"
-                class="main"
-              />
-            </div>
-            <div class="card-body">
-              <p>צור עוגה טעימה ומוכנה להגשה</p>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-    <script type="module" src="/src/frontend.ts"></script>
-  </body>
-</html>
+        <div class="combo-equals">=</div>
+        <SpellCard
+          className="result"
+          title="אפיית עוגה"
+          costs={["white", "red", "red"]}
+          image={bakingCakeImage}
+          imageAlt="Bake a cake spell illustration"
+          draggable={false}
+          bodyLines={cakeLines}
+        />
+      </div>
+    </Slide>
+  </Slideshow>
+</Layout>

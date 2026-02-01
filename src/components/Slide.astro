@@ -1,0 +1,8 @@
+---
+const { className = "", slide } = Astro.props;
+const classes = ["slide", className].filter(Boolean).join(" ");
+---
+
+<section class={classes} data-slide={slide}>
+  <slot />
+</section>

@@ -1,0 +1,32 @@
+---
+const { className = "" } = Astro.props;
+
+const classes = ["deck", className].filter(Boolean).join(" ");
+---
+
+<main class={classes}>
+  <slot />
+</main>
+
+<script>
+  const slides = Array.from(document.querySelectorAll(".slide"));
+
+  const setActive = (entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-active");
+    } else {
+      entry.target.classList.remove("is-active");
+    }
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(setActive);
+    },
+    {
+      threshold: 0.55,
+    },
+  );
+
+  slides.forEach((slide) => observer.observe(slide));
+</script>
