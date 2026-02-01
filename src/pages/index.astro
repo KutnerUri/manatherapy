@@ -1,3 +1,18 @@
+---
+import "../index.css";
+import bakingCakeImage from "../assets/baking-cake.jpg";
+import bakingImage from "../assets/baking.jpg";
+import drivingImage from "../assets/driving.jpg";
+import fiveElem from "../assets/5-elem.jpg";
+import fireLogo from "../assets/logos/fire.webp";
+import metalLogo from "../assets/logos/metal.webp";
+import plantLogo from "../assets/logos/plant.webp";
+import recipeImage from "../assets/recipe.jpg";
+import sunLogo from "../assets/logos/sun.webp";
+import favicon from "../favicon.svg";
+import water from "../assets/logos/water.webp";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,7 +27,7 @@
       property="og:description"
       content="Mana theory - the resources of life, the five types of resources, and doing magic in daily life."
     />
-    <meta property="og:image" content="./assets/5-elem.jpg" />
+    <meta property="og:image" content={fiveElem.src} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Manatherapy" />
@@ -20,9 +35,9 @@
       name="twitter:description"
       content="Mana theory - the resources of life, the five types of resources, and doing magic in daily life."
     />
-    <meta name="twitter:image" content="./assets/5-elem.jpg" />
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./index.css" />
+    <meta name="twitter:image" content={fiveElem.src} />
+    <link rel="icon" href={favicon.src} type="image/svg+xml" />
+    <!-- <link rel="stylesheet" href="../index.css" /> -->
     <title>Manatherapy</title>
   </head>
   <body dir="rtl">
@@ -88,7 +103,7 @@
       <section class="slide slide-color blue" data-slide="5">
         <div class="slide-inner">
           <div class="color-logo">
-            <img src="./assets/logos/water.webp" alt="Blue mana logo" />
+            <img src={water.src} alt="Blue mana logo" />
             <p class="color-sub">טוהר</p>
             <p class="color-subtitle">השלמת ידע</p>
           </div>
@@ -98,7 +113,7 @@
       <section class="slide slide-color green" data-slide="6">
         <div class="slide-inner">
           <div class="color-logo">
-            <img src="./assets/logos/plant.webp" alt="Green mana logo" />
+            <img src={plantLogo.src} alt="Green mana logo" />
             <p class="color-sub">נאמנות</p>
             <p class="color-subtitle">צמיחת זהויות</p>
           </div>
@@ -108,7 +123,7 @@
       <section class="slide slide-color red" data-slide="7">
         <div class="slide-inner">
           <div class="color-logo">
-            <img src="./assets/logos/fire.webp" alt="Red mana logo" />
+            <img src={fireLogo.src} alt="Red mana logo" />
             <p class="color-sub">חופש</p>
             <p class="color-subtitle">מימוש דחפים</p>
           </div>
@@ -118,7 +133,7 @@
       <section class="slide slide-color yellow" data-slide="8">
         <div class="slide-inner">
           <div class="color-logo">
-            <img src="./assets/logos/sun.webp" alt="Yellow mana logo" />
+            <img src={sunLogo.src} alt="Yellow mana logo" />
             <p class="color-sub">הוגנות</p>
             <p class="color-subtitle">ניהול סיכונים</p>
           </div>
@@ -128,7 +143,7 @@
       <section class="slide slide-color black" data-slide="9">
         <div class="slide-inner">
           <div class="color-logo">
-            <img src="./assets/logos/metal.webp" alt="Black mana logo" />
+            <img src={metalLogo.src} alt="Black mana logo" />
             <p class="color-sub">כבוד</p>
             <p class="color-subtitle">סיפוק צרכים</p>
           </div>
@@ -165,14 +180,13 @@
           <div class="card-header">
             <strong class="card-title">נהיגה</strong>
             <span class="mana-group">
-              <span class="mana-cost white" aria-label="White mana cost"
-                >1</span
+              <span class="mana-cost white" aria-label="White mana cost">1</span
               >
             </span>
           </div>
           <div class="card-image">
             <img
-              src="./assets/driving.jpg"
+              src={drivingImage.src}
               alt="Driving spell illustration"
               class="main"
             />
@@ -200,7 +214,7 @@
 
               <div class="card-image">
                 <img
-                  src="./assets/recipe.jpg"
+                  src={recipeImage.src}
                   alt="Recipe spell illustration"
                   draggable="false"
                   class="main"
@@ -217,17 +231,15 @@
               <div class="card-header">
                 <strong class="card-title">בישול</strong>
                 <span class="mana-group">
-                  <span class="mana-cost red" aria-label="Red mana cost"
-                    >1</span
+                  <span class="mana-cost red" aria-label="Red mana cost">1</span
                   >
-                  <span class="mana-cost red" aria-label="Red mana cost"
-                    >1</span
+                  <span class="mana-cost red" aria-label="Red mana cost">1</span
                   >
                 </span>
               </div>
               <div class="card-image">
                 <img
-                  src="./assets/baking.jpg"
+                  src={bakingImage.src}
                   alt="Baking spell illustration"
                   draggable="false"
                   class="main"
@@ -253,7 +265,7 @@
             </div>
             <div class="card-image">
               <img
-                src="./assets/baking-cake.jpg"
+                src={bakingCakeImage.src}
                 alt="Bake a cake spell illustration"
                 draggable="false"
                 class="main"
@@ -266,6 +278,6 @@
         </div>
       </section>
     </main>
-    <script type="module" src="./frontend.ts"></script>
+    <script type="module" src="/src/frontend.ts"></script>
   </body>
 </html>

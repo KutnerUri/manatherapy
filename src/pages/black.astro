@@ -1,3 +1,10 @@
+---
+import "../black.css";
+import fiveElem from "../assets/5-elem.jpg";
+import metalLogo from "../assets/logos/metal.webp";
+import favicon from "../favicon.svg";
+---
+
 <!doctype html>
 <html lang="he">
   <head>
@@ -12,7 +19,7 @@
       property="og:description"
       content="Black mana - honor, pragmatism, and survival."
     />
-    <meta property="og:image" content="./assets/5-elem.jpg" />
+    <meta property="og:image" content={fiveElem.src} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="כבוד — מאנה תרפיה" />
@@ -20,16 +27,15 @@
       name="twitter:description"
       content="Black mana - honor, pragmatism, and survival."
     />
-    <meta name="twitter:image" content="./assets/5-elem.jpg" />
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./black.css" />
+    <meta name="twitter:image" content={fiveElem.src} />
+    <link rel="icon" href={favicon.src} type="image/svg+xml" />
     <title>כבוד — מאנה תרפיה</title>
   </head>
   <body dir="rtl">
     <main class="deck deck-black">
       <section class="slide slide-color black black-hero" data-slide="0">
         <div class="slide-inner">
-          <img src="./assets/logos/metal.webp" alt="Black mana logo" />
+          <img src={metalLogo.src} alt="Black mana logo" />
           <p class="color-sub">כבוד</p>
           <p class="color-subtitle">סיפוק צרכים</p>
         </div>

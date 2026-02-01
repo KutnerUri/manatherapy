@@ -4,12 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun --hot src/index.ts",
-    "build": "bun build ./src/*.html --outdir=dist --sourcemap --target=browser --minify --external=*.{jpeg,jpg,png,gif,svg,webp,ttf,eot,woff,woff2} --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
-    "start": "NODE_ENV=production bun src/index.ts",
-    "postbuild": "cp -R src/assets dist/"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "devDependencies": {
     "@types/bun": "latest"
+  },
+  "dependencies": {
+    "astro": "^5.17.1"
   }
 }
