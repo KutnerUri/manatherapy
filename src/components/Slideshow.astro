@@ -16,6 +16,7 @@ const { class: className, ...rest }: Props = Astro.props;
   const setActive = (entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("is-active");
+      entry.target.classList.add("has-entered");
     } else {
       entry.target.classList.remove("is-active");
     }
