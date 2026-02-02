@@ -17,20 +17,12 @@ import plantLogo from "../assets/logos/plant.webp";
 import recipeImage from "../assets/recipe.jpg";
 import sunLogo from "../assets/logos/sun.webp";
 import water from "../assets/logos/water.webp";
-
-const title = "Manatherapy";
-const description =
-  "Mana theory - the resources of life, the five types of resources, and doing magic in daily life.";
-
-const drivingLines = ["שליטה ברכב", "ציות לתמרורים", "השתלבות בתנועה"];
-const recipeLines = [
-  "מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים והכמויות הנדרשות ליצירת מאכל מוגמר",
-];
-const bakingLines = ["עבד מרכיבים, הכנס לתבנית, השתמש בתנור"];
-const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title="Manatherapy"
+  description="Mana theory - the resources of life, the five types of resources, and doing magic in daily life."
+>
   <Slideshow>
     <Slide class="slide-hero" slide={0}>
       <h1 class="title">מאנה תרפיה</h1>
@@ -40,54 +32,58 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
     <Slide class="text-slide slide-intro" slide={1}>
       <div class="slide-inner">
         <h2 class="section-title">מאנה תרפיה</h2>
-        <div class="intro-lines">
-          <LineFade
-            lines={[
-              "מאנה תרפיה היא תורה שמסבירה מדוע דברים אינם קורים",
-              "מה צריך כדי לגרום לדברים לקרות",
-              "ואיך להשיג את זה.",
-            ]}
-          />
-        </div>
+        <LineFade
+          class="intro-lines"
+          lines={[
+            "מאנה תרפיה היא תורה שמסבירה מדוע דברים אינם קורים",
+            "מה צריך כדי לגרום לדברים לקרות",
+            "ואיך להשיג את זה.",
+          ]}
+        />
       </div>
     </Slide>
 
     <Slide class="text-slide slide-spell" slide={2}>
       <div class="slide-inner">
-        <div class="body">
-          <p>בחיי היום-יום שלנו אנחנו מטילים כשפים.</p>
-          <p>אני קורא להם כשפים שכן הם לא פחות מקסם.</p>
-          <p>עם מספיק אנרגיה אנחנו יכולים להזיז הרים.</p>
-          <p>להדליק אש</p>
-          <p>ולשנות את חיינו.</p>
-        </div>
+        <LineFade
+          class="intro-lines"
+          lines={[
+            "בחיי היום-יום שלנו אנחנו מטילים כשפים.",
+            "אני קורא להם כשפים שכן הם לא פחות מקסם.",
+            "עם מספיק אנרגיה אנחנו יכולים להזיז הרים.",
+            "להדליק אש",
+            "ולשנות את חיינו.",
+          ]}
+        />
       </div>
     </Slide>
 
     <Slide class="text-slide slide-spell" slide={3}>
       <div class="slide-inner">
-        <div class="body">
-          <p>מה שרבים אינם מבינים הוא</p>
-          <p>לא רק שכל כישוף דורש מחיר,</p>
-          <p>שהמחיר הוא משאבים שחייבים להתאים לדרישות הכישוף.</p>
-          <p>למשאבים האלה אני קורא מאנה.</p>
-        </div>
+        <LineFade
+          lines={[
+            "מה שרבים אינם מבינים הוא",
+            "לא רק שכל כישוף דורש מחיר,",
+            "שהמחיר הוא משאבים שחייבים להתאים לדרישות הכישוף.",
+            "למשאבים האלה אני קורא מאנה.",
+          ]}
+        />
       </div>
     </Slide>
 
     <Slide class="text-slide slide-colors" slide={4}>
       <div class="slide-inner">
         <h2 class="section-title">חמישה ערכי יסוד</h2>
-        <LineFade
-          class="intro-lines"
-          lines={[
-            "מאנה מגיעה מחמישה מקורות.",
-            "כל אחד משאב אחר,",
-            "כדי לשגשג,",
-            "צריך את כולם.",
-          ]}
-          <div
-        />
+        <div class="intro-lines">
+          <LineFade
+            lines={[
+              "מאנה מגיעה מחמישה מקורות.",
+              "כל אחד משאב אחר,",
+              "כדי לשגשג,",
+              "צריך את כולם.",
+            ]}
+          />
+        </div>
       </div>
     </Slide>
 
@@ -152,7 +148,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
         costs={["white"]}
         image={drivingImage}
         imageAlt="Driving spell illustration"
-        bodyLines={drivingLines}
+        bodyLines={["שליטה ברכב", "ציות לתמרורים", "השתלבות בתנועה"]}
       />
     </Slide>
 
@@ -166,7 +162,9 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
             image={recipeImage}
             imageAlt="Recipe spell illustration"
             draggable={false}
-            bodyLines={recipeLines}
+            bodyLines={[
+              "מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים והכמויות הנדרשות ליצירת מאכל מוגמר",
+            ]}
           />
           <SpellCard
             class="red overlap"
@@ -175,7 +173,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
             image={bakingImage}
             imageAlt="Baking spell illustration"
             draggable={false}
-            bodyLines={bakingLines}
+            bodyLines={["עבד מרכיבים, הכנס לתבנית, השתמש בתנור"]}
           />
         </div>
 
@@ -187,7 +185,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
           image={bakingCakeImage}
           imageAlt="Bake a cake spell illustration"
           draggable={false}
-          bodyLines={cakeLines}
+          bodyLines={["צור עוגה טעימה ומוכנה להגשה"]}
         />
       </div>
     </Slide>
@@ -195,6 +193,15 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 </Layout>
 
 <style>
+  .title {
+    font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 7vw;
+    text-align: center;
+  }
+
   .intro-lines {
     font-size: clamp(1.4rem, 3vw, 2rem);
   }
