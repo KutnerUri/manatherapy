@@ -1,0 +1,191 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: className, ...rest }: Props = Astro.props;
+---
+
+<div class:list={["pentagon", className]} {...rest}>
+  <div class="mana-circle blue">
+    <span class="mana-label">כחול</span>
+  </div>
+  <div class="mana-circle green">
+    <span class="mana-label">ירוק</span>
+  </div>
+  <div class="mana-circle red">
+    <span class="mana-label">אדום</span>
+  </div>
+  <div class="mana-circle yellow">
+    <span class="mana-label">צהוב</span>
+  </div>
+  <div class="mana-circle black">
+    <span class="mana-label">שחור</span>
+  </div>
+</div>
+
+<style>
+  .pentagon {
+    position: relative;
+    width: min(76vw, 560px);
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    --orbit: 23vmin;
+  }
+
+  .mana-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 23vmin;
+    height: 23vmin;
+    border-radius: 999px;
+    overflow: hidden;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    font-size: clamp(1.05rem, 2.6vw, 1.6rem);
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--mana-text, var(--color-text));
+    --shine-opacity: 0.23;
+    background-image:
+      radial-gradient(
+        circle at 30% 20%,
+        rgba(255, 255, 255, var(--shine-opacity)),
+        transparent 60%
+      ),
+      var(--mana-image),
+      radial-gradient(circle at 30% 20%, var(--mana-base), var(--mana-deep) 70%);
+    background-size:
+      100% 100%,
+      175% 175%,
+      100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow:
+      0 18px 35px rgba(0, 0, 0, var(--shadow-alpha, 0.16)),
+      0 0 24px var(--mana-glow, rgba(0, 0, 0, 0.12)),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    cursor: pointer;
+    transition:
+      transform 0.5s ease,
+      opacity 0.5s ease,
+      box-shadow 0.2s ease;
+    transition-delay: var(--delay, 0s);
+
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+
+    user-select: none;
+  }
+
+  .mana-label {
+    z-index: 2;
+    font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+  }
+
+  .mana-circle.red .mana-label,
+  .mana-circle.green .mana-label,
+  .mana-circle.blue .mana-label {
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.35);
+  }
+
+  :global(.slide.is-active) .mana-circle {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(1);
+  }
+
+  .mana-circle:active {
+    transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(0.95);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .mana-circle.red {
+    --x: calc(var(--orbit) * 0.588);
+    --y: calc(var(--orbit) * 0.809);
+    --delay: 0.2s;
+    --mana-image: url("../assets/logos/fire.webp");
+    --mana-base: #f5c6bb;
+    --mana-deep: #f08d7b;
+    --mana-glow: rgba(240, 141, 123, 0.4);
+    --mana-text: #3b0f0a;
+  }
+
+  .mana-circle.green {
+    --x: calc(var(--orbit) * 0.951);
+    --y: calc(var(--orbit) * -0.309);
+    --delay: 0.1s;
+    --mana-image: url("../assets/logos/plant.webp");
+    --mana-base: #dfeedd;
+    --mana-deep: #9fbf98;
+    --mana-glow: rgba(159, 191, 152, 0.4);
+    --mana-text: #0d2b17;
+  }
+
+  .mana-circle.yellow {
+    --x: calc(var(--orbit) * -0.588);
+    --y: calc(var(--orbit) * 0.809);
+    --delay: 0.3s;
+    --mana-image: url("../assets/logos/sun.webp");
+    --shadow-alpha: 0.12;
+    --mana-base: #faedc5;
+    --mana-deep: #f2c85f;
+    --mana-glow: rgba(242, 200, 95, 0.4);
+    --mana-text: #4a3512;
+  }
+
+  .mana-circle.blue {
+    --x: 0px;
+    --y: calc(var(--orbit) * -1);
+    --delay: 0s;
+    --mana-image: url("../assets/logos/water.webp");
+    --mana-base: #d7e6f4;
+    --mana-deep: #9fb8d6;
+    --mana-glow: rgba(159, 184, 214, 0.4);
+    --mana-text: #08192a;
+  }
+
+  .mana-circle.black {
+    --x: calc(var(--orbit) * -0.951);
+    --y: calc(var(--orbit) * -0.309);
+    --delay: 0.4s;
+    --mana-image: url("../assets/logos/metal.webp");
+    --shadow-alpha: 0.12;
+    --mana-base: #3a3f4a;
+    --mana-deep: #16181f;
+    --mana-glow: rgba(22, 24, 31, 0.35);
+    --mana-text: #f1efe6;
+  }
+
+  @media (max-width: 720px) {
+    .pentagon {
+      width: 100%;
+      aspect-ratio: auto;
+      display: grid;
+      gap: 4vh;
+      justify-items: center;
+    }
+
+    .mana-circle {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: 23vh;
+      height: 9vh;
+      background-size:
+        100% 100%,
+        210% auto,
+        100% 100%;
+    }
+
+    :global(.slide.is-active) .mana-circle {
+      transform: scale(1);
+    }
+
+    .mana-circle:active {
+      transform: scale(0.95);
+    }
+  }
+</style>

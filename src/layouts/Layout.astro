@@ -1,6 +1,19 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import defaultOgImage from "../assets/5-elem.jpg";
 import defaultFavicon from "../favicon.svg";
+
+interface Props extends HTMLAttributes<"body"> {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: ImageMetadata | string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: ImageMetadata | string;
+  favicon?: ImageMetadata | string;
+}
 
 const {
   title = "",
@@ -14,7 +27,9 @@ const {
   twitterDescription = ogDescription,
   twitterImage = ogImage,
   favicon = defaultFavicon,
-} = Astro.props;
+  class: className,
+  ...rest
+}: Props = Astro.props;
 
 const ogImageSrc = ogImage && (ogImage.src ?? ogImage);
 const twitterImageSrc = twitterImage && (twitterImage.src ?? twitterImage);
@@ -46,7 +61,7 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
     {faviconSrc && <link rel="icon" href={faviconSrc} type="image/svg+xml" />}
     <title>{title}</title>
   </head>
-  <body dir={dir}>
+  <body dir={dir} class={className} {...rest}>
     <slot />
   </body>
 </html>

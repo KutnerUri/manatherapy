@@ -7,6 +7,7 @@ import Slide from "../components/Slide.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
 import LineFade from "../components/LineFade.astro";
+import PentagonMana from "../components/PentagonMana.astro";
 import bakingCakeImage from "../assets/baking-cake.jpg";
 import bakingImage from "../assets/baking.jpg";
 import drivingImage from "../assets/driving.jpg";
@@ -31,10 +32,8 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 
 <Layout title={title} description={description}>
   <Slideshow>
-    <Slide class="text-slide slide-hero" slide={0}>
-      <div class="slide-inner">
-        <h1 class="title">מאנה תרפיה</h1>
-      </div>
+    <Slide class="slide-hero" slide={0}>
+      <h1 class="title">מאנה תרפיה</h1>
       <ScrollHint />
     </Slide>
 
@@ -78,10 +77,17 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 
     <Slide class="text-slide slide-colors" slide={4}>
       <div class="slide-inner">
-        <h2 class="section-title">חמישה צבעים</h2>
-        <p class="lead">מאנה מחולקת לחמישה צבעים.</p>
-        <p class="lead">הצבעים האלה שרירותיים</p>
-        <p class="lead">אך מצאתי אותם לנכונים ומדויקים.</p>
+        <h2 class="section-title">חמישה ערכי יסוד</h2>
+        <LineFade
+          class="intro-lines"
+          lines={[
+            "מאנה מגיעה מחמישה מקורות.",
+            "כל אחד משאב אחר,",
+            "כדי לשגשג,",
+            "צריך את כולם.",
+          ]}
+          <div
+        />
       </div>
     </Slide>
 
@@ -132,23 +138,7 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 
     <Slide class="slide-finale" slide={10}>
       <h2 class="section-title finale-title">למד עוד</h2>
-      <div class="pentagon">
-        <div class="mana-circle blue">
-          <span class="mana-label">כחול</span>
-        </div>
-        <div class="mana-circle green">
-          <span class="mana-label">ירוק</span>
-        </div>
-        <div class="mana-circle red">
-          <span class="mana-label">אדום</span>
-        </div>
-        <div class="mana-circle yellow">
-          <span class="mana-label">צהוב</span>
-        </div>
-        <div class="mana-circle black">
-          <span class="mana-label">שחור</span>
-        </div>
-      </div>
+      <PentagonMana />
       <div class="down-arrow">
         <span class="label">לדוגמאות</span>
         <span class="arrow">↓</span>
@@ -207,5 +197,119 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
 <style>
   .intro-lines {
     font-size: clamp(1.4rem, 3vw, 2rem);
+  }
+
+  .slide-hero {
+    background: linear-gradient(130deg, #f8f0e2 15%, #e8d8bf 60%, #e9c7b0);
+  }
+
+  .slide-intro {
+    background: linear-gradient(140deg, #f7f1eb 0%, #efe2d2 60%, #f2d9d3);
+  }
+
+  .slide-spell {
+    background: linear-gradient(
+      145deg,
+      #efe7d8 0%,
+      #f3e6d8 65%,
+      #f5dccf
+    ) !important;
+  }
+
+  .slide-colors {
+    background: linear-gradient(
+      150deg,
+      #ede5d1 0%,
+      #efe0c9 60%,
+      #f2d6b8
+    ) !important;
+  }
+
+  .slide-finale {
+    background:
+      radial-gradient(
+        circle at 50% 14%,
+        rgba(244, 166, 151, 0.45),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 18% 33%,
+        rgba(175, 206, 166, 0.4),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 82% 33%,
+        rgba(250, 221, 150, 0.4),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 25% 78%,
+        rgba(160, 188, 219, 0.35),
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 75% 78%,
+        rgba(40, 46, 56, 0.35),
+        transparent 60%
+      ),
+      linear-gradient(130deg, #f5e6cf 0%, #f0d7b8 55%, #e9c7b0) !important;
+  }
+
+  .finale-title {
+    margin: 0;
+  }
+
+  .down-arrow {
+    display: grid;
+    justify-items: center;
+    gap: 0.4rem;
+    font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+    font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+    letter-spacing: 0.08em;
+  }
+
+  .down-arrow .arrow {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .slide-card {
+    background: #ffffff !important;
+  }
+
+  .slide-combo {
+    background: #f7f9fd !important;
+  }
+
+  .combo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .card-stack {
+    display: flex;
+    place-content: center;
+  }
+
+  .combo-equals {
+    font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 clamp(1.5rem, 3vw, 3rem);
+  }
+
+  @media (max-width: 720px) {
+    .combo-row {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    .down-arrow {
+      width: min(15vh, 200px);
+    }
   }
 </style>
