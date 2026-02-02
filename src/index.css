@@ -1,33 +1,3 @@
-:root {
-  color: #141414;
-  background-color: #f3efe6;
-  font-family: "Georgia", "Times New Roman", "Times", serif;
-  --color-text: #141414;
-  --color-surface: #f8f2e8;
-  --color-surface-alt: #efe7d8;
-  --color-overlay-light: rgba(255, 255, 255, 0.6);
-  --color-overlay-dark: rgba(0, 0, 0, 0.08);
-  --color-invert: #f1efe6;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  color: var(--color-text);
-  background: radial-gradient(
-    circle at top,
-    var(--color-surface),
-    var(--color-surface-alt)
-  );
-}
-
-
 .slide-inner {
   max-width: 900px;
   width: min(90vw, 900px);
