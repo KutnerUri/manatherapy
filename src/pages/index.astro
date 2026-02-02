@@ -6,6 +6,7 @@ import ScrollHint from "../components/ScrollHint.astro";
 import Slide from "../components/Slide.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
+import LineFade from "../components/LineFade.astro";
 import bakingCakeImage from "../assets/baking-cake.jpg";
 import bakingImage from "../assets/baking.jpg";
 import drivingImage from "../assets/driving.jpg";
@@ -40,14 +41,14 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
     <Slide class="text-slide slide-intro" slide={1}>
       <div class="slide-inner">
         <h2 class="section-title">מאנה תרפיה</h2>
-        <div class="lines">
-          <p class="line" style="--delay: 0.1s">
-            מאנה תרפיה היא תורה שמסבירה מדוע דברים אינם קורים
-          </p>
-          <p class="line" style="--delay: 0.6s">
-            מה צריך כדי לגרום לדברים לקרות
-          </p>
-          <p class="line" style="--delay: 1.1s">ואיך להשיג את זה.</p>
+        <div class="intro-lines">
+          <LineFade
+            lines={[
+              "מאנה תרפיה היא תורה שמסבירה מדוע דברים אינם קורים",
+              "מה צריך כדי לגרום לדברים לקרות",
+              "ואיך להשיג את זה.",
+            ]}
+          />
         </div>
       </div>
     </Slide>
@@ -202,3 +203,9 @@ const cakeLines = ["צור עוגה טעימה ומוכנה להגשה"];
     </Slide>
   </Slideshow>
 </Layout>
+
+<style>
+  .intro-lines {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+  }
+</style>

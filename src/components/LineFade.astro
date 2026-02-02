@@ -1,0 +1,50 @@
+---
+type Props = {
+  lines?: string[];
+  delayStepMs?: number;
+  startDelayMs?: number;
+  class?: string;
+};
+
+const {
+  lines = [],
+  delayStepMs = 300,
+  startDelayMs = 100,
+  class: className,
+  ...rest
+}: Props = Astro.props;
+---
+
+<div class:list={["lines", className]} {...rest}>
+  {lines.map((line, index) => (
+    <p class="line" style={`--delay: ${startDelayMs + index * delayStepMs}ms`}>
+      {line}
+    </p>
+  ))}
+  <slot />
+</div>
+
+<style>
+  .lines {
+    display: grid;
+    gap: 0.6em;
+  }
+
+  .line {
+    opacity: 0;
+    transform: translateY(0.45em);
+    margin: 0;
+  }
+
+  :global(.slide.is-active) .line {
+    animation: line-fade 0.9s ease forwards;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  @keyframes line-fade {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
