@@ -1,13 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import ScrollHint from "../components/ScrollHint.astro";
-import Slide from "../components/Slide.astro";
-import Slideshow from "../components/Slideshow.astro";
 import metalLogo from "../assets/logos/metal.webp";
-import ManaSlide from "../components/ManaSlide.astro";
-import SlideInner from "../components/SlideInner.astro";
-import SectionTitle from "../components/SectionTitle.astro";
 import LineFade from "../components/LineFade.astro";
+import ManaSlide from "../components/ManaSlide.astro";
+import ScrollHint from "../components/ScrollHint.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Slide from "../components/Slide.astro";
+import SlideInner from "../components/SlideInner.astro";
+import Slideshow from "../components/Slideshow.astro";
+import SpellCard from "../components/SpellCard.astro";
+import Layout from "../layouts/Layout.astro";
 
 const title = "כבוד — מאנה תרפיה";
 const description = "Black mana - honor, pragmatism, and survival.";
@@ -71,18 +72,19 @@ const description = "Black mana - honor, pragmatism, and survival.";
       </SlideInner>
     </Slide>
 
-    <Slide class="text-slide slide-black-allows" slide={4}>
-      <SlideInner>
-        <SectionTitle>מה כבוד מאפשר לנו</SectionTitle>
-        <LineFade
-          lines={[
-            "לבחור.",
-            "להציב גבולות.",
-            "לשאת מחירים.",
-            "ולהשיג מה שאנחנו רוצים.",
-          ]}
+    <Slide class="slide-black-allows" slide={4}>
+      <SectionTitle>מה כבוד מאפשר לנו</SectionTitle>
+      <div class="spell-card-row">
+        <SpellCard color="black" title="לבחור" costs={["black"]} />
+        <SpellCard color="black" title="להציב גבולות" costs={["black"]} />
+        <SpellCard color="black" title="לשאת מחירים" costs={["black"]} />
+        <SpellCard
+          color="black"
+          title="להשיג מה שאתה רוצה"
+          costs={["black", "black"]}
+          imageAlt="Getting what you want spell illustration"
         />
-      </SlideInner>
+      </div>
     </Slide>
 
     <Slide class="text-slide slide-black-creation" slide={5}>
@@ -197,6 +199,30 @@ const description = "Black mana - honor, pragmatism, and survival.";
       ),
       radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.6), transparent 60%),
       linear-gradient(150deg, #240b34 0%, #0f0617 60%, #06030a 100%);
+  }
+
+  .spell-card-row {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    max-width: 86%;
+  }
+
+  .spell-card-row .spell-card {
+    transform: none !important;
+  }
+
+  @media (max-width: 1100px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   .slide-black-creation {

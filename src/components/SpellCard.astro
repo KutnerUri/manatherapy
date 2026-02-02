@@ -1,6 +1,8 @@
 ---
-type Props = {
-  class?: string;
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"article"> {
+  color?: "white" | "blue" | "red" | "black";
   title?: string;
   costs?: Array<
     | string
@@ -15,10 +17,11 @@ type Props = {
   imageClass?: string;
   draggable?: boolean;
   bodyLines?: string[];
-};
+}
 
 const {
   class: className,
+  color,
   title = "",
   costs = [],
   image,
@@ -26,7 +29,8 @@ const {
   imageClass = "main",
   draggable,
   bodyLines = [],
-} = Astro.props as Props;
+  ...rest
+}: Props = Astro.props;
 
 const imageSrc = image?.src;
 const costItems = costs.map((cost) => {
@@ -41,7 +45,7 @@ const costItems = costs.map((cost) => {
 });
 ---
 
-<article class:list={["spell-card", className]}>
+<article class:list={["spell-card", color, className]} {...rest}>
   <div class="card-header">
     <strong class="card-title">{title}</strong>
     <span class="mana-group">
@@ -55,12 +59,16 @@ const costItems = costs.map((cost) => {
     </span>
   </div>
   <div class="card-image">
-    <img
-      src={imageSrc}
-      alt={imageAlt}
-      draggable={draggable}
-      class={imageClass}
-    />
+    {imageSrc ? (
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        draggable={draggable}
+        class={imageClass}
+      />
+    ) : (
+      <div class="image-placeholder" aria-hidden="true" />
+    )}
   </div>
   <div class="card-body">
     {bodyLines.map((line) => <p>{line}</p>)}
@@ -91,6 +99,9 @@ const costItems = costs.map((cost) => {
       var(--card-surface, #f2f4f8)
     );
     flex: none;
+    --card-body: #ffffff;
+    --card-body-border: rgba(0, 0, 0, 0.08);
+    --card-body-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
   }
 
   [dir="rtl"] .spell-card {
@@ -113,6 +124,18 @@ const costItems = costs.map((cost) => {
     --card-surface-soft: #fbeee9;
     --card-text: #3a1f1c;
     --card-text-muted: rgba(58, 31, 28, 0.6);
+  }
+
+  .spell-card.black {
+    --card-surface: #1a121f;
+    --card-frame: #2a1d34;
+    --card-frame-strong: #3b2a4a;
+    --card-surface-soft: #231926;
+    --card-text: #f1efe6;
+    --card-text-muted: rgba(241, 239, 230, 0.65);
+    --card-body: #33243f;
+    --card-body-border: rgba(255, 255, 255, 0.14);
+    --card-body-shadow: none;
   }
 
   /* keep blue, we'll need it later */
@@ -156,6 +179,7 @@ const costItems = costs.map((cost) => {
 
   .spell-card .card-title {
     font-weight: 700;
+    font-size: round(0.85em, 1px);
   }
 
   .spell-card .mana-group {
@@ -195,19 +219,31 @@ const costItems = costs.map((cost) => {
     height: 100%;
     object-fit: cover;
     border-radius: 0.55em;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .spell-card .image-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.55em;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(
+      150deg,
+      var(--card-frame, #d8e0ee),
+      var(--card-surface-soft, #f8f9fc)
+    );
   }
 
   .spell-card .card-body {
-    background: #ffffff;
+    background: var(--card-body);
     border-radius: 0.55em;
     padding: 0.75em;
     display: grid;
     align-content: start;
     gap: 0.4em;
     font-size: 0.8em;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: var(--card-body-shadow);
+    border: 1px solid var(--card-body-border);
     color: var(--card-text, #1b2738);
   }
 
