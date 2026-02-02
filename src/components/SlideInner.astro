@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div">;
+
+const { class: className, ...rest }: Props = Astro.props;
+---
+
+<div class:list={["slide-inner", className]} {...rest}>
+  <slot />
+</div>
+
+<style>
+  .slide-inner {
+    max-width: 900px;
+    width: min(90vw, 900px);
+  }
+
+  @media (max-width: 720px) {
+    .slide-inner {
+      width: 100%;
+    }
+  }
+</style>

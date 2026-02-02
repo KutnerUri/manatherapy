@@ -60,38 +60,40 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
     {twitterImageSrc && <meta name="twitter:image" content={twitterImageSrc} />}
     {faviconSrc && <link rel="icon" href={faviconSrc} type="image/svg+xml" />}
     <title>{title}</title>
-    <style is:global>
-      :root {
-        color: #141414;
-        background-color: #f3efe6;
-        font-family: "Georgia", "Times New Roman", "Times", serif;
-        --color-text: #141414;
-        --color-surface: #f8f2e8;
-        --color-surface-alt: #efe7d8;
-        --color-overlay-light: rgba(255, 255, 255, 0.6);
-        --color-overlay-dark: rgba(0, 0, 0, 0.08);
-        --color-invert: #f1efe6;
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        color: var(--color-text);
-        background: radial-gradient(
-          circle at top,
-          var(--color-surface),
-          var(--color-surface-alt)
-        );
-      }
-    </style>
   </head>
   <body dir={dir} class={className} {...rest}>
     <slot />
   </body>
 </html>
+
+<style is:global>
+  body {
+    font-family: "Georgia", "Times New Roman", "Times", serif;
+    --color-text: #141414;
+    --color-surface: #f8f2e8;
+    --color-surface-alt: #efe7d8;
+    --color-overlay-light: rgba(255, 255, 255, 0.6);
+    --color-overlay-dark: rgba(0, 0, 0, 0.08);
+    --color-invert: #f1efe6;
+    color: var(--color-text);
+    background: radial-gradient(
+      circle at top,
+      var(--color-surface),
+      var(--color-surface-alt)
+    );
+
+    margin: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  main {
+    height: 100%;
+  }
+</style>

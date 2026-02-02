@@ -1,13 +1,14 @@
 ---
-import "../index.css";
 import Layout from "../layouts/Layout.astro";
 import ManaSlide from "../components/ManaSlide.astro";
 import ScrollHint from "../components/ScrollHint.astro";
 import Slide from "../components/Slide.astro";
+import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
 import LineFade from "../components/LineFade.astro";
 import PentagonMana from "../components/PentagonMana.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 import bakingCakeImage from "../assets/baking-cake.jpg";
 import bakingImage from "../assets/baking.jpg";
 import drivingImage from "../assets/driving.jpg";
@@ -30,23 +31,21 @@ import water from "../assets/logos/water.webp";
     </Slide>
 
     <Slide class="text-slide slide-intro" slide={1}>
-      <div class="slide-inner">
-        <h2 class="section-title">מאנה תרפיה</h2>
+      <SlideInner>
+        <SectionTitle>מאנה תרפיה</SectionTitle>
         <LineFade
-          class="intro-lines"
           lines={[
             "מאנה תרפיה היא תורה שמסבירה מדוע דברים אינם קורים",
             "מה צריך כדי לגרום לדברים לקרות",
             "ואיך להשיג את זה.",
           ]}
         />
-      </div>
+      </SlideInner>
     </Slide>
 
     <Slide class="text-slide slide-spell" slide={2}>
-      <div class="slide-inner">
+      <SlideInner>
         <LineFade
-          class="intro-lines"
           lines={[
             "בחיי היום-יום שלנו אנחנו מטילים כשפים.",
             "אני קורא להם כשפים שכן הם לא פחות מקסם.",
@@ -55,11 +54,11 @@ import water from "../assets/logos/water.webp";
             "ולשנות את חיינו.",
           ]}
         />
-      </div>
+      </SlideInner>
     </Slide>
 
     <Slide class="text-slide slide-spell" slide={3}>
-      <div class="slide-inner">
+      <SlideInner>
         <LineFade
           lines={[
             "מה שרבים אינם מבינים הוא",
@@ -68,23 +67,21 @@ import water from "../assets/logos/water.webp";
             "למשאבים האלה אני קורא מאנה.",
           ]}
         />
-      </div>
+      </SlideInner>
     </Slide>
 
     <Slide class="text-slide slide-colors" slide={4}>
-      <div class="slide-inner">
-        <h2 class="section-title">חמישה ערכי יסוד</h2>
-        <div class="intro-lines">
-          <LineFade
-            lines={[
-              "מאנה מגיעה מחמישה מקורות.",
-              "כל אחד משאב אחר,",
-              "כדי לשגשג,",
-              "צריך את כולם.",
-            ]}
-          />
-        </div>
-      </div>
+      <SlideInner>
+        <SectionTitle>חמישה ערכי יסוד</SectionTitle>
+        <LineFade
+          lines={[
+            "מאנה מגיעה מחמישה מקורות.",
+            "כל אחד משאב אחר,",
+            "כדי לשגשג,",
+            "צריך את כולם.",
+          ]}
+        />
+      </SlideInner>
     </Slide>
 
     <ManaSlide
@@ -133,7 +130,7 @@ import water from "../assets/logos/water.webp";
     />
 
     <Slide class="slide-finale" slide={10}>
-      <h2 class="section-title finale-title">למד עוד</h2>
+      <SectionTitle class="finale-title">למד עוד</SectionTitle>
       <PentagonMana />
       <div class="down-arrow">
         <span class="label">לדוגמאות</span>
@@ -200,10 +197,6 @@ import water from "../assets/logos/water.webp";
     letter-spacing: 0.18em;
     font-size: 7vw;
     text-align: center;
-  }
-
-  .intro-lines {
-    font-size: clamp(1.4rem, 3vw, 2rem);
   }
 
   .slide-hero {
