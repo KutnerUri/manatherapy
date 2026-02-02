@@ -7,6 +7,7 @@ import metalLogo from "../assets/logos/metal.webp";
 import ManaSlide from "../components/ManaSlide.astro";
 import SlideInner from "../components/SlideInner.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import LineFade from "../components/LineFade.astro";
 
 const title = "כבוד — מאנה תרפיה";
 const description = "Black mana - honor, pragmatism, and survival.";
@@ -28,110 +29,111 @@ const description = "Black mana - honor, pragmatism, and survival.";
     <Slide class="text-slide slide-black-intro" slide={1}>
       <SlideInner>
         <SectionTitle>כבוד הוא הכוח לדאוג לעצמנו.</SectionTitle>
-        <div class="body">
-          <p>הוא שואל:</p>
-          <p>מה אנחנו רוצים,</p>
-          <p>ואיך משיגים את זה</p>
-        </div>
+        <LineFade
+          lines={["הוא שואל:", "מה אני רוצה?", "איך אני משיג את זה?"]}
+        />
       </SlideInner>
     </Slide>
 
     <Slide class="text-slide slide-black-worldview" slide={2}>
       <SlideInner>
         <SectionTitle>תפיסת עולם</SectionTitle>
-        <div class="body">
-          <p>כבוד מניח שהעולם קשה,</p>
-          <p>שהמשאבים מוגבלים,</p>
-          <p>ושאף אחד לא יבוא להציל אותך.</p>
-        </div>
-        <div class="body">
-          <p>מתוך ההנחה הזו, כבוד מעריך:</p>
-          <p>תועלת עצמית,</p>
-          <p>אמביציה,</p>
-          <p>והתמודדות עם אמיתות לא נעימות.</p>
-        </div>
-        <div class="body">
-          <p>כבוד לא מתחבא מאחורי כוונות טובות, דיונים תאורטיים, ותיורצים.</p>
-          <p>הוא אומר: אם אתה רוצה משהו - אתה משלם.</p>
-        </div>
-      </SlideInner>
-    </Slide>
-
-    <Slide class="text-slide slide-black-why" slide={3}>
-      <SlideInner>
-        <SectionTitle>למה צריך כבוד</SectionTitle>
-        <div class="body">
-          <p>כבוד נותן לנו אנכיות -</p>
-          <p>נקודת מבט סובייקטיבית שממנה ניתן לקבל החלטות, גם אם הן קשות.</p>
-          <p>בלעדיו - אין עצמי. כל דבר הופך להיות מרוחק ותאורטי</p>
-        </div>
-      </SlideInner>
-    </Slide>
-
-    <Slide class="text-slide slide-black-allows" slide={4}>
-      <SlideInner>
-        <SectionTitle>מה כבוד מאפשר לנו</SectionTitle>
-        <div class="body">
-          <p>לבחור.</p>
-          <p>להציב גבולות.</p>
-          <p>לשאת מחירים.</p>
-          <p>ולהשיג מה שאנחנו רוצים.</p>
-        </div>
-      </SlideInner>
-    </Slide>
-
-    <Slide class="text-slide slide-black-creation" slide={5}>
-      <SlideInner>
-        <SectionTitle>יצירה של מאנה שחורה</SectionTitle>
-        <div class="creation-grid">
-          <article class="creation-card">
-            <h3>בדיקת רצון</h3>
-            <p>בכל פעם שיש ספק, לשאול - מה אני רוצה?</p>
-          </article>
-          <article class="creation-card">
-            <h3>הערכה לרצון</h3>
-            <p>אם אני רוצה את זה, זה חשוב</p>
-          </article>
-          <article class="creation-card">
-            <h3>מודעות למחיר</h3>
-            <p>מה המחיר המלא למה שאני רוצה? האם אני מוכן לשלם אותו?</p>
-          </article>
-          <article class="creation-card">
-            <h3>הערכה לסיפוק</h3>
-            <p>האם אני מרוצה ממה שקיבלתי?</p>
-          </article>
-        </div>
-      </SlideInner>
-    </Slide>
-
-    <Slide class="text-slide slide-black-development" slide={6}>
-      <SlideInner>
-        <SectionTitle>התפתחות</SectionTitle>
-        <div class="development-grid">
-          <article class="development-card">
-            <h3>כבוד ילדותי</h3>
-            <p>
-              כבוד לא מפותח ממהר לספק צרכים, אך נוטה להתעלם מהמחיר ומההשפעה שלו
-              על אחרים והעתיד.
-            </p>
-            <p>
-              הוא מבלבל בין סיפוק מיידי וסיפוק אמיתי, מתקשה להציב גבולות ברורים,
-              וכשדברים משתבשים הוא חוזר וחוזר וחוזר לתחושת קורבנות.
-            </p>
-          </article>
-          <article class="development-card">
-            <h3>כבוד בוגר</h3>
-            <p>כבוד בוגר מכיר בצרכים ומספק אותם במידה הנכונה.</p>
-            <p>
-              הוא מסוגל לדחות סיפוק או לתת לרצון להתפוגג, מקבל החלטות מתוך חישוב
-              עלות־תועלת בריא, מציב גבולות שקטים וברורים, ולוקח אחריות מלאה על
-              התוצאות.
-            </p>
-          </article>
-        </div>
+        <LineFade
+          lines={[
+            "כבוד מניח שהעולם קשה,",
+            "שהמשאבים מוגבלים,",
+            "ושאף אחד לא יבוא להציל אותך.",
+            "",
+            "מתוך ההנחה הזו, כבוד מעריך:",
+            "תועלת עצמית,",
+            "אמביציה,",
+            "והתמודדות עם אמיתות לא נעימות.",
+            "כבוד לא מתחבא מאחורי כוונות טובות, דיונים תאורטיים, ותירוצים.",
+            "",
+            "הוא אומר:",
+            "אם אתה רוצה משהו",
+            "אתה משלם",
+          ]}
+        />
       </SlideInner>
     </Slide>
   </Slideshow>
+
+  <Slide class="text-slide slide-black-why" slide={3}>
+    <SlideInner>
+      <SectionTitle>למה צריך כבוד</SectionTitle>
+      <LineFade
+        lines={[
+          "כבוד נותן לנו אנכיות -",
+          "נקודת מבט סובייקטיבית שממנה ניתן לקבל החלטות, גם אם הן קשות.",
+          "בלעדיו - אין עצמי. כל דבר הופך להיות מרוחק ותאורטי",
+        ]}
+      />
+    </SlideInner>
+  </Slide>
+
+  <Slide class="text-slide slide-black-allows" slide={4}>
+    <SlideInner>
+      <SectionTitle>מה כבוד מאפשר לנו</SectionTitle>
+      <LineFade
+        lines={[
+          "לבחור.",
+          "להציב גבולות.",
+          "לשאת מחירים.",
+          "ולהשיג מה שאנחנו רוצים.",
+        ]}
+      />
+    </SlideInner>
+  </Slide>
+
+  <Slide class="text-slide slide-black-creation" slide={5}>
+    <SlideInner>
+      <SectionTitle>יצירה של מאנה שחורה</SectionTitle>
+      <div class="creation-grid">
+        <article class="creation-card">
+          <h3>בדיקת רצון</h3>
+          <p>בכל פעם שיש ספק, לשאול - מה אני רוצה?</p>
+        </article>
+        <article class="creation-card">
+          <h3>הערכה לרצון</h3>
+          <p>אם אני רוצה את זה, זה חשוב</p>
+        </article>
+        <article class="creation-card">
+          <h3>מודעות למחיר</h3>
+          <p>מה המחיר המלא למה שאני רוצה? האם אני מוכן לשלם אותו?</p>
+        </article>
+        <article class="creation-card">
+          <h3>הערכה לסיפוק</h3>
+          <p>האם אני מרוצה ממה שקיבלתי?</p>
+        </article>
+      </div>
+    </SlideInner>
+  </Slide>
+
+  <Slide class="text-slide slide-black-development" slide={6}>
+    <SlideInner>
+      <SectionTitle>התפתחות</SectionTitle>
+      <div class="development-grid">
+        <article class="development-card">
+          <h3>כבוד ילדותי</h3>
+          <p>ממהר לספק צרכים, אך נוטה להתעלם מהמחיר ומההשלכות שלו על אחרים והעתיד.</p>
+          <p>
+            הוא מבלבל בין סיפוק מיידי וסיפוק אמיתי, מתקשה להציב גבולות ברורים,
+            וכשדברים משתבשים הוא חוזר לתחושת קורבנות.
+          </p>
+        </article>
+        <article class="development-card">
+          <h3>כבוד בוגר</h3>
+          <p>מכיר בצרכיו ומספק אותם במידה הנכונה.</p>
+          <p>
+            הוא מסוגל לדחות סיפוק או לתת לצרכים להתפוגג, מקבל החלטות מתוך חישוב
+            עלות־תועלת בריא, מציב גבולות שקטים וברורים, ולוקח אחריות על
+            התוצאות.
+          </p>
+        </article>
+      </div>
+    </SlideInner>
+  </Slide>
 </Layout>
 
 <style>
@@ -168,11 +170,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
         rgba(70, 20, 100, 0.35),
         transparent 55%
       ),
-      radial-gradient(
-        circle at 70% 80%,
-        rgba(0, 0, 0, 0.7),
-        transparent 60%
-      ),
+      radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.7), transparent 60%),
       linear-gradient(150deg, #1f0b2c 0%, #0f0716 60%, #07040b 100%);
   }
 
@@ -183,24 +181,8 @@ const description = "Black mana - honor, pragmatism, and survival.";
         rgba(120, 60, 160, 0.25),
         transparent 55%
       ),
-      radial-gradient(
-        circle at 80% 70%,
-        rgba(0, 0, 0, 0.65),
-        transparent 60%
-      ),
+      radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.65), transparent 60%),
       linear-gradient(150deg, #240b34 0%, #120012 60%, #07040b 100%);
-  }
-
-  .slide-black-worldview .body p,
-  .slide-black-intro .body p,
-  .slide-black-why .body p,
-  .slide-black-allows .body p {
-    font-size: clamp(1.15rem, 2.6vw, 1.9rem);
-    line-height: 1.7;
-  }
-
-  .slide-black-why .section-title {
-    color: #f4efe4;
   }
 
   .slide-black-allows {
@@ -210,11 +192,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
         rgba(90, 50, 130, 0.28),
         transparent 55%
       ),
-      radial-gradient(
-        circle at 75% 75%,
-        rgba(0, 0, 0, 0.6),
-        transparent 60%
-      ),
+      radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.6), transparent 60%),
       linear-gradient(150deg, #240b34 0%, #0f0617 60%, #06030a 100%);
   }
 
@@ -225,11 +203,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
         rgba(140, 70, 190, 0.22),
         transparent 55%
       ),
-      radial-gradient(
-        circle at 80% 70%,
-        rgba(0, 0, 0, 0.65),
-        transparent 60%
-      ),
+      radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.65), transparent 60%),
       linear-gradient(150deg, #1e0a2a 0%, #0d0613 60%, #05020a 100%);
   }
 
@@ -240,11 +214,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
         rgba(120, 80, 170, 0.2),
         transparent 55%
       ),
-      radial-gradient(
-        circle at 80% 75%,
-        rgba(0, 0, 0, 0.65),
-        transparent 60%
-      ),
+      radial-gradient(circle at 80% 75%, rgba(0, 0, 0, 0.65), transparent 60%),
       linear-gradient(150deg, #1b0a28 0%, #0d0614 60%, #05020a 100%);
   }
 
