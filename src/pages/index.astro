@@ -12,6 +12,8 @@ import SectionTitle from "../components/SectionTitle.astro";
 import bakingCakeImage from "../assets/baking-cake.jpg";
 import bakingImage from "../assets/baking.jpg";
 import drivingImage from "../assets/driving.jpg";
+import elemMagicImage from "../assets/elem-magic.webp";
+import elemWideImage from "../assets/elem-wide.webp";
 import fireLogo from "../assets/logos/fire.webp";
 import metalLogo from "../assets/logos/metal.webp";
 import plantLogo from "../assets/logos/plant.webp";
@@ -25,7 +27,11 @@ import water from "../assets/logos/water.webp";
   description="Mana theory - the resources of life, the five types of resources, and doing magic in daily life."
 >
   <Slideshow>
-    <Slide class="slide-hero" slide={0}>
+    <Slide
+      class="slide-hero"
+      slide={0}
+      style={`--hero-image: url(${elemMagicImage.src}); --hero-image-wide: url(${elemWideImage.src})`}
+    >
       <h1 class="title">מאנה תרפיה</h1>
       <ScrollHint />
     </Slide>
@@ -204,12 +210,32 @@ import water from "../assets/logos/water.webp";
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    font-size: 7vw;
+    margin-top: 1.62em;
+    font-size: 5vmax;
     text-align: center;
+    text-shadow:
+      0 2px 10px rgba(255, 255, 255, 0.85),
+      0 0 22px rgba(255, 255, 255, 0.65);
   }
 
   .slide-hero {
-    background: linear-gradient(130deg, #f8f0e2 15%, #e8d8bf 60%, #e9c7b0);
+    background-image:
+      var(--hero-image),
+      linear-gradient(130deg, #f8f0e2 15%, #e8d8bf 60%, #e9c7b0);
+    background-repeat: no-repeat;
+    background-position: center 23%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (orientation: landscape) {
+    .slide-hero {
+      background-image:
+        var(--hero-image-wide),
+        linear-gradient(130deg, #f8f0e2 15%, #e8d8bf 60%, #e9c7b0);
+    }
   }
 
   .slide-intro {
