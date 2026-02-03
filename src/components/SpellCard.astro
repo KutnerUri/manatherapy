@@ -3,6 +3,7 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"article"> {
   color?: "white" | "blue" | "red" | "black";
+  quote?: string;
   title?: string;
   costs?: Array<
     | string
@@ -16,19 +17,18 @@ interface Props extends HTMLAttributes<"article"> {
   imageAlt?: string;
   imageClass?: string;
   draggable?: boolean;
-  bodyLines?: string[];
 }
 
 const {
   class: className,
   color,
+  quote,
   title = "",
   costs = [],
   image,
   imageAlt = "",
   imageClass = "main",
   draggable,
-  bodyLines = [],
   ...rest
 }: Props = Astro.props;
 
@@ -59,19 +59,23 @@ const costItems = costs.map((cost) => {
     </span>
   </div>
   <div class="card-image">
-    {imageSrc ? (
-      <img
-        src={imageSrc}
-        alt={imageAlt}
-        draggable={draggable}
-        class={imageClass}
-      />
-    ) : (
-      <div class="image-placeholder" aria-hidden="true" />
-    )}
+    {
+      imageSrc ? (
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          draggable={draggable}
+          class={imageClass}
+        />
+      ) : (
+        <div class="image-placeholder" aria-hidden="true" />
+      )
+    }
   </div>
   <div class="card-body">
-    {bodyLines.map((line) => <p>{line}</p>)}
+    <slot />
+
+    {quote && <div class="card-quote">{'"' + quote + '"'}</div>}
   </div>
 </article>
 
@@ -162,11 +166,11 @@ const costItems = costs.map((cost) => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5em;
+    gap: 0.2em;
     font-size: 1em;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
     color: var(--card-text, #1b2738);
-    padding: 0.25em 0.45em;
+    padding: round(0.23em, 1px) round(0.38em, 1px);
     background: linear-gradient(
       180deg,
       var(--card-frame, #d8e0ee),
@@ -214,6 +218,15 @@ const costItems = costs.map((cost) => {
     background: radial-gradient(circle at top, #f7d8d1, #e59f93 70%);
   }
 
+  .spell-card .mana-cost.black {
+    color: #f1efe6;
+    background: radial-gradient(circle at top, #3a3f4a, #16181f 70%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      inset 0 0 0.23em rgba(255, 255, 255, 0.12),
+      0 0.23em 0.38em rgba(0, 0, 0, 0.45);
+  }
+
   .spell-card .card-image img {
     width: 100%;
     height: 100%;
@@ -238,17 +251,29 @@ const costItems = costs.map((cost) => {
     background: var(--card-body);
     border-radius: 0.55em;
     padding: 0.75em;
-    display: grid;
-    align-content: start;
+    display: flex;
+    flex-direction: column;
     gap: 0.4em;
     font-size: 0.8em;
-    box-shadow: var(--card-body-shadow);
     border: 1px solid var(--card-body-border);
     color: var(--card-text, #1b2738);
   }
 
   .spell-card .card-body p {
     margin: 0;
+  }
+
+  .spell-card .card-quote {
+    margin-top: auto;
+    font-size: 0.85em;
+    color: var(--card-text-muted, rgba(27, 39, 56, 0.6));
+    line-height: 1.5;
+
+    font-style: italic;
+  }
+
+  .spell-card .card-quote:empty {
+    display: none;
   }
 
   .base {

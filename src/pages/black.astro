@@ -1,5 +1,4 @@
 ---
-import metalLogo from "../assets/logos/metal.webp";
 import LineFade from "../components/LineFade.astro";
 import ManaSlide from "../components/ManaSlide.astro";
 import ScrollHint from "../components/ScrollHint.astro";
@@ -9,6 +8,11 @@ import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
 import Layout from "../layouts/Layout.astro";
+import gettingWhatYouWantImage from "../assets/getting-what-you-want.webp";
+import settingBordersImage from "../assets/setting-borders.webp";
+import workDoneImage from "../assets/work-done.webp";
+import choosingImage from "../assets/choosing.webp";
+import metalLogo from "../assets/logos/metal.webp";
 
 const title = "כבוד — מאנה תרפיה";
 const description = "Black mana - honor, pragmatism, and survival.";
@@ -75,15 +79,48 @@ const description = "Black mana - honor, pragmatism, and survival.";
     <Slide class="slide-black-allows" slide={4}>
       <SectionTitle>מה כבוד מאפשר לנו</SectionTitle>
       <div class="spell-card-row">
-        <SpellCard color="black" title="לבחור" costs={["black"]} />
-        <SpellCard color="black" title="להציב גבולות" costs={["black"]} />
-        <SpellCard color="black" title="לשאת מחירים" costs={["black"]} />
+        <SpellCard
+          color="black"
+          title="לבחור"
+          costs={["black"]}
+          image={choosingImage}
+          imageAlt="Choosing spell illustration"
+          quote="זה קל לבחור כשאתה יודע מה אתה רוצה"
+        >
+          בחר אפשרות אחת
+        </SpellCard>
+        <SpellCard
+          color="black"
+          title="להציב גבולות"
+          costs={["black"]}
+          image={settingBordersImage}
+          imageAlt="Setting borders spell illustration"
+          quote="אני לא מוכן, המחיר יקר מדי"
+        >
+          סרב לדרישה או ציפייה
+        </SpellCard>
+        <SpellCard
+          color="black"
+          title="לשאת מחירים"
+          costs={["colorless", "black"]}
+          image={workDoneImage}
+          imageAlt="Paying prices spell illustration"
+          quote="אם זה היה קל, כולם היו עושים את זה"
+        >
+          סבול אי-נוחות זמנית
+        </SpellCard>
         <SpellCard
           color="black"
           title="להשיג מה שאתה רוצה"
-          costs={["black", "black"]}
+          costs={["black", "black", "black"]}
+          image={gettingWhatYouWantImage}
           imageAlt="Getting what you want spell illustration"
-        />
+          quote="זה מגיע לי"
+        >
+          קח דבר מה שאתה רוצה,
+          <br />
+          מבלי לתת בחזרה
+        </SpellCard>
       </div>
     </Slide>
 
