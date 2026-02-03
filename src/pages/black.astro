@@ -87,44 +87,84 @@ const description = "Black mana - honor, pragmatism, and survival.";
           imageAlt="Choosing spell illustration"
           quote="זה קל לבחור כשאתה יודע מה אתה רוצה"
         >
-          בחר אפשרות אחת
+          דלג על דילמה
         </SpellCard>
         <SpellCard
           color="black"
-          title="להציב גבולות"
+          title="מציב גבולות"
           costs={["black"]}
           image={settingBordersImage}
           imageAlt="Setting borders spell illustration"
-          quote="אני לא מוכן, המחיר יקר מדי"
+          quote="אני לא מוכן, זה יקר מדי"
         >
           סרב לדרישה או ציפייה
         </SpellCard>
         <SpellCard
           color="black"
-          title="לשאת מחירים"
-          costs={["colorless", "black"]}
+          title="אמביציה"
+          costs={[
+            "black",
+            { color: "colorless", value: "X", label: "עלות שחור" },
+          ]}
           image={workDoneImage}
           imageAlt="Paying prices spell illustration"
           quote="אם זה היה קל, כולם היו עושים את זה"
         >
-          סבול אי-נוחות זמנית
+          התמודד עם אי-נוחות זמנית.
+          <br />
+          התקדם X צעדים לכיוון היעד שלך.
         </SpellCard>
         <SpellCard
           color="black"
-          title="להשיג מה שאתה רוצה"
+          title="להשיג מה שאני רוצה"
           costs={["black", "black", "black"]}
           image={gettingWhatYouWantImage}
           imageAlt="Getting what you want spell illustration"
           quote="זה מגיע לי"
         >
-          קח דבר מה שאתה רוצה,
+          קח דבר מה שאתה רוצה.
           <br />
-          מבלי לתת בחזרה
+          <br />
+          במקום לשלם מאנה, ניתן להקריב משהו כתמורה.
         </SpellCard>
       </div>
     </Slide>
 
-    <Slide class="text-slide slide-black-creation" slide={5}>
+    <Slide class="slide-black-allows" slide={5}>
+      <div class="spell-card-row">
+        <SpellCard
+          color="black"
+          title="מניפולציה"
+          quote="הוא לא צריך לדעת הכל... כל עוד הוא מרוויח"
+          costs={["black", "black"]}
+        >
+          השפע על מישהו לטובתך.
+          <br />
+          <br />
+          שלם עוד 2 מאנה אם אין לו אינטרס.
+          <br />
+          ועוד 3 אם זה נוגד את האינטרס שלו.
+        </SpellCard>
+        <SpellCard
+          color="black"
+          title="הלוואה"
+          quote="העתיד יכול לחכות, אני צריך את זה עכשיו"
+          costs={["black"]}
+        >
+          קבל כסף עכשיו, והחזר פי שתיים בעוד 10 תורות.
+        </SpellCard>
+        <SpellCard
+          color="black"
+          title="הפק תועלת"
+          quote="אם ככה, לפחות אני אצא מזה עם משהו"
+          costs={["black"]}
+        >
+          קח מצב רע, או משהו שנגמר, ותוציא ממנו ערך.
+        </SpellCard>
+      </div>
+    </Slide>
+
+    <Slide class="text-slide slide-black-creation" slide={6}>
       <SlideInner>
         <SectionTitle>יצירה של מאנה שחורה</SectionTitle>
         <div class="creation-grid">
@@ -148,7 +188,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
       </SlideInner>
     </Slide>
 
-    <Slide class="text-slide slide-black-development" slide={6}>
+    <Slide class="text-slide slide-black-development" slide={7}>
       <SlideInner>
         <SectionTitle>התפתחות</SectionTitle>
         <div class="development-grid">
