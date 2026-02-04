@@ -150,6 +150,11 @@ codebase. If a token needs a new value, it is marked **[new]** (with `TBD`).
 - `--color-metal-fg`: warm off-white (#f1efe6) **[existing]** [same as text]
 - `--color-metal-shadow`: cold glow (rgba(22, 24, 31, 0.35)) **[existing]** [PentagonMana glow]
 - `--color-metal-border`: violet ink (#3b2a4a) **[existing]** [SpellCard black frame-strong]
+- `--color-metal-mist`: deep violet mist (rgba(40, 24, 56, 0.18)) **[existing]** [ManaSlide black top wash]
+- `--color-metal-core`: near-black (#080008) **[existing]** [ManaSlide black core]
+- `--color-metal-core-strong`: dense black (rgba(8, 0, 8, 0.92)) **[existing]** [ManaSlide black core strong]
+- `--color-metal-aura`: violet aura (rgba(78, 38, 112, 0.32)) **[existing]** [ManaSlide black aura]
+- `--color-metal-aura-soft`: soft violet aura (rgba(78, 38, 112, 0.12)) **[existing]** [ManaSlide black aura soft]
 
 ### Abstract Accent (alias)
 - `--color-accent-*` should point at one of the accent palettes above.

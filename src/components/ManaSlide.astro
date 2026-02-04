@@ -21,11 +21,21 @@ const {
   class: className,
   ...rest
 } = Astro.props as Props;
+
+const accentClassMap = {
+  blue: "accent-water",
+  green: "accent-plant",
+  red: "accent-fire",
+  yellow: "accent-stone",
+  black: "accent-metal",
+} as const;
+
+const accentClass = accentClassMap[colorClass];
 ---
 
 <Slide
   {...rest}
-  class:list={["slide-color", colorClass, className]}
+  class:list={["slide-color", colorClass, accentClass, className]}
   slide={slide}
 >
   <div class="color-logo">
@@ -37,103 +47,54 @@ const {
 </Slide>
 
 <style>
-  .slide-color.blue {
-    font-family: Arial, Helvetica, sans-serif;
+  .slide-color {
     background:
       linear-gradient(
         to bottom,
-        rgba(232, 243, 255, 0.28) 0%,
+        var(--color-accent-shadow) 0%,
         transparent 15%,
         transparent 85%,
-        rgba(191, 245, 240, 0.3) 100%
+        var(--color-accent-shadow) 100%
       ),
       radial-gradient(
         circle at 85% 85%,
-        rgba(168, 209, 175, 0.24),
-        transparent 55%
-      ),
-      linear-gradient(160deg, #e6f0fb 0%, #c7d7ec 55%, #b3c8e2 100%);
-  }
-
-  .slide-color.green {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(191, 245, 240, 0.3) 0%,
-        transparent 15%,
-        transparent 85%,
-        rgba(255, 242, 178, 0.32) 100%
-      ),
-      radial-gradient(
-        circle at 85% 85%,
-        rgba(234, 146, 130, 0.2),
-        transparent 55%
-      ),
-      linear-gradient(160deg, #e7f1e2 0%, #cfe3cc 55%, #b7d0b3 100%);
-  }
-
-  .slide-color.red {
-    font-family:
-      "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
-      Arial, sans-serif;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(255, 242, 178, 0.32) 0%,
-        transparent 15%,
-        transparent 85%,
-        rgba(255, 213, 166, 0.34) 100%
-      ),
-      radial-gradient(
-        circle at 85% 85%,
-        rgba(245, 228, 160, 0.24),
-        transparent 55%
-      ),
-      linear-gradient(160deg, #f0b4a6 0%, #d47264 55%, #c95752 100%);
-  }
-
-  .slide-color.yellow {
-    font-family: "Times New Roman", Times, Georgia, serif;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(255, 213, 166, 0.34) 0%,
-        transparent 15%,
-        transparent 85%,
-        rgba(255, 250, 240, 0.36) 100%
-      ),
-      radial-gradient(
-        circle at 85% 85%,
-        rgba(120, 104, 164, 0.2),
+        var(--color-accent-shadow),
         transparent 60%
       ),
-      linear-gradient(160deg, #fff9ef 0%, #f7eed2 55%, #f1db9b 100%);
+      linear-gradient(
+        160deg,
+        var(--color-accent-bg) 0%,
+        var(--color-accent-bg-strong) 55%,
+        var(--color-accent-border) 100%
+      );
+    color: var(--color-accent-text, var(--color-text));
   }
 
   .slide-color.black {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     background:
-      linear-gradient(to bottom, rgba(40, 24, 56, 0.18) 0%, transparent 15%),
+      linear-gradient(
+        to bottom,
+        var(--color-metal-mist) 0%,
+        transparent 15%
+      ),
       radial-gradient(
         circle at 50% 50%,
-        #080008 0%,
-        rgba(8, 0, 8, 0.92) 40%,
+        var(--color-metal-core) 0%,
+        var(--color-metal-core-strong) 40%,
         transparent 100%
       ),
       radial-gradient(
         circle at 50% 50%,
-        rgba(78, 38, 112, 0.32) 0%,
-        rgba(78, 38, 112, 0.12) 55%,
+        var(--color-metal-aura) 0%,
+        var(--color-metal-aura-soft) 55%,
         transparent 75%
       ),
-      linear-gradient(160deg, #240a34 0%, #120012 55%, #080008 100%);
-    color: var(--color-metal-text, var(--color-text));
-  }
-
-  .slide-color.black .color-sub {
-    color: var(--color-metal-text, var(--color-text));
-    opacity: 0.8;
+      linear-gradient(
+        160deg,
+        var(--color-accent-bg) 0%,
+        var(--color-accent-bg-strong) 55%,
+        var(--color-metal-core) 100%
+      );
   }
 
   .color-sub {

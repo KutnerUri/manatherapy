@@ -19,8 +19,8 @@ const title = "כבוד — מאנה תרפיה";
 const description = "Black mana - honor, pragmatism, and survival.";
 ---
 
-<Layout title={title} description={description} lang="he" class="theme-black">
-  <Slideshow class="deck-black">
+<Layout title={title} description={description} lang="he" class="accent-metal">
+  <Slideshow>
     <ManaSlide
       colorClass="black"
       logo={metalLogo}
@@ -222,25 +222,6 @@ const description = "Black mana - honor, pragmatism, and survival.";
 </Layout>
 
 <style>
-  .theme-black {
-    --color-bg: #120012;
-    --color-bg-strong: #1a0d24;
-    --color-bg-flat: #0c0612;
-    --color-bg-gradient: radial-gradient(circle at top, #1b0a24, #0c0612);
-    --color-text: #f1efe6;
-    --color-text-ghost: rgba(241, 239, 230, 0.65);
-    --color-fg: #f1efe6;
-    --color-fill: #f1efe6;
-    --color-fill-ghost: rgba(255, 255, 255, 0.22);
-    --color-border-subtle: rgba(255, 255, 255, 0.08);
-    --color-border-strong: rgba(255, 255, 255, 0.16);
-    --color-shadow-ghost: rgba(255, 255, 255, 0.08);
-    --color-shadow-faint: rgba(0, 0, 0, 0.5);
-    color: var(--color-text);
-    background: var(--color-bg-gradient);
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  }
-
   .slide-black-intro {
     background:
       radial-gradient(
