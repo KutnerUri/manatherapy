@@ -92,7 +92,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
         </SpellCard>
         <SpellCard
           color="black"
-          title="מציב גבולות"
+          title="להציב גבולות"
           costs={["black"]}
           image={settingBordersImage}
           imageAlt="Setting borders spell illustration"
@@ -261,10 +261,10 @@ const description = "Black mana - honor, pragmatism, and survival.";
   .creation-card {
     padding: clamp(1.2rem, 2.6vw, 2rem);
     border-radius: 18px;
-    background: rgba(10, 6, 16, 0.55);
+    background: var(--color-metal-panel-bg);
     box-shadow:
-      0 18px 35px rgba(0, 0, 0, 0.35),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      0 18px 35px var(--color-shadow-dense),
+      inset 0 0 0 1px var(--color-border-subtle);
   }
 
   .creation-card h3 {
@@ -295,10 +295,10 @@ const description = "Black mana - honor, pragmatism, and survival.";
   .development-card {
     padding: clamp(1.4rem, 3vw, 2.2rem);
     border-radius: 20px;
-    background: rgba(10, 6, 16, 0.55);
+    background: var(--color-metal-panel-bg);
     box-shadow:
-      0 18px 35px rgba(0, 0, 0, 0.35),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      0 18px 35px var(--color-shadow-dense),
+      inset 0 0 0 1px var(--color-border-subtle);
   }
 
   .development-card h3 {

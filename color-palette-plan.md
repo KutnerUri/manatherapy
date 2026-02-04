@@ -1,7 +1,7 @@
 # Color Palette Plan — Current Inventory + Planned Schema
 
 ## TODO (Implementation Checklist)
-- [ ] Add palette tokens (light + dark) to global styles:
+- [ ] Add palette tokens (light + dark) to global styles (dark pending):
   - [x] Light base tokens in `theme-main`
   - [ ] Dark base tokens in a theme override
   - [x] Accent palettes (light) in `theme-main`
@@ -11,8 +11,8 @@
   - [x] `--color-border-subtle`, `--color-border-strong`
   - [x] `--color-shadow-*` scale
   - [x] `--color-favicon-fill-full`
-- [ ] Map existing colors to tokens across components/pages
-- [ ] Replace tokens/usages (search-and-replace list):
+- [x] Map existing colors to tokens across components/pages
+- [x] Replace tokens/usages (search-and-replace list):
   - [x] `--text` → `--color-text`
   - [x] `--bg` → `--color-bg`
   - [x] `--bg-strong` → `--color-bg-strong`
@@ -22,14 +22,14 @@
   - [x] `--fill` → `--color-fill`
   - [x] `--border-*` → `--color-border-*`
   - [x] `--water-*` → `--color-water-*` (same for plant/fire/stone/metal)
-- [ ] Replace slide backgrounds with tokenized gradients:
+- [x] Replace slide backgrounds with tokenized gradients:
   - [x] Home page slides use `--color-bg-gradient`
   - [x] ManaSlide uses accent tokens (incl. black special case)
   - [x] Black page slide gradients
 - [x] Remove deck background overlays
 - [ ] Wire `prefers-color-scheme` + optional `.dark-mode` override
 - [x] Verify metal (black.astro) remains accent, not dark mode
-- [ ] Audit remaining hard-coded colors and update plan if needed
+- [x] Audit remaining hard-coded colors and update plan if needed
 
 This file has three parts:
 - **Planned Schema**: the naming system we will use going forward.
@@ -106,6 +106,9 @@ codebase. If a token needs a new value, it is marked **[new]** (with `TBD`).
 - `--color-fill-ghost`: soft white (rgba(255, 255, 255, 0.22)) **[existing]** [PentagonMana inset]
 - `--color-border-subtle`: translucent black (rgba(0, 0, 0, 0.08)) **[existing]** [card/header borders]
 - `--color-border-strong`: translucent black (rgba(0, 0, 0, 0.12)) **[existing]** [mana cost border]
+- `--color-glow-strong`: bright white glow (rgba(255, 255, 255, 0.85)) **[existing]** [home title]
+- `--color-glow`: soft white glow (rgba(255, 255, 255, 0.65)) **[existing]** [home title]
+- `--color-shadow-light`: light text shadow (rgba(255, 255, 255, 0.35)) **[existing]** [PentagonMana labels]
 
 ### Palette: Water (blue)
 - `--color-water-bg`: mist blue (#e6f0fb) **[existing]** [ManaSlide blue base]
@@ -161,6 +164,12 @@ codebase. If a token needs a new value, it is marked **[new]** (with `TBD`).
 - `--color-metal-core-strong`: dense black (rgba(8, 0, 8, 0.92)) **[existing]** [ManaSlide black core strong]
 - `--color-metal-aura`: violet aura (rgba(78, 38, 112, 0.32)) **[existing]** [ManaSlide black aura]
 - `--color-metal-aura-soft`: soft violet aura (rgba(78, 38, 112, 0.12)) **[existing]** [ManaSlide black aura soft]
+- `--color-metal-panel-bg`: deep panel overlay (rgba(10, 6, 16, 0.55)) **[existing]** [black page cards]
+
+### Component Tokens (SpellCard + Mana Chips)
+- SpellCard base + variants are tokenized in `theme-main`:
+  - `--color-card-*` (base + white/red/black/blue/result)
+  - `--color-mana-chip-*` (base + white/red/black)
 
 ### Abstract Accent (alias)
 - `--color-accent-*` should point at one of the accent palettes above.

@@ -65,8 +65,8 @@ const { class: className, ...rest }: Props = Astro.props;
     background-repeat: no-repeat;
     box-shadow:
       0 18px 35px rgba(0, 0, 0, var(--shadow-alpha, 0.16)),
-      0 0 24px var(--mana-glow, rgba(0, 0, 0, 0.12)),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+      0 0 24px var(--mana-glow, var(--color-shadow-faint)),
+      inset 0 0 0 1px var(--color-fill-ghost);
     cursor: pointer;
     transition:
       transform 0.5s ease,
@@ -83,13 +83,13 @@ const { class: className, ...rest }: Props = Astro.props;
   .mana-label {
     z-index: 2;
     font-family: "Gill Sans", "Trebuchet MS", sans-serif;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 2px 4px var(--color-shadow-sharp);
   }
 
   .mana-circle.red .mana-label,
   .mana-circle.green .mana-label,
   .mana-circle.blue .mana-label {
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.35);
+    text-shadow: 0 2px 4px var(--color-shadow-light);
   }
 
   :global(.slide.is-active) .mana-circle {
@@ -99,7 +99,7 @@ const { class: className, ...rest }: Props = Astro.props;
 
   .mana-circle:active {
     transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(0.95);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 25px var(--color-shadow-subtle);
   }
 
   .mana-circle.red {
@@ -107,10 +107,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --y: calc(var(--orbit) * 0.809);
     --delay: 0.2s;
     --mana-image: url("../assets/logos/fire.webp");
-    --mana-base: #f5c6bb;
-    --mana-deep: #f08d7b;
-    --mana-glow: rgba(240, 141, 123, 0.4);
-    --mana-text: #3b0f0a;
+    --mana-base: var(--color-fire-fill);
+    --mana-deep: var(--color-fire-fill-strong);
+    --mana-glow: var(--color-fire-shadow);
+    --mana-text: var(--color-fire-text);
   }
 
   .mana-circle.green {
@@ -118,10 +118,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --y: calc(var(--orbit) * -0.309);
     --delay: 0.1s;
     --mana-image: url("../assets/logos/plant.webp");
-    --mana-base: #dfeedd;
-    --mana-deep: #9fbf98;
-    --mana-glow: rgba(159, 191, 152, 0.4);
-    --mana-text: #0d2b17;
+    --mana-base: var(--color-plant-fill);
+    --mana-deep: var(--color-plant-fill-strong);
+    --mana-glow: var(--color-plant-shadow);
+    --mana-text: var(--color-plant-text);
   }
 
   .mana-circle.yellow {
@@ -130,10 +130,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --delay: 0.3s;
     --mana-image: url("../assets/logos/sun.webp");
     --shadow-alpha: 0.12;
-    --mana-base: #faedc5;
-    --mana-deep: #f2c85f;
-    --mana-glow: rgba(242, 200, 95, 0.4);
-    --mana-text: #4a3512;
+    --mana-base: var(--color-stone-fill);
+    --mana-deep: var(--color-stone-fill-strong);
+    --mana-glow: var(--color-stone-shadow);
+    --mana-text: var(--color-stone-text);
   }
 
   .mana-circle.blue {
@@ -141,10 +141,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --y: calc(var(--orbit) * -1);
     --delay: 0s;
     --mana-image: url("../assets/logos/water.webp");
-    --mana-base: #d7e6f4;
-    --mana-deep: #9fb8d6;
-    --mana-glow: rgba(159, 184, 214, 0.4);
-    --mana-text: #08192a;
+    --mana-base: var(--color-water-fill);
+    --mana-deep: var(--color-water-fill-strong);
+    --mana-glow: var(--color-water-shadow);
+    --mana-text: var(--color-water-text);
   }
 
   .mana-circle.black {
@@ -153,10 +153,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --delay: 0.4s;
     --mana-image: url("../assets/logos/metal.webp");
     --shadow-alpha: 0.12;
-    --mana-base: #3a3f4a;
-    --mana-deep: #16181f;
-    --mana-glow: rgba(22, 24, 31, 0.35);
-    --mana-text: #f1efe6;
+    --mana-base: var(--color-metal-fill);
+    --mana-deep: var(--color-metal-fill-strong);
+    --mana-glow: var(--color-metal-shadow);
+    --mana-text: var(--color-metal-text);
   }
 
   @media (max-width: 720px) {

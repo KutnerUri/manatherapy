@@ -33,6 +33,7 @@ const {
 }: Props = Astro.props;
 
 const imageSrc = image?.src;
+const accentClass = color && color !== "result" ? `accent-${color}` : undefined;
 const costItems = costs.map((cost) => {
   if (typeof cost === "string") {
     return { color: cost, value: "1", label: `${cost} mana cost` };
@@ -45,7 +46,7 @@ const costItems = costs.map((cost) => {
 });
 ---
 
-<article class:list={["spell-card", color, className]} {...rest}>
+<article class:list={["spell-card", color, accentClass, className]} {...rest}>
   <div class="card-header">
     <strong class="card-title">{title}</strong>
     <span class="mana-group">
@@ -84,81 +85,88 @@ const costItems = costs.map((cost) => {
     font-size: 3vmin;
     height: round(21em, 2px);
     width: round(13em, 2px);
-    background: var(--card-surface, #f2f4f8);
+    --card-surface: var(--color-bg);
+    --card-surface-soft: var(--color-bg-strong);
+    --card-frame: var(--color-accent-bg, var(--color-bg));
+    --card-frame-strong: var(--color-accent-bg-strong, var(--color-bg-strong));
+    --card-text: var(--color-accent-text, var(--color-text));
+    --card-text-muted: var(--color-text-ghost);
+    --card-body: var(--color-bg-flat);
+    --card-body-border: var(--color-border-subtle);
+    --card-border: var(--color-border-strong);
+    --card-image-border: var(--color-border-subtle);
+    --card-image-border-soft: var(--color-border-subtle);
+    --card-highlight: var(--color-fill-ghost);
+    --card-shadow: var(--color-shadow-subtle);
+    --card-shadow-soft: var(--color-shadow-ghost);
+    --chip-bg: var(--color-accent-fill, var(--color-fill));
+    --chip-bg-strong: var(--color-accent-fill-strong, var(--color-bg-strong));
+    --chip-text: var(--color-accent-text, var(--color-text));
+    --chip-border: var(--color-border-strong);
+    --chip-highlight: var(--color-fill-ghost);
+    --chip-shadow: var(--color-shadow-subtle);
+    background: var(--card-surface);
     border-radius: 0.62em;
     padding: round(0.38em, 1px);
     display: grid;
     grid-template-rows: auto 38% 1fr;
     gap: 0.5em;
     font-family: "Georgia", "Times New Roman", "Times", serif;
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--card-border);
     box-shadow:
-      0 0.95em 2.2em rgba(0, 0, 0, 0.18),
-      inset 0 0.03em 0 rgba(255, 255, 255, 0.9),
-      inset 0 -0.06em 0.19em rgba(0, 0, 0, 0.06);
+      0 0.95em 2.2em var(--card-shadow),
+      inset 0 0.03em 0 var(--card-highlight),
+      inset 0 -0.06em 0.19em var(--card-shadow-soft);
     transform: rotate(-2deg);
     background-image: linear-gradient(
       160deg,
-      var(--card-surface-soft, #f8f9fc),
-      var(--card-surface, #f2f4f8)
+      var(--card-surface-soft),
+      var(--card-surface)
     );
     flex: none;
-    --card-body: #ffffff;
-    --card-body-border: rgba(0, 0, 0, 0.08);
-    --card-body-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+  }
+
+  .spell-card.accent-water,
+  .spell-card.accent-plant,
+  .spell-card.accent-fire,
+  .spell-card.accent-stone,
+  .spell-card.accent-metal {
+    --card-surface: var(--color-accent-bg, var(--color-bg));
+    --card-surface-soft: var(--color-accent-fill, var(--color-bg-strong));
+    --card-frame: var(--color-accent-fill, var(--color-accent-bg-strong));
+    --card-frame-strong: var(--color-accent-fill-strong, var(--color-accent-border));
+    --card-border: var(--color-accent-border, var(--color-border-strong));
+    --card-image-border: var(--color-accent-border, var(--color-border-strong));
+    --card-body: var(--color-bg-flat);
+    --card-shadow: var(--color-accent-shadow, var(--color-shadow-subtle));
+    --chip-shadow: var(--color-accent-shadow, var(--color-shadow-subtle));
+  }
+
+  /* TODO - adjust */
+  .spell-card.accent-fire {
+    --card-surface: var(--color-fire-bg-strong);
+    --card-surface-soft: var(--color-fire-bg);
+    --card-frame: var(--color-fire-bg-strong);
+    --card-frame-strong: var(--color-fire-fill-strong);
+    --card-border: var(--color-fire-bg-strong);
+    --card-body: var(--color-fire-bg);
+    --card-body-border: var(--color-fire-fill-strong);
   }
 
   [dir="rtl"] .spell-card {
     transform: rotate(2deg);
   }
 
-  .spell-card.white {
-    --card-surface: #f7f7f3;
-    --card-frame: #ebeae4;
-    --card-frame-strong: #d7d4cc;
-    --card-surface-soft: #fbfbf8;
-    --card-text: #2a2a24;
-    --card-text-muted: rgba(42, 42, 36, 0.6);
-  }
-
-  .spell-card.red {
-    --card-surface: #f6e1dc;
-    --card-frame: #edc9c0;
-    --card-frame-strong: #dfab9f;
-    --card-surface-soft: #fbeee9;
-    --card-text: #3a1f1c;
-    --card-text-muted: rgba(58, 31, 28, 0.6);
-  }
-
-  .spell-card.black {
-    --card-surface: #1a121f;
-    --card-frame: #2a1d34;
-    --card-frame-strong: #3b2a4a;
-    --card-surface-soft: #231926;
-    --card-text: #f1efe6;
-    --card-text-muted: rgba(241, 239, 230, 0.65);
-    --card-body: #33243f;
-    --card-body-border: rgba(255, 255, 255, 0.14);
-    --card-body-shadow: none;
-  }
-
-  /* keep blue, we'll need it later */
-  .spell-card.blue {
-    --card-surface: #e6efff;
-    --card-frame: #d2e1f6;
-    --card-frame-strong: #b7c9e5;
-    --card-surface-soft: #f4f8ff;
-    --card-text: #1b2738;
-    --card-text-muted: rgba(27, 39, 56, 0.6);
-  }
-
   .spell-card.result {
-    --card-surface: #f1d8cf;
-    --card-frame: hsl(62, 35%, 90%);
-    --card-frame-strong: hsl(23, 38%, 76%);
-    --card-surface-soft: #fbfbf4;
-    --card-text: #2b2622;
-    --card-text-muted: rgba(43, 38, 34, 0.6);
+    --card-surface: var(--color-fire-fill-strong);
+    --card-surface-soft: var(--color-stone-bg);
+    --card-frame: var(--color-stone-fill);
+    --card-frame-strong: var(--color-fire-bg-strong);
+    --card-border: var(--color-fire-bg-strong);
+    --card-body-border: var(--color-fire-fill);
+    --card-text: var(--color-text);
+    --card-text-muted: var(--color-text-ghost);
+    --card-shadow: var(--color-shadow-subtle);
     transform: none;
   }
 
@@ -169,16 +177,16 @@ const costItems = costs.map((cost) => {
     gap: 0.2em;
     font-size: 1em;
     letter-spacing: 0.02em;
-    color: var(--card-text, #1b2738);
+    color: var(--card-text);
     padding: round(0.23em, 1px) round(0.38em, 1px);
     background: linear-gradient(
       180deg,
-      var(--card-frame, #d8e0ee),
-      var(--card-frame-strong, #c1cadd)
+      var(--card-frame),
+      var(--card-frame-strong)
     );
     border-radius: 0.38em;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: inset 0 0.03em 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--card-body-border);
+    box-shadow: inset 0 0.03em 0 var(--card-highlight);
   }
 
   .spell-card .card-title {
@@ -196,12 +204,16 @@ const costItems = costs.map((cost) => {
     height: round(1.23em, 2px);
     border-radius: 50%;
     font-size: round(0.85em, 1px);
-    color: #1b2738;
-    background: radial-gradient(circle at top, #f1f4fb, #d0d7e6 70%);
+    color: var(--chip-text);
+    background: radial-gradient(
+      circle at top,
+      var(--chip-bg),
+      var(--chip-bg-strong) 70%
+    );
     box-shadow:
-      inset 0 0 0.23em rgba(255, 255, 255, 0.7),
-      0 0.23em 0.38em rgba(0, 0, 0, 0.22);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+      inset 0 0 0.23em var(--chip-highlight),
+      0 0.23em 0.38em var(--chip-shadow);
+    border: 1px solid var(--chip-border);
     display: grid;
     place-items: center;
     font-family: math;
@@ -209,22 +221,46 @@ const costItems = costs.map((cost) => {
   }
 
   .spell-card .mana-cost.white {
-    color: #3a3a3a;
-    background: radial-gradient(circle at top, #ffffff, #d9d9d3 70%);
+    --chip-bg: var(--color-stone-fill);
+    --chip-bg-strong: var(--color-stone-fill-strong);
+    --chip-text: var(--color-stone-text);
+  }
+
+  .spell-card .mana-cost.colorless {
+    --chip-bg: var(--color-bg-flat);
+    --chip-bg-strong: var(--color-bg-strong);
+    --chip-text: var(--color-text);
   }
 
   .spell-card .mana-cost.red {
-    color: #6b1e1e;
-    background: radial-gradient(circle at top, #f7d8d1, #e59f93 70%);
+    --chip-bg: var(--color-fire-fill);
+    --chip-bg-strong: var(--color-fire-fill-strong);
+    --chip-text: var(--color-fire-text);
   }
 
   .spell-card .mana-cost.black {
-    color: #f1efe6;
-    background: radial-gradient(circle at top, #3a3f4a, #16181f 70%);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    box-shadow:
-      inset 0 0 0.23em rgba(255, 255, 255, 0.12),
-      0 0.23em 0.38em rgba(0, 0, 0, 0.45);
+    --chip-bg: var(--color-metal-fill);
+    --chip-bg-strong: var(--color-metal-fill-strong);
+    --chip-text: var(--color-metal-text);
+    --chip-border: var(--color-metal-border);
+  }
+
+  .spell-card .mana-cost.blue {
+    --chip-bg: var(--color-water-fill);
+    --chip-bg-strong: var(--color-water-fill-strong);
+    --chip-text: var(--color-water-text);
+  }
+
+  .spell-card .mana-cost.green {
+    --chip-bg: var(--color-plant-fill);
+    --chip-bg-strong: var(--color-plant-fill-strong);
+    --chip-text: var(--color-plant-text);
+  }
+
+  .spell-card .mana-cost.yellow {
+    --chip-bg: var(--color-stone-fill);
+    --chip-bg-strong: var(--color-stone-fill-strong);
+    --chip-text: var(--color-stone-text);
   }
 
   .spell-card .card-image img {
@@ -232,18 +268,18 @@ const costItems = costs.map((cost) => {
     height: 100%;
     object-fit: cover;
     border-radius: 0.55em;
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--card-image-border);
   }
 
   .spell-card .image-placeholder {
     width: 100%;
     height: 100%;
     border-radius: 0.55em;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--card-image-border-soft);
     background: linear-gradient(
       150deg,
-      var(--card-frame, #d8e0ee),
-      var(--card-surface-soft, #f8f9fc)
+      var(--card-frame),
+      var(--card-surface-soft)
     );
   }
 
@@ -256,7 +292,7 @@ const costItems = costs.map((cost) => {
     gap: 0.4em;
     font-size: 0.8em;
     border: 1px solid var(--card-body-border);
-    color: var(--card-text, #1b2738);
+    color: var(--card-text);
   }
 
   .spell-card .card-body p {
@@ -266,7 +302,7 @@ const costItems = costs.map((cost) => {
   .spell-card .card-quote {
     margin-top: auto;
     font-size: 0.85em;
-    color: var(--card-text-muted, rgba(27, 39, 56, 0.6));
+    color: var(--card-text-muted);
     line-height: 1.5;
 
     font-style: italic;
