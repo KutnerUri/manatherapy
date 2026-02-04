@@ -42,7 +42,7 @@ jobs:
       - name: Build
         run: bun run build
         env:
-          ASTRO_BASE: /manatheory/
+          ASTRO_BASE: /manatherapy/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
