@@ -219,9 +219,8 @@ import water from "../assets/logos/water.webp";
   }
 
   .slide-hero {
-    background-image:
-      var(--hero-image),
-      linear-gradient(130deg, #f8f0e2 15%, #e8d8bf 60%, #e9c7b0);
+    background-color: var(--color-bg);
+    background-image: var(--hero-image);
     background-repeat: no-repeat;
     background-position: center 23%;
     background-size: cover;
@@ -232,62 +231,50 @@ import water from "../assets/logos/water.webp";
 
   @media (orientation: landscape) {
     .slide-hero {
-      background-image:
-        var(--hero-image-wide),
-        linear-gradient(130deg, #f8f0e2 15%, #e8d8bf 60%, #e9c7b0);
+      background-image: var(--hero-image-wide);
     }
   }
 
   .slide-intro {
-    background: linear-gradient(140deg, #f7f1eb 0%, #efe2d2 60%, #f2d9d3);
+    background: var(--color-bg-gradient);
   }
 
   .slide-spell {
-    background: linear-gradient(
-      145deg,
-      #efe7d8 0%,
-      #f3e6d8 65%,
-      #f5dccf
-    ) !important;
+    background: var(--color-bg-gradient) !important;
   }
 
   .slide-colors {
-    background: linear-gradient(
-      150deg,
-      #ede5d1 0%,
-      #efe0c9 60%,
-      #f2d6b8
-    ) !important;
+    background: var(--color-bg-gradient) !important;
   }
 
   .slide-finale {
     background:
       radial-gradient(
         circle at 50% 14%,
-        rgba(244, 166, 151, 0.45),
+        var(--color-fire-shadow),
         transparent 55%
       ),
       radial-gradient(
         circle at 18% 33%,
-        rgba(175, 206, 166, 0.4),
+        var(--color-plant-shadow),
         transparent 55%
       ),
       radial-gradient(
         circle at 82% 33%,
-        rgba(250, 221, 150, 0.4),
+        var(--color-stone-shadow),
         transparent 55%
       ),
       radial-gradient(
         circle at 25% 78%,
-        rgba(160, 188, 219, 0.35),
+        var(--color-water-shadow),
         transparent 60%
       ),
       radial-gradient(
         circle at 75% 78%,
-        rgba(40, 46, 56, 0.35),
+        var(--color-metal-shadow),
         transparent 60%
       ),
-      linear-gradient(130deg, #f5e6cf 0%, #f0d7b8 55%, #e9c7b0) !important;
+      var(--color-bg-gradient) !important;
   }
 
   .finale-title {
@@ -308,11 +295,11 @@ import water from "../assets/logos/water.webp";
   }
 
   .slide-card {
-    background: #ffffff !important;
+    background: var(--color-bg-flat) !important;
   }
 
   .slide-combo {
-    background: #f7f9fd !important;
+    background: var(--color-bg-flat) !important;
   }
 
   .combo-row {
@@ -330,7 +317,7 @@ import water from "../assets/logos/water.webp";
   .combo-equals {
     font-family: "Gill Sans", "Trebuchet MS", sans-serif;
     font-size: clamp(2rem, 5vw, 3rem);
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--color-shadow-full);
     margin: 0 clamp(1.5rem, 3vw, 3rem);
   }
 

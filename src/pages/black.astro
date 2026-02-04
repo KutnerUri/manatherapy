@@ -223,17 +223,21 @@ const description = "Black mana - honor, pragmatism, and survival.";
 
 <style>
   .theme-black {
+    --color-bg: #120012;
+    --color-bg-strong: #1a0d24;
+    --color-bg-flat: #0c0612;
+    --color-bg-gradient: radial-gradient(circle at top, #1b0a24, #0c0612);
     --color-text: #f1efe6;
-    --color-surface: #120012;
-    --color-surface-alt: #1a0d24;
-    --color-overlay-light: rgba(255, 255, 255, 0.08);
-    --color-overlay-dark: rgba(0, 0, 0, 0.5);
-    --color-invert: #f1efe6;
-    --color-bg: rgba(255, 255, 255, 0.08);
-    --color-bg-strong: rgba(255, 255, 255, 0.12);
-    --color-border: rgba(230, 200, 255, 0.25);
+    --color-text-ghost: rgba(241, 239, 230, 0.65);
+    --color-fg: #f1efe6;
+    --color-fill: #f1efe6;
+    --color-fill-ghost: rgba(255, 255, 255, 0.22);
+    --color-border-subtle: rgba(255, 255, 255, 0.08);
+    --color-border-strong: rgba(255, 255, 255, 0.16);
+    --color-shadow-ghost: rgba(255, 255, 255, 0.08);
+    --color-shadow-faint: rgba(0, 0, 0, 0.5);
     color: var(--color-text);
-    background: radial-gradient(circle at top, #1b0a24, #0c0612);
+    background: var(--color-bg-gradient);
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   }
 

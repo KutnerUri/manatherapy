@@ -2,15 +2,25 @@
 
 ## TODO (Implementation Checklist)
 - [ ] Add palette tokens (light + dark) to global styles:
-  - [ ] `--bg`, `--bg-strong`, `--bg-flat`, `--bg-gradient`
-  - [ ] `--text`, `--text-ghost`, `--fg`, `--fill`, `--fill-ghost`
-  - [ ] `--border-subtle`, `--border-strong`
-  - [ ] `--shadow-*` scale
-  - [ ] `--favicon-fill-full`
-  - [ ] Accent palettes: `--water-*`, `--plant-*`, `--fire-*`, `--stone-*`, `--metal-*`
+  - [ ] `--color-bg`, `--color-bg-strong`, `--color-bg-flat`, `--color-bg-gradient`
+  - [ ] `--color-text`, `--color-text-ghost`, `--color-fg`, `--color-fill`, `--color-fill-ghost`
+  - [ ] `--color-border-subtle`, `--color-border-strong`
+  - [ ] `--color-shadow-*` scale
+  - [ ] `--color-favicon-fill-full`
+  - [ ] Accent palettes: `--color-water-*`, `--color-plant-*`, `--color-fire-*`, `--color-stone-*`, `--color-metal-*`
 - [ ] Map existing colors to tokens across components/pages
+- [ ] Replace tokens/usages (search-and-replace list):
+  - [x] `--text` → `--color-text`
+  - [x] `--bg` → `--color-bg`
+  - [x] `--bg-strong` → `--color-bg-strong`
+  - [x] `--bg-flat` → `--color-bg-flat`
+  - [x] `--bg-gradient` → `--color-bg-gradient`
+  - [x] `--shadow-*` → `--color-shadow-*`
+  - [x] `--fill` → `--color-fill`
+  - [x] `--border-*` → `--color-border-*`
+  - [x] `--water-*` → `--color-water-*` (same for plant/fire/stone/metal)
 - [ ] Replace slide backgrounds with tokenized gradients
-- [ ] Remove deck background overlays
+- [x] Remove deck background overlays
 - [ ] Wire `prefers-color-scheme` + optional `.dark-mode` override
 - [ ] Verify metal (black.astro) remains accent, not dark mode
 - [ ] Audit remaining hard-coded colors and update plan if needed
@@ -25,7 +35,7 @@ No code changes are made here. It is a reference + plan.
 ## Planned Schema (Draft)
 
 Format:
-`--[target]-[accent]-[part]-[weight]`
+`--color-[target]-[accent]-[part]-[weight]`
 
 Notes:
 - `target` is optional and only used for narrow, component-specific needs
@@ -36,7 +46,7 @@ Notes:
 
 ### Accent Keys
 - *(empty)* → primary color
-- `accent` → abstract accent (can be overridden, e.g. `--accent-bg: var(--water-bg)`)
+- `accent` → abstract accent (can be overridden, e.g. `--color-accent-bg: var(--color-water-bg)`)
 - `water` → blue
 - `plant` → green
 - `fire` → red
@@ -79,84 +89,84 @@ Each token is marked as **[existing]** if the value already exists in the
 codebase. If a token needs a new value, it is marked **[new]** (with `TBD`).
 
 ### Palette: Primary / Light (base)
-- `--bg`: warm parchment (#f8f2e8) **[existing]** [Layout surface]
-- `--bg-strong`: warm beige (#efe7d8) **[existing]** [Layout surface-alt]
-- `--bg-flat`: paper white (#ffffff) **[existing]** [index slide-card]
-- `--bg-gradient`: linear-gradient(140deg, #f7f1eb 0%, #efe2d2 60%, #f2d9d3) **[existing]** [index intro]
-- `--text`: near-black (#141414) **[existing]** [Layout text]
-- `--fg`: near-black (#141414) **[existing]** [same as text]
-- `--fill`: warm off-white (#f1efe6) **[existing]** [Layout invert]
-- `--text-ghost`: muted warm gray (rgba(42, 42, 36, 0.6)) **[existing]** [SpellCard white text-muted]
-- `--fill-ghost`: soft white (rgba(255, 255, 255, 0.22)) **[existing]** [PentagonMana inset]
-- `--border-subtle`: translucent black (rgba(0, 0, 0, 0.08)) **[existing]** [card/header borders]
-- `--border-strong`: translucent black (rgba(0, 0, 0, 0.12)) **[existing]** [mana cost border]
+- `--color-bg`: warm parchment (#f8f2e8) **[existing]** [Layout surface]
+- `--color-bg-strong`: warm beige (#efe7d8) **[existing]** [Layout surface-alt]
+- `--color-bg-flat`: paper white (#ffffff) **[existing]** [index slide-card]
+- `--color-bg-gradient`: linear-gradient(140deg, #f7f1eb 0%, #efe2d2 60%, #f2d9d3) **[existing]** [index intro]
+- `--color-text`: near-black (#141414) **[existing]** [Layout text]
+- `--color-fg`: near-black (#141414) **[existing]** [same as text]
+- `--color-fill`: warm off-white (#f1efe6) **[existing]** [Layout invert]
+- `--color-text-ghost`: muted warm gray (rgba(42, 42, 36, 0.6)) **[existing]** [SpellCard white text-muted]
+- `--color-fill-ghost`: soft white (rgba(255, 255, 255, 0.22)) **[existing]** [PentagonMana inset]
+- `--color-border-subtle`: translucent black (rgba(0, 0, 0, 0.08)) **[existing]** [card/header borders]
+- `--color-border-strong`: translucent black (rgba(0, 0, 0, 0.12)) **[existing]** [mana cost border]
 
 ### Palette: Water (blue)
-- `--water-bg`: mist blue (#e6f0fb) **[existing]** [ManaSlide blue base]
-- `--water-bg-strong`: soft steel blue (#c7d7ec) **[existing]** [ManaSlide blue mid]
-- `--water-fill`: pale sky (#d7e6f4) **[existing]** [PentagonMana base]
-- `--water-fill-strong`: steel blue (#9fb8d6) **[existing]** [PentagonMana deep]
-- `--water-text`: deep navy (#08192a) **[existing]** [PentagonMana text]
-- `--water-fg`: ink blue (#1b2738) **[existing]** [SpellCard blue text]
-- `--water-shadow`: blue glow (rgba(159, 184, 214, 0.4)) **[existing]** [PentagonMana glow]
-- `--water-border`: mist frame (#d2e1f6) **[existing]** [SpellCard blue frame]
+- `--color-water-bg`: mist blue (#e6f0fb) **[existing]** [ManaSlide blue base]
+- `--color-water-bg-strong`: soft steel blue (#c7d7ec) **[existing]** [ManaSlide blue mid]
+- `--color-water-fill`: pale sky (#d7e6f4) **[existing]** [PentagonMana base]
+- `--color-water-fill-strong`: steel blue (#9fb8d6) **[existing]** [PentagonMana deep]
+- `--color-water-text`: deep navy (#08192a) **[existing]** [PentagonMana text]
+- `--color-water-fg`: ink blue (#1b2738) **[existing]** [SpellCard blue text]
+- `--color-water-shadow`: blue glow (rgba(159, 184, 214, 0.4)) **[existing]** [PentagonMana glow]
+- `--color-water-border`: mist frame (#d2e1f6) **[existing]** [SpellCard blue frame]
 
 ### Palette: Plant (green)
-- `--plant-bg`: pale herb (#e7f1e2) **[existing]** [ManaSlide green base]
-- `--plant-bg-strong`: soft moss (#cfe3cc) **[existing]** [ManaSlide green mid]
-- `--plant-fill`: mint leaf (#dfeedd) **[existing]** [PentagonMana base]
-- `--plant-fill-strong`: muted leaf (#9fbf98) **[existing]** [PentagonMana deep]
-- `--plant-text`: deep forest (#0d2b17) **[existing]** [PentagonMana text]
-- `--plant-fg`: deep forest (#0d2b17) **[existing]** [same as text]
-- `--plant-shadow`: green glow (rgba(159, 191, 152, 0.4)) **[existing]** [PentagonMana glow]
-- `--plant-border`: soft moss (#b7d0b3) **[existing]** [ManaSlide green deep]
+- `--color-plant-bg`: pale herb (#e7f1e2) **[existing]** [ManaSlide green base]
+- `--color-plant-bg-strong`: soft moss (#cfe3cc) **[existing]** [ManaSlide green mid]
+- `--color-plant-fill`: mint leaf (#dfeedd) **[existing]** [PentagonMana base]
+- `--color-plant-fill-strong`: muted leaf (#9fbf98) **[existing]** [PentagonMana deep]
+- `--color-plant-text`: deep forest (#0d2b17) **[existing]** [PentagonMana text]
+- `--color-plant-fg`: deep forest (#0d2b17) **[existing]** [same as text]
+- `--color-plant-shadow`: green glow (rgba(159, 191, 152, 0.4)) **[existing]** [PentagonMana glow]
+- `--color-plant-border`: soft moss (#b7d0b3) **[existing]** [ManaSlide green deep]
 
 ### Palette: Fire (red)
-- `--fire-bg`: warm clay (#f0b4a6) **[existing]** [ManaSlide red base]
-- `--fire-bg-strong`: ember red (#d47264) **[existing]** [ManaSlide red mid]
-- `--fire-fill`: rose ember (#f5c6bb) **[existing]** [PentagonMana base]
-- `--fire-fill-strong`: ember core (#f08d7b) **[existing]** [PentagonMana deep]
-- `--fire-text`: deep ember (#3b0f0a) **[existing]** [PentagonMana text]
-- `--fire-fg`: deep ember (#3b0f0a) **[existing]** [same as text]
-- `--fire-shadow`: red glow (rgba(240, 141, 123, 0.4)) **[existing]** [PentagonMana glow]
-- `--fire-border`: soft ember (#dfab9f) **[existing]** [SpellCard red frame-strong]
+- `--color-fire-bg`: warm clay (#f0b4a6) **[existing]** [ManaSlide red base]
+- `--color-fire-bg-strong`: ember red (#d47264) **[existing]** [ManaSlide red mid]
+- `--color-fire-fill`: rose ember (#f5c6bb) **[existing]** [PentagonMana base]
+- `--color-fire-fill-strong`: ember core (#f08d7b) **[existing]** [PentagonMana deep]
+- `--color-fire-text`: deep ember (#3b0f0a) **[existing]** [PentagonMana text]
+- `--color-fire-fg`: deep ember (#3b0f0a) **[existing]** [same as text]
+- `--color-fire-shadow`: red glow (rgba(240, 141, 123, 0.4)) **[existing]** [PentagonMana glow]
+- `--color-fire-border`: soft ember (#dfab9f) **[existing]** [SpellCard red frame-strong]
 
 ### Palette: Stone (yellow)
-- `--stone-bg`: pale wheat (#fff9ef) **[existing]** [ManaSlide yellow base]
-- `--stone-bg-strong`: warm sand (#f7eed2) **[existing]** [ManaSlide yellow mid]
-- `--stone-fill`: buttercream (#faedc5) **[existing]** [PentagonMana base]
-- `--stone-fill-strong`: golden ochre (#f2c85f) **[existing]** [PentagonMana deep]
-- `--stone-text`: deep umber (#4a3512) **[existing]** [PentagonMana text]
-- `--stone-fg`: deep umber (#4a3512) **[existing]** [same as text]
-- `--stone-shadow`: golden glow (rgba(242, 200, 95, 0.4)) **[existing]** [PentagonMana glow]
-- `--stone-border`: warm sand (#f1db9b) **[existing]** [ManaSlide yellow deep]
+- `--color-stone-bg`: pale wheat (#fff9ef) **[existing]** [ManaSlide yellow base]
+- `--color-stone-bg-strong`: warm sand (#f7eed2) **[existing]** [ManaSlide yellow mid]
+- `--color-stone-fill`: buttercream (#faedc5) **[existing]** [PentagonMana base]
+- `--color-stone-fill-strong`: golden ochre (#f2c85f) **[existing]** [PentagonMana deep]
+- `--color-stone-text`: deep umber (#4a3512) **[existing]** [PentagonMana text]
+- `--color-stone-fg`: deep umber (#4a3512) **[existing]** [same as text]
+- `--color-stone-shadow`: golden glow (rgba(242, 200, 95, 0.4)) **[existing]** [PentagonMana glow]
+- `--color-stone-border`: warm sand (#f1db9b) **[existing]** [ManaSlide yellow deep]
 
 ### Palette: Metal (black / purple)
-- `--metal-bg`: midnight plum (#240a34) **[existing]** [ManaSlide black base]
-- `--metal-bg-strong`: deep void (#120012) **[existing]** [ManaSlide black mid]
-- `--metal-fill`: graphite (#3a3f4a) **[existing]** [PentagonMana base]
-- `--metal-fill-strong`: deep steel (#16181f) **[existing]** [PentagonMana deep]
-- `--metal-text`: warm off-white (#f1efe6) **[existing]** [PentagonMana text]
-- `--metal-fg`: warm off-white (#f1efe6) **[existing]** [same as text]
-- `--metal-shadow`: cold glow (rgba(22, 24, 31, 0.35)) **[existing]** [PentagonMana glow]
-- `--metal-border`: violet ink (#3b2a4a) **[existing]** [SpellCard black frame-strong]
+- `--color-metal-bg`: midnight plum (#240a34) **[existing]** [ManaSlide black base]
+- `--color-metal-bg-strong`: deep void (#120012) **[existing]** [ManaSlide black mid]
+- `--color-metal-fill`: graphite (#3a3f4a) **[existing]** [PentagonMana base]
+- `--color-metal-fill-strong`: deep steel (#16181f) **[existing]** [PentagonMana deep]
+- `--color-metal-text`: warm off-white (#f1efe6) **[existing]** [PentagonMana text]
+- `--color-metal-fg`: warm off-white (#f1efe6) **[existing]** [same as text]
+- `--color-metal-shadow`: cold glow (rgba(22, 24, 31, 0.35)) **[existing]** [PentagonMana glow]
+- `--color-metal-border`: violet ink (#3b2a4a) **[existing]** [SpellCard black frame-strong]
 
 ### Abstract Accent (alias)
-- `--accent-*` should point at one of the accent palettes above.
-  Example: `--accent-bg: var(--water-bg)` **[existing]** (value is a reference, not a new color).
+- `--color-accent-*` should point at one of the accent palettes above.
+  Example: `--color-accent-bg: var(--color-water-bg)` **[existing]** (value is a reference, not a new color).
 
 ### Shadow Scale (Existing Values Only)
 These are candidate shadow tokens using only existing alpha values:
-- `--shadow-ghost`: rgba(0, 0, 0, 0.08) **[existing]**
-- `--shadow-faint`: rgba(0, 0, 0, 0.12) **[existing]**
-- `--shadow-subtle`: rgba(0, 0, 0, 0.18) **[existing]**
-- `--shadow-strong`: rgba(0, 0, 0, 0.28) **[existing]**
-- `--shadow-dense`: rgba(0, 0, 0, 0.35) **[existing]**
-- `--shadow-sharp`: rgba(0, 0, 0, 0.45) **[existing]**
-- `--shadow-full`: rgba(0, 0, 0, 0.5) **[existing]**
+- `--color-shadow-ghost`: rgba(0, 0, 0, 0.08) **[existing]**
+- `--color-shadow-faint`: rgba(0, 0, 0, 0.12) **[existing]**
+- `--color-shadow-subtle`: rgba(0, 0, 0, 0.18) **[existing]**
+- `--color-shadow-strong`: rgba(0, 0, 0, 0.28) **[existing]**
+- `--color-shadow-dense`: rgba(0, 0, 0, 0.35) **[existing]**
+- `--color-shadow-sharp`: rgba(0, 0, 0, 0.45) **[existing]**
+- `--color-shadow-full`: rgba(0, 0, 0, 0.5) **[existing]**
 
 ### Favicon
-- `--favicon-fill-full`: #424242 **[existing]**
+- `--color-favicon-fill-full`: #424242 **[existing]**
 
 ## Draft Values — Dark Mode (Proposed)
 
@@ -168,67 +178,67 @@ Note:
   Its colors should not be treated as the global dark-mode base palette.
 
 ### Palette: Primary / Dark (base)
-- `--bg`: deep charcoal (#121316) **[new]**
-- `--bg-strong`: dark graphite (#191b20) **[new]**
-- `--bg-flat`: near-black (#0b0c0f) **[new]**
-- `--bg-gradient`: radial-gradient(circle at top, #1d2026, #0b0c0f) **[new]**
-- `--text`: warm off-white (#f3f1ea) **[new]**
-- `--fg`: warm off-white (#f3f1ea) **[new]**
-- `--fill`: slate (#2a2d35) **[new]**
-- `--text-ghost`: soft off-white (rgba(243, 241, 234, 0.65)) **[new]**
-- `--fill-ghost`: soft white (rgba(255, 255, 255, 0.22)) **[existing]** [PentagonMana inset]
-- `--border-subtle`: translucent white (rgba(255, 255, 255, 0.08)) **[existing]**
-- `--border-strong`: translucent white (rgba(255, 255, 255, 0.16)) **[existing]**
+- `--color-bg`: deep charcoal (#121316) **[new]**
+- `--color-bg-strong`: dark graphite (#191b20) **[new]**
+- `--color-bg-flat`: near-black (#0b0c0f) **[new]**
+- `--color-bg-gradient`: radial-gradient(circle at top, #1d2026, #0b0c0f) **[new]**
+- `--color-text`: warm off-white (#f3f1ea) **[new]**
+- `--color-fg`: warm off-white (#f3f1ea) **[new]**
+- `--color-fill`: slate (#2a2d35) **[new]**
+- `--color-text-ghost`: soft off-white (rgba(243, 241, 234, 0.65)) **[new]**
+- `--color-fill-ghost`: soft white (rgba(255, 255, 255, 0.22)) **[existing]** [PentagonMana inset]
+- `--color-border-subtle`: translucent white (rgba(255, 255, 255, 0.08)) **[existing]**
+- `--color-border-strong`: translucent white (rgba(255, 255, 255, 0.16)) **[existing]**
 
 ### Palette: Water (blue) — dark mode
-- `--water-bg`: deep ocean (#0e1d2f) **[new]**
-- `--water-bg-strong`: midnight slate (#132a41) **[new]**
-- `--water-fill`: dark sea (#1b2f46) **[new]**
-- `--water-fill-strong`: abyss (#0b1624) **[new]**
-- `--water-text`: ice mist (#d7e7f7) **[new]**
-- `--water-fg`: ice mist (#d7e7f7) **[new]**
-- `--water-shadow`: blue glow (rgba(73, 126, 171, 0.35)) **[new]**
-- `--water-border`: muted steel (#2b4360) **[new]**
+- `--color-water-bg`: deep ocean (#0e1d2f) **[new]**
+- `--color-water-bg-strong`: midnight slate (#132a41) **[new]**
+- `--color-water-fill`: dark sea (#1b2f46) **[new]**
+- `--color-water-fill-strong`: abyss (#0b1624) **[new]**
+- `--color-water-text`: ice mist (#d7e7f7) **[new]**
+- `--color-water-fg`: ice mist (#d7e7f7) **[new]**
+- `--color-water-shadow`: blue glow (rgba(73, 126, 171, 0.35)) **[new]**
+- `--color-water-border`: muted steel (#2b4360) **[new]**
 
 ### Palette: Plant (green) — dark mode
-- `--plant-bg`: deep forest (#122017) **[new]**
-- `--plant-bg-strong`: shadow moss (#1b2d22) **[new]**
-- `--plant-fill`: dark leaf (#243a2a) **[new]**
-- `--plant-fill-strong`: pine bark (#0f1a13) **[new]**
-- `--plant-text`: pale mint (#dff2e5) **[new]**
-- `--plant-fg`: pale mint (#dff2e5) **[new]**
-- `--plant-shadow`: green glow (rgba(86, 140, 110, 0.35)) **[new]**
-- `--plant-border`: muted pine (#2f4a36) **[new]**
+- `--color-plant-bg`: deep forest (#122017) **[new]**
+- `--color-plant-bg-strong`: shadow moss (#1b2d22) **[new]**
+- `--color-plant-fill`: dark leaf (#243a2a) **[new]**
+- `--color-plant-fill-strong`: pine bark (#0f1a13) **[new]**
+- `--color-plant-text`: pale mint (#dff2e5) **[new]**
+- `--color-plant-fg`: pale mint (#dff2e5) **[new]**
+- `--color-plant-shadow`: green glow (rgba(86, 140, 110, 0.35)) **[new]**
+- `--color-plant-border`: muted pine (#2f4a36) **[new]**
 
 ### Palette: Fire (red) — dark mode
-- `--fire-bg`: ember ash (#2b0f10) **[new]**
-- `--fire-bg-strong`: deep ember (#3a1414) **[new]**
-- `--fire-fill`: coal red (#4a1b1a) **[new]**
-- `--fire-fill-strong`: soot red (#1f0a0a) **[new]**
-- `--fire-text`: pale peach (#f6d7cf) **[new]**
-- `--fire-fg`: pale peach (#f6d7cf) **[new]**
-- `--fire-shadow`: ember glow (rgba(201, 96, 79, 0.35)) **[new]**
-- `--fire-border`: deep clay (#5a2722) **[new]**
+- `--color-fire-bg`: ember ash (#2b0f10) **[new]**
+- `--color-fire-bg-strong`: deep ember (#3a1414) **[new]**
+- `--color-fire-fill`: coal red (#4a1b1a) **[new]**
+- `--color-fire-fill-strong`: soot red (#1f0a0a) **[new]**
+- `--color-fire-text`: pale peach (#f6d7cf) **[new]**
+- `--color-fire-fg`: pale peach (#f6d7cf) **[new]**
+- `--color-fire-shadow`: ember glow (rgba(201, 96, 79, 0.35)) **[new]**
+- `--color-fire-border`: deep clay (#5a2722) **[new]**
 
 ### Palette: Stone (yellow) — dark mode
-- `--stone-bg`: dark ochre (#2a2114) **[new]**
-- `--stone-bg-strong`: deep sand (#3a2e1a) **[new]**
-- `--stone-fill`: earthen brown (#4a3a24) **[new]**
-- `--stone-fill-strong`: soot brown (#1f160b) **[new]**
-- `--stone-text`: pale sand (#f2e4c9) **[new]**
-- `--stone-fg`: pale sand (#f2e4c9) **[new]**
-- `--stone-shadow`: warm glow (rgba(183, 144, 79, 0.35)) **[new]**
-- `--stone-border`: dry earth (#604528) **[new]**
+- `--color-stone-bg`: dark ochre (#2a2114) **[new]**
+- `--color-stone-bg-strong`: deep sand (#3a2e1a) **[new]**
+- `--color-stone-fill`: earthen brown (#4a3a24) **[new]**
+- `--color-stone-fill-strong`: soot brown (#1f160b) **[new]**
+- `--color-stone-text`: pale sand (#f2e4c9) **[new]**
+- `--color-stone-fg`: pale sand (#f2e4c9) **[new]**
+- `--color-stone-shadow`: warm glow (rgba(183, 144, 79, 0.35)) **[new]**
+- `--color-stone-border`: dry earth (#604528) **[new]**
 
 ### Palette: Metal (respect) — dark mode
-- `--metal-bg`: near-black (#0b0b10) **[new]**
-- `--metal-bg-strong`: obsidian (#12131a) **[new]**
-- `--metal-fill`: gunmetal (#1d1f27) **[new]**
-- `--metal-fill-strong`: black steel (#07080c) **[new]**
-- `--metal-text`: warm off-white (#f1efe6) **[existing]**
-- `--metal-fg`: warm off-white (#f1efe6) **[existing]**
-- `--metal-shadow`: cold shadow (rgba(30, 34, 46, 0.4)) **[new]**
-- `--metal-border`: deep violet-charcoal (#2b2a36) **[new]**
+- `--color-metal-bg`: near-black (#0b0b10) **[new]**
+- `--color-metal-bg-strong`: obsidian (#12131a) **[new]**
+- `--color-metal-fill`: gunmetal (#1d1f27) **[new]**
+- `--color-metal-fill-strong`: black steel (#07080c) **[new]**
+- `--color-metal-text`: warm off-white (#f1efe6) **[existing]**
+- `--color-metal-fg`: warm off-white (#f1efe6) **[existing]**
+- `--color-metal-shadow`: cold shadow (rgba(30, 34, 46, 0.4)) **[new]**
+- `--color-metal-border`: deep violet-charcoal (#2b2a36) **[new]**
 
 ---
 
@@ -257,10 +267,10 @@ later. If a token is missing, it should be added and marked **[new]**.
 
 ### Layout + Core
 - Body background gradient:
-  - Use `--bg-gradient`.
+  - Use `--color-bg-gradient`.
 - Slide overlays:
-  - Light overlay → `--shadow-ghost` (or `--shadow-faint` if needed)
-  - Dark overlay → `--shadow-faint` (or `--shadow-subtle`)
+  - Light overlay → `--color-shadow-ghost` (or `--color-shadow-faint` if needed)
+  - Dark overlay → `--color-shadow-faint` (or `--color-shadow-subtle`)
 - Deck overlays:
   - Remove deck background entirely.
 
@@ -268,21 +278,21 @@ later. If a token is missing, it should be added and marked **[new]**.
 - Hero slide:
   - Remove special gradient; rely on image + base bg tokens.
 - Intro / Spell / Colors slides:
-  - Use `--bg-gradient`.
+  - Use `--color-bg-gradient`.
 - Finale multi‑radial:
   - Each radial uses its element accent:
-    - water → `--water-fill` (or `--water-shadow` for soft glow)
-    - plant → `--plant-fill`
-    - fire → `--fire-fill`
-    - stone → `--stone-fill`
-    - metal → `--metal-fill`
-  - Base layer uses `--bg` / `--bg-strong`.
+    - water → `--color-water-fill` (or `--color-water-shadow` for soft glow)
+    - plant → `--color-plant-fill`
+    - fire → `--color-fire-fill`
+    - stone → `--color-stone-fill`
+    - metal → `--color-metal-fill`
+  - Base layer uses `--color-bg` / `--color-bg-strong`.
 
 ### ManaSlide (color decks)
 - Background gradients should be composed from that element’s tokens:
   - Use `--[accent]-bg`, `--[accent]-bg-strong`, and `--[accent]-shadow`.
 - Text:
-  - Use `--[accent]-text` (or `--text` when accent is empty).
+  - Use `--[accent]-text` (or `--color-text` when accent is empty).
 
 ### PentagonMana
 - Circle fills:
@@ -290,32 +300,32 @@ later. If a token is missing, it should be added and marked **[new]**.
 - Label text:
   - `--[accent]-text`
 - Label shadow:
-  - `--[accent]-shadow` (fallback to `--shadow-subtle`)
+  - `--[accent]-shadow` (fallback to `--color-shadow-subtle`)
 - Shine:
-  - Use primary palette white with weight (e.g. `--fill-ghost`) **[existing]**
+  - Use primary palette white with weight (e.g. `--color-fill-ghost`) **[existing]**
 
 ### SpellCard
 - Card surface:
   - `--[accent]-bg` and `--[accent]-bg-strong`
 - Card frame:
-  - `--[accent]-border` (or `--border-subtle` if accent is empty)
+  - `--[accent]-border` (or `--color-border-subtle` if accent is empty)
 - Card text:
-  - `--[accent]-text` with weight tokens for muted text (`--text-ghost`) **[existing]**
+  - `--[accent]-text` with weight tokens for muted text (`--color-text-ghost`) **[existing]**
 - Card body:
-  - Use `--bg` in both modes (simple, readable)
+  - Use `--color-bg` in both modes (simple, readable)
 - Mana chips:
   - Use `--[accent]-fill` + `--[accent]-text`
 
 ### Hamburger Menu
 - Backgrounds:
-  - `--bg` and `--bg-strong`
+  - `--color-bg` and `--color-bg-strong`
 - Borders:
-  - `--border-subtle`
+  - `--color-border-subtle`
 - Lines + text:
-  - `--text`
+  - `--color-text`
 
 ### Favicon
-- Use `--favicon-fill-full`
+- Use `--color-favicon-fill-full`
 ---
 
 ## Utility Class Plan (Draft)
@@ -327,25 +337,25 @@ Example structure (not final naming):
 
 ```
 :root {
-  --text-color: var(--text);
-  --bg-color: var(--bg);
-  --accent-text: var(--accent-text, var(--text));
+  --text-color: var(--color-text);
+  --bg-color: var(--color-bg);
+  --accent-text: var(--color-accent-text, var(--color-text));
 }
 
 .water-accent {
-  --accent-bg: var(--water-bg);
-  --accent-text: var(--water-text);
+  --accent-bg: var(--color-water-bg);
+  --accent-text: var(--color-water-text);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: var(--text);
-    --bg-color: var(--bg);
+    --text-color: var(--color-text);
+    --bg-color: var(--color-bg);
   }
 
   .water-accent {
-    --accent-bg: var(--water-bg);
-    --accent-text: var(--water-text);
+    --accent-bg: var(--color-water-bg);
+    --accent-text: var(--color-water-text);
   }
 }
 
@@ -368,18 +378,18 @@ Notes:
 
 File: `src/layouts/Layout.astro`
 - `--color-text`: #141414
-- `--color-surface`: #f8f2e8
-- `--color-surface-alt`: #efe7d8
-- `--color-overlay-light`: rgba(255, 255, 255, 0.6)
-- `--color-overlay-dark`: rgba(0, 0, 0, 0.08)
-- `--color-invert`: #f1efe6
+- `--color-bg`: #f8f2e8
+- `--color-bg-strong`: #efe7d8
+- `--color-shadow-ghost`: rgba(0, 0, 0, 0.08)
+- `--color-shadow-faint`: rgba(0, 0, 0, 0.12)
+- `--color-fill`: #f1efe6
 - Body background gradient:
-  - radial-gradient(circle at top, var(--color-surface), var(--color-surface-alt))
+  - var(--color-bg-gradient)
 
 File: `src/components/Slide.astro`
 - Slide background overlay gradients (uses vars + transparent):
-  - radial-gradient(circle at 20% 20%, var(--color-overlay-light), transparent 60%)
-  - radial-gradient(circle at 80% 70%, var(--color-overlay-dark), transparent 60%)
+  - radial-gradient(circle at 20% 20%, var(--color-shadow-ghost), transparent 60%)
+  - radial-gradient(circle at 80% 70%, var(--color-shadow-faint), transparent 60%)
 
 File: `src/components/Slideshow.astro`
 - `.deck` background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.04))
@@ -415,14 +425,18 @@ File: `src/pages/index.astro`
 File: `src/pages/black.astro`
 - Theme variables:
   - `--color-text`: #f1efe6
-  - `--color-surface`: #120012
-  - `--color-surface-alt`: #1a0d24
-  - `--color-overlay-light`: rgba(255, 255, 255, 0.08)
-  - `--color-overlay-dark`: rgba(0, 0, 0, 0.5)
-  - `--color-invert`: #f1efe6
-  - `--color-bg`: rgba(255, 255, 255, 0.08)
-  - `--color-bg-strong`: rgba(255, 255, 255, 0.12)
-  - `--color-border`: rgba(230, 200, 255, 0.25)
+  - `--color-text-ghost`: rgba(241, 239, 230, 0.65)
+  - `--color-fg`: #f1efe6
+  - `--color-fill`: #f1efe6
+  - `--color-fill-ghost`: rgba(255, 255, 255, 0.22)
+  - `--color-bg`: #120012
+  - `--color-bg-strong`: #1a0d24
+  - `--color-bg-flat`: #0c0612
+  - `--color-bg-gradient`: radial-gradient(circle at top, #1b0a24, #0c0612)
+  - `--color-border-subtle`: rgba(255, 255, 255, 0.08)
+  - `--color-border-strong`: rgba(255, 255, 255, 0.16)
+  - `--color-shadow-ghost`: rgba(255, 255, 255, 0.08)
+  - `--color-shadow-faint`: rgba(0, 0, 0, 0.5)
 - Page background:
   - radial-gradient(circle at top, #1b0a24, #0c0612)
 - Slide backgrounds:
@@ -483,7 +497,7 @@ File: `src/components/ManaSlide.astro`
   - radial-gradient(circle at 50% 50%, rgba(78, 38, 112, 0.32) 0%, rgba(78, 38, 112, 0.12) 55%, transparent 75%)
   - linear-gradient(160deg, #240a34 0%, #120012 55%, #080008 100%)
 - Black slide text:
-  - `.slide-color.black` color: var(--color-invert)
+  - `.slide-color.black` color: var(--color-metal-text)
   - `.slide-color.black .color-sub`: rgba(241, 239, 230, 0.8)
 
 ## Pentagon Mana
@@ -493,7 +507,7 @@ File: `src/components/PentagonMana.astro`
   - radial-gradient(circle at 30% 20%, rgba(255, 255, 255, var(--shine-opacity)), transparent 60%)
   - radial-gradient(circle at 30% 20%, var(--mana-base), var(--mana-deep) 70%)
 - Mana circle shadows:
-  - rgba(0, 0, 0, var(--shadow-alpha, 0.16))
+  - rgba(0, 0, 0, var(--color-shadow-alpha, 0.16))
   - rgba(0, 0, 0, 0.12) (default `--mana-glow`)
   - rgba(255, 255, 255, 0.22) (inset)
 - Mana label shadows:

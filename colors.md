@@ -16,9 +16,11 @@ naming consistent and to make intent obvious.
   - Default (if not overridden): soft white at 60% opacity.
 - `--color-bg-flat`
   - Opaque UI background (modals, solid panels).
-- `--color-border`
+- `--color-border-subtle`
   - Subtle UI border color.
   - Default (if not overridden): soft white at 25% opacity.
+- `--color-border-strong`
+  - Stronger border color for emphasis.
 
 Notes:
 - When a solid foreground is needed (e.g. a strong red), we should use an
@@ -32,7 +34,7 @@ Defined in `src/components/HamburgerMenu.astro`:
 
 - `--menu-bg` = `var(--color-bg, soft white at 40% opacity)`
 - `--menu-bg-strong` = `var(--color-bg-strong, soft white at 60% opacity)`
-- `--menu-border` = `var(--color-border, soft white at 25% opacity)`
+- `--menu-border` = `var(--color-border-subtle, soft white at 25% opacity)`
 
 The hamburger lines use `currentColor` (so they follow the page text color).
 
@@ -42,7 +44,7 @@ Defined in `src/pages/black.astro` (`.theme-black`):
 
 - `--color-bg`: white at 8% opacity (very subtle haze)
 - `--color-bg-strong`: white at 12% opacity (slightly stronger hover)
-- `--color-border`: pale lavender at 25% opacity
+- `--color-border-subtle`: pale lavender at 25% opacity
 
 These values keep the menu readable on the dark background without introducing
 heavy glow or high-contrast borders.

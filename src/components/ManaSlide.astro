@@ -128,11 +128,12 @@ const {
         transparent 75%
       ),
       linear-gradient(160deg, #240a34 0%, #120012 55%, #080008 100%);
-    color: var(--color-invert);
+    color: var(--color-metal-text, var(--color-text));
   }
 
   .slide-color.black .color-sub {
-    color: rgba(241, 239, 230, 0.8);
+    color: var(--color-metal-text, var(--color-text));
+    opacity: 0.8;
   }
 
   .color-sub {

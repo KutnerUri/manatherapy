@@ -71,18 +71,72 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
 <style is:global>
   body {
     font-family: "Georgia", "Times New Roman", "Times", serif;
-    --color-text: #141414;
-    --color-surface: #f8f2e8;
-    --color-surface-alt: #efe7d8;
-    --color-overlay-light: rgba(255, 255, 255, 0.6);
-    --color-overlay-dark: rgba(0, 0, 0, 0.08);
-    --color-invert: #f1efe6;
-    color: var(--color-text);
-    background: radial-gradient(
-      circle at top,
-      var(--color-surface),
-      var(--color-surface-alt)
+    --color-bg: #f8f2e8;
+    --color-bg-strong: #efe7d8;
+    --color-bg-flat: #ffffff;
+    --color-bg-gradient: linear-gradient(
+      140deg,
+      #f7f1eb 0%,
+      #efe2d2 60%,
+      #f2d9d3
     );
+    --color-text: #141414;
+    --color-text-ghost: rgba(42, 42, 36, 0.6);
+    --color-fg: #141414;
+    --color-fill: #f1efe6;
+    --color-fill-ghost: rgba(255, 255, 255, 0.22);
+    --color-border-subtle: rgba(0, 0, 0, 0.08);
+    --color-border-strong: rgba(0, 0, 0, 0.12);
+    --color-shadow-ghost: rgba(0, 0, 0, 0.08);
+    --color-shadow-faint: rgba(0, 0, 0, 0.12);
+    --color-shadow-subtle: rgba(0, 0, 0, 0.18);
+    --color-shadow-strong: rgba(0, 0, 0, 0.28);
+    --color-shadow-dense: rgba(0, 0, 0, 0.35);
+    --color-shadow-sharp: rgba(0, 0, 0, 0.45);
+    --color-shadow-full: rgba(0, 0, 0, 0.5);
+    --color-favicon-fill-full: #424242;
+    --color-water-bg: #e6f0fb;
+    --color-water-bg-strong: #c7d7ec;
+    --color-water-fill: #d7e6f4;
+    --color-water-fill-strong: #9fb8d6;
+    --color-water-text: #08192a;
+    --color-water-fg: #1b2738;
+    --color-water-shadow: rgba(159, 184, 214, 0.4);
+    --color-water-border: #d2e1f6;
+    --color-plant-bg: #e7f1e2;
+    --color-plant-bg-strong: #cfe3cc;
+    --color-plant-fill: #dfeedd;
+    --color-plant-fill-strong: #9fbf98;
+    --color-plant-text: #0d2b17;
+    --color-plant-fg: #0d2b17;
+    --color-plant-shadow: rgba(159, 191, 152, 0.4);
+    --color-plant-border: #b7d0b3;
+    --color-fire-bg: #f0b4a6;
+    --color-fire-bg-strong: #d47264;
+    --color-fire-fill: #f5c6bb;
+    --color-fire-fill-strong: #f08d7b;
+    --color-fire-text: #3b0f0a;
+    --color-fire-fg: #3b0f0a;
+    --color-fire-shadow: rgba(240, 141, 123, 0.4);
+    --color-fire-border: #dfab9f;
+    --color-stone-bg: #fff9ef;
+    --color-stone-bg-strong: #f7eed2;
+    --color-stone-fill: #faedc5;
+    --color-stone-fill-strong: #f2c85f;
+    --color-stone-text: #4a3512;
+    --color-stone-fg: #4a3512;
+    --color-stone-shadow: rgba(242, 200, 95, 0.4);
+    --color-stone-border: #f1db9b;
+    --color-metal-bg: #240a34;
+    --color-metal-bg-strong: #120012;
+    --color-metal-fill: #3a3f4a;
+    --color-metal-fill-strong: #16181f;
+    --color-metal-text: #f1efe6;
+    --color-metal-fg: #f1efe6;
+    --color-metal-shadow: rgba(22, 24, 31, 0.35);
+    --color-metal-border: #3b2a4a;
+    color: var(--color-text);
+    background: var(--color-bg-gradient);
 
     margin: 0;
   }
