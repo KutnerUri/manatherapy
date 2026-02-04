@@ -1,0 +1,214 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"nav"> {}
+
+const { class: className, ...rest }: Props = Astro.props;
+
+const links = [
+  { href: "/", label: "דף הבית" },
+  { href: "/black", label: "כבוד" },
+];
+---
+
+<nav class:list={["hamburger-menu", className]} data-hamburger-menu {...rest}>
+  <button
+    class="hamburger-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="site-menu"
+  >
+    <span class="sr-only">Open menu</span>
+    <span class="line" aria-hidden="true"></span>
+    <span class="line" aria-hidden="true"></span>
+    <span class="line" aria-hidden="true"></span>
+  </button>
+
+  <div class="menu-panel" id="site-menu" role="menu">
+    {
+      links.map((link) => (
+        <a class="menu-link" href={link.href} role="menuitem">
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<script>
+  const menus = document.querySelectorAll("[data-hamburger-menu]");
+
+  function handleClick() {
+    console.log("clicked");
+  }
+
+  menus.forEach((menu) => {
+    const toggle = menu.querySelector(".hamburger-toggle");
+    const panel = menu.querySelector(".menu-panel");
+    const links = panel ? panel.querySelectorAll("a") : [];
+
+    if (!toggle || !panel) return;
+
+    const closeMenu = () => {
+      menu.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    const openMenu = () => {
+      menu.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    };
+
+    const toggleMenu = () => {
+      if (menu.classList.contains("is-open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    };
+
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleMenu();
+    });
+
+    panel.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+
+    links.forEach((link) => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("click", () => {
+      if (menu.classList.contains("is-open")) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+  });
+</script>
+
+<style>
+  .hamburger-menu {
+    --menu-bg: var(--color-bg, rgba(255, 255, 255, 0.4));
+    --menu-bg-strong: var(--color-bg-strong, rgba(255, 255, 255, 0.6));
+    --menu-border: var(--color-border, rgba(255, 255, 255, 0.25));
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    color: inherit;
+  }
+
+  [dir="rtl"] .hamburger-menu {
+    right: auto;
+    left: 1rem;
+  }
+
+  [dir="rtl"] .hamburger-toggle,
+  [dir="rtl"] .menu-panel {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .hamburger-toggle {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--menu-border);
+    border-radius: 10px;
+    background: var(--menu-bg);
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px) saturate(1.2);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    display: grid;
+    place-items: center;
+    gap: 5px;
+    padding: 9px;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .hamburger-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .is-open .line:nth-child(2) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .is-open .line:nth-child(3) {
+    opacity: 0;
+  }
+
+  .is-open .line:nth-child(4) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .menu-panel {
+    min-width: 160px;
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--menu-border);
+    background: var(--menu-bg);
+    box-shadow:
+      0 14px 36px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .is-open .menu-panel {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-link {
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .menu-link:hover,
+  .menu-link:focus-visible {
+    background: var(--menu-bg-strong);
+    outline: none;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

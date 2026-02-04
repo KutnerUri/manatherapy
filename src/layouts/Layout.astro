@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import HamburgerMenu from "../components/HamburgerMenu.astro";
 import defaultOgImage from "../assets/5-elem.jpg";
 import defaultFavicon from "../favicon.svg";
 
@@ -62,6 +63,7 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
     <title>{title}</title>
   </head>
   <body dir={dir} class={className} {...rest}>
+    <HamburgerMenu />
     <slot />
   </body>
 </html>
