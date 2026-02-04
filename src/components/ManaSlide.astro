@@ -22,20 +22,11 @@ const {
   ...rest
 } = Astro.props as Props;
 
-const accentClassMap = {
-  blue: "accent-water",
-  green: "accent-plant",
-  red: "accent-fire",
-  yellow: "accent-stone",
-  black: "accent-metal",
-} as const;
-
-const accentClass = accentClassMap[colorClass];
 ---
 
 <Slide
   {...rest}
-  class:list={["slide-color", colorClass, accentClass, className]}
+  class:list={["slide-color", colorClass, `accent-${colorClass}`, className]}
   slide={slide}
 >
   <div class="color-logo">

@@ -2,12 +2,15 @@
 
 ## TODO (Implementation Checklist)
 - [ ] Add palette tokens (light + dark) to global styles:
-  - [ ] `--color-bg`, `--color-bg-strong`, `--color-bg-flat`, `--color-bg-gradient`
-  - [ ] `--color-text`, `--color-text-ghost`, `--color-fg`, `--color-fill`, `--color-fill-ghost`
-  - [ ] `--color-border-subtle`, `--color-border-strong`
-  - [ ] `--color-shadow-*` scale
-  - [ ] `--color-favicon-fill-full`
-  - [ ] Accent palettes: `--color-water-*`, `--color-plant-*`, `--color-fire-*`, `--color-stone-*`, `--color-metal-*`
+  - [x] Light base tokens in `theme-main`
+  - [ ] Dark base tokens in a theme override
+  - [x] Accent palettes (light) in `theme-main`
+  - [ ] Accent palettes (dark) in a theme override
+  - [x] `--color-bg`, `--color-bg-strong`, `--color-bg-flat`, `--color-bg-gradient`
+  - [x] `--color-text`, `--color-text-ghost`, `--color-fg`, `--color-fill`, `--color-fill-ghost`
+  - [x] `--color-border-subtle`, `--color-border-strong`
+  - [x] `--color-shadow-*` scale
+  - [x] `--color-favicon-fill-full`
 - [ ] Map existing colors to tokens across components/pages
 - [ ] Replace tokens/usages (search-and-replace list):
   - [x] `--text` → `--color-text`
@@ -19,10 +22,13 @@
   - [x] `--fill` → `--color-fill`
   - [x] `--border-*` → `--color-border-*`
   - [x] `--water-*` → `--color-water-*` (same for plant/fire/stone/metal)
-- [ ] Replace slide backgrounds with tokenized gradients
+- [ ] Replace slide backgrounds with tokenized gradients:
+  - [x] Home page slides use `--color-bg-gradient`
+  - [x] ManaSlide uses accent tokens (incl. black special case)
+  - [x] Black page slide gradients
 - [x] Remove deck background overlays
 - [ ] Wire `prefers-color-scheme` + optional `.dark-mode` override
-- [ ] Verify metal (black.astro) remains accent, not dark mode
+- [x] Verify metal (black.astro) remains accent, not dark mode
 - [ ] Audit remaining hard-coded colors and update plan if needed
 
 This file has three parts:
