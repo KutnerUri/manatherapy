@@ -52,7 +52,15 @@ const costItems = costs.map((cost) => {
     <span class="mana-group">
       {
         costItems.map((cost) => (
-          <span class={`mana-cost ${cost.color}`} aria-label={cost.label}>
+          <span
+            class:list={[
+              "mana-cost",
+              cost.color,
+              cost.color !== "colorless" && `accent-${cost.color}`,
+              cost.color !== "colorless" && "mana-accent",
+            ]}
+            aria-label={cost.label}
+          >
             {cost.value}
           </span>
         ))
@@ -99,12 +107,6 @@ const costItems = costs.map((cost) => {
     --card-highlight: var(--color-fill-ghost);
     --card-shadow: var(--color-shadow-subtle);
     --card-shadow-soft: var(--color-shadow-ghost);
-    --chip-bg: var(--color-accent-fill, var(--color-fill));
-    --chip-bg-strong: var(--color-accent-fill-strong, var(--color-bg-strong));
-    --chip-text: var(--color-accent-text, var(--color-text));
-    --chip-border: var(--color-border-strong);
-    --chip-highlight: var(--color-fill-ghost);
-    --chip-shadow: var(--color-shadow-subtle);
     background: var(--card-surface);
     border-radius: 0.62em;
     padding: round(0.38em, 1px);
@@ -204,6 +206,12 @@ const costItems = costs.map((cost) => {
     height: round(1.23em, 2px);
     border-radius: 50%;
     font-size: round(0.85em, 1px);
+    --chip-bg: var(--color-fill);
+    --chip-bg-strong: var(--color-bg-strong);
+    --chip-text: var(--color-text);
+    --chip-border: var(--color-border-strong);
+    --chip-highlight: var(--color-fill-ghost);
+    --chip-shadow: var(--color-shadow-subtle);
     color: var(--chip-text);
     background: radial-gradient(
       circle at top,
@@ -220,47 +228,12 @@ const costItems = costs.map((cost) => {
     user-select: none;
   }
 
-  .spell-card .mana-cost.white {
-    --chip-bg: var(--color-stone-fill);
-    --chip-bg-strong: var(--color-stone-fill-strong);
-    --chip-text: var(--color-stone-text);
-  }
-
-  .spell-card .mana-cost.colorless {
-    --chip-bg: var(--color-bg-flat);
-    --chip-bg-strong: var(--color-bg-strong);
-    --chip-text: var(--color-text);
-  }
-
-  .spell-card .mana-cost.red {
-    --chip-bg: var(--color-fire-fill);
-    --chip-bg-strong: var(--color-fire-fill-strong);
-    --chip-text: var(--color-fire-text);
-  }
-
-  .spell-card .mana-cost.black {
-    --chip-bg: var(--color-metal-fill);
-    --chip-bg-strong: var(--color-metal-fill-strong);
-    --chip-text: var(--color-metal-text);
-    --chip-border: var(--color-metal-border);
-  }
-
-  .spell-card .mana-cost.blue {
-    --chip-bg: var(--color-water-fill);
-    --chip-bg-strong: var(--color-water-fill-strong);
-    --chip-text: var(--color-water-text);
-  }
-
-  .spell-card .mana-cost.green {
-    --chip-bg: var(--color-plant-fill);
-    --chip-bg-strong: var(--color-plant-fill-strong);
-    --chip-text: var(--color-plant-text);
-  }
-
-  .spell-card .mana-cost.yellow {
-    --chip-bg: var(--color-stone-fill);
-    --chip-bg-strong: var(--color-stone-fill-strong);
-    --chip-text: var(--color-stone-text);
+  .spell-card .mana-cost.mana-accent {
+    --chip-bg: var(--color-accent-fill, var(--color-fill));
+    --chip-bg-strong: var(--color-accent-fill-strong, var(--color-bg-strong));
+    --chip-text: var(--color-accent-text, var(--color-text));
+    --chip-border: var(--color-accent-border, var(--color-border-strong));
+    --chip-shadow: var(--color-accent-shadow, var(--color-shadow-subtle));
   }
 
   .spell-card .card-image img {

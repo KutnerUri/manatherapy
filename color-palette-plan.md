@@ -30,6 +30,7 @@
 - [ ] Wire `prefers-color-scheme` + optional `.dark-mode` override
 - [x] Verify metal (black.astro) remains accent, not dark mode
 - [x] Audit remaining hard-coded colors and update plan if needed
+- [ ] Add a `colorless` accent (utility class + token aliases)
 
 This file has three parts:
 - **Planned Schema**: the naming system we will use going forward.
