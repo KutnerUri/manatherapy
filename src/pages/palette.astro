@@ -1,0 +1,325 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const INK = "#141414";
+
+type AccentTokens = {
+  appBg: string;
+  cardBg: string;
+  cardContentBg: string;
+  cardHeaderBg: string;
+  manaBg: string;
+};
+
+type AccentPreview = {
+  key: string;
+  label: string;
+  tokens: AccentTokens;
+};
+
+const accents: AccentPreview[] = [
+  {
+    key: "colorless",
+    label: "Colorless",
+    tokens: {
+      appBg: "#fbfbfb",
+      cardBg: "#f2f2f2",
+      cardContentBg: "#fefefe",
+      cardHeaderBg: "#e9e9e9",
+      manaBg: "#d7d7d7",
+    },
+  },
+  {
+    key: "earth",
+    label: "Earth",
+    tokens: {
+      appBg: "#fefbe8",
+      cardBg: "#f8f3d5",
+      cardContentBg: "#fefdf7",
+      cardHeaderBg: "#f2eab4",
+      manaBg: "#e6d35c",
+    },
+  },
+  {
+    key: "water",
+    label: "Water",
+    tokens: {
+      appBg: "#f7faff",
+      cardBg: "#eaf3ff",
+      cardContentBg: "#fbfdff",
+      cardHeaderBg: "#dae9ff",
+      manaBg: "#b5d3ff",
+    },
+  },
+  {
+    key: "plant",
+    label: "Plant",
+    tokens: {
+      appBg: "#f0fff0",
+      cardBg: "#e2f9e2",
+      cardContentBg: "#f9fef9",
+      cardHeaderBg: "#ccf5cc",
+      manaBg: "#94e997",
+    },
+  },
+  {
+    key: "fire",
+    label: "Fire (Plasma)",
+    tokens: {
+      appBg: "#fff8fa",
+      cardBg: "#ffecf2",
+      cardContentBg: "#fffbfc",
+      cardHeaderBg: "#ffdde9",
+      manaBg: "#ffbad4",
+    },
+  },
+  {
+    key: "metal",
+    label: "Metal",
+    tokens: {
+      appBg: "#fef8ff",
+      cardBg: "#fbecff",
+      cardContentBg: "#fefbff",
+      cardHeaderBg: "#f9ddff",
+      manaBg: "#f2b9ff",
+    },
+  },
+];
+
+function styleForAccent(tokens: AccentTokens) {
+  return [
+    `--ink:${INK}`,
+    `--app-bg:${tokens.appBg}`,
+    `--card-bg:${tokens.cardBg}`,
+    `--card-content-bg:${tokens.cardContentBg}`,
+    `--card-header-bg:${tokens.cardHeaderBg}`,
+    `--mana-bg:${tokens.manaBg}`,
+  ].join(";");
+}
+
+function tokenRows(tokens: AccentTokens) {
+  return [
+    { name: "--app-bg", value: tokens.appBg },
+    { name: "--card-bg", value: tokens.cardBg },
+    { name: "--card-content-bg", value: tokens.cardContentBg },
+    { name: "--card-header-bg", value: tokens.cardHeaderBg },
+    { name: "--mana-bg", value: tokens.manaBg },
+  ];
+}
+---
+
+<Layout title="Palette Preview" class="palette-page">
+  <main class="palette">
+    <header class="palette-header">
+      <h1>Spellcards Accent Palette</h1>
+      <p>
+        Candidate Set A (Phase 1 light mode). Ink:
+        <code>{INK}</code>
+      </p>
+    </header>
+
+    <section class="palette-grid" aria-label="Accent palette previews">
+      {
+        accents.map((accent) => (
+          <article
+            class="accent-preview"
+            data-accent={accent.key}
+            style={styleForAccent(accent.tokens)}
+          >
+            <div class="accent-wallpaper" aria-hidden="true" />
+
+            <div class="accent-card" role="group" aria-label={`${accent.label} preview`}>
+              <div class="accent-header">
+                <strong class="accent-title">{accent.label}</strong>
+                <span class="accent-mana" aria-label="Mana cost">
+                  1
+                </span>
+              </div>
+
+              <div class="accent-content">
+                <p class="accent-body">
+                  Sample text on content background. The goal is clear layering:
+                  wallpaper → card → content → header → mana.
+                </p>
+
+                <dl class="accent-tokens">
+                  {tokenRows(accent.tokens).map((token) => (
+                    <div class="token-row">
+                      <dt class="token-name">
+                        <code>{token.name}</code>
+                      </dt>
+                      <dd class="token-value">
+                        <span
+                          class="token-swatch"
+                          style={`--swatch:${token.value}`}
+                          aria-hidden="true"
+                        />
+                        <code>{token.value}</code>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .palette {
+    min-height: 100vh;
+    padding: clamp(1rem, 3vw, 2rem);
+    color: var(--color-text);
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .palette-header h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    letter-spacing: 0.01em;
+  }
+
+  .palette-header p {
+    margin: 0.35rem 0 0;
+    opacity: 0.8;
+  }
+
+  .palette-header code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    font-size: 0.95em;
+  }
+
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .accent-preview {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
+    background: var(--app-bg);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    min-height: 360px;
+  }
+
+  .accent-wallpaper {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 55%),
+      linear-gradient(160deg, rgba(0, 0, 0, 0.03), transparent 35%);
+    pointer-events: none;
+  }
+
+  .accent-card {
+    position: relative;
+    margin: 1.1rem;
+    border-radius: 14px;
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+      0 18px 46px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  .accent-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 0.9rem;
+    background: var(--card-header-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--ink);
+  }
+
+  .accent-title {
+    font-size: 1.02rem;
+    letter-spacing: 0.01em;
+  }
+
+  .accent-mana {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--mana-bg);
+    color: var(--ink);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    box-shadow:
+      0 10px 20px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    flex: none;
+  }
+
+  .accent-content {
+    background: var(--card-content-bg);
+    padding: 0.95rem;
+    color: var(--ink);
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .accent-body {
+    margin: 0;
+    line-height: 1.45;
+    opacity: 0.9;
+  }
+
+  .accent-tokens {
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .token-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.45rem 0.5rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .token-name,
+  .token-value {
+    margin: 0;
+  }
+
+  .token-name code,
+  .token-value code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    font-size: 0.86rem;
+  }
+
+  .token-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .token-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    background: var(--swatch);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    flex: none;
+  }
+</style>
