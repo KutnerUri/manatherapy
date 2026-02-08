@@ -146,59 +146,51 @@ import water from "../assets/logos/water.webp";
 
     <Slide class="slide-card" slide={11}>
       <SpellCard
-        color="white"
+        accent="earth"
         title="נהיגה"
-        costs={["white"]}
-        image={drivingImage}
+        mana="1"
+        imageSrc={drivingImage.src}
         imageAlt="Driving spell illustration"
-      >
-        שליטה ברכב
-        <br />
-        ציות לתמרורים
-        <br />
-        השתלבות בתנועה
-      </SpellCard>
+        lines={["שליטה ברכב", "ציות לתמרורים", "השתלבות בתנועה"]}
+      />
     </Slide>
 
     <Slide class="slide-combo" slide={12}>
       <div class="combo-row">
         <div class="card-stack">
           <SpellCard
-            color="white"
+            accent="earth"
             class="base"
             title="מתכון"
-            costs={["white"]}
-            image={recipeImage}
+            mana="1"
+            imageSrc={recipeImage.src}
             imageAlt="Recipe spell illustration"
-            draggable={false}
-          >
-            מסמך המפרט את כל המרכיבים הדרושים, שלבי ההכנה המדויקים והכמויות
-            הנדרשות ליצירת מאכל מוגמר
-          </SpellCard>
+            lines={[
+              "מסמך שמפרט מרכיבים,",
+              "שלבי הכנה מדויקים,",
+              "וכמויות ליצירת מאכל מוגמר.",
+            ]}
+          />
           <SpellCard
-            color="red"
+            accent="fire"
             class="overlap"
             title="בישול"
-            costs={["red", "red"]}
-            image={bakingImage}
+            mana="2"
+            imageSrc={bakingImage.src}
             imageAlt="Baking spell illustration"
-            draggable={false}
-          >
-            עבד מרכיבים, הכנס לתבנית, השתמש בתנור
-          </SpellCard>
+            lines={["עבד מרכיבים", "הכנס לתבנית", "השתמש בתנור"]}
+          />
         </div>
 
         <div class="combo-equals">=</div>
         <SpellCard
-          class="result"
+          accent="earth"
           title="אפיית עוגה"
-          costs={["white", "red", "red"]}
-          image={bakingCakeImage}
+          mana="3"
+          imageSrc={bakingCakeImage.src}
           imageAlt="Bake a cake spell illustration"
-          draggable={false}
-        >
-          צור עוגה טעימה ומוכנה להגשה
-        </SpellCard>
+          lines={["צור עוגה טעימה", "ומוכנה להגשה"]}
+        />
       </div>
     </Slide>
   </Slideshow>
@@ -214,12 +206,12 @@ import water from "../assets/logos/water.webp";
     font-size: 5vmax;
     text-align: center;
     text-shadow:
-      0 2px 10px var(--color-glow-strong),
-      0 0 22px var(--color-glow);
+      0 2px 10px var(--fx-light-glow-strong),
+      0 0 22px var(--fx-light-glow);
   }
 
   .slide-hero {
-    background-color: var(--color-bg);
+    background-color: var(--wallpaper);
     background-image: var(--hero-image);
     background-repeat: no-repeat;
     background-position: center 23%;
@@ -236,45 +228,45 @@ import water from "../assets/logos/water.webp";
   }
 
   .slide-intro {
-    background: var(--color-bg-gradient);
+    background: var(--wallpaper);
   }
 
   .slide-spell {
-    background: var(--color-bg-gradient) !important;
+    background: var(--wallpaper) !important;
   }
 
   .slide-colors {
-    background: var(--color-bg-gradient) !important;
+    background: var(--wallpaper) !important;
   }
 
   .slide-finale {
     background:
       radial-gradient(
         circle at 50% 14%,
-        var(--color-fire-shadow),
+        var(--token-fire-full),
         transparent 55%
       ),
       radial-gradient(
         circle at 18% 33%,
-        var(--color-plant-shadow),
+        var(--token-plant-full),
         transparent 55%
       ),
       radial-gradient(
         circle at 82% 33%,
-        var(--color-stone-shadow),
+        var(--token-earth-full),
         transparent 55%
       ),
       radial-gradient(
         circle at 25% 78%,
-        var(--color-water-shadow),
+        var(--token-water-full),
         transparent 60%
       ),
       radial-gradient(
         circle at 75% 78%,
-        var(--color-metal-shadow),
+        var(--token-metal-full),
         transparent 60%
       ),
-      var(--color-bg-gradient) !important;
+      var(--wallpaper) !important;
   }
 
   .finale-title {
@@ -295,11 +287,11 @@ import water from "../assets/logos/water.webp";
   }
 
   .slide-card {
-    background: var(--color-bg-flat) !important;
+    background: var(--content-surface) !important;
   }
 
   .slide-combo {
-    background: var(--color-bg-flat) !important;
+    background: var(--content-surface) !important;
   }
 
   .combo-row {
@@ -317,7 +309,7 @@ import water from "../assets/logos/water.webp";
   .combo-equals {
     font-family: "Gill Sans", "Trebuchet MS", sans-serif;
     font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--color-shadow-full);
+    color: var(--fx-shadow-full);
     margin: 0 clamp(1.5rem, 3vw, 3rem);
   }
 

@@ -47,7 +47,7 @@ const { class: className, ...rest }: Props = Astro.props;
     font-size: clamp(1.05rem, 2.6vw, 1.6rem);
     letter-spacing: 0.08em;
     font-weight: 700;
-    color: var(--mana-text, var(--color-text));
+    color: var(--mana-text, var(--ink));
     --shine-opacity: 0.23;
     background-image:
       radial-gradient(
@@ -65,8 +65,8 @@ const { class: className, ...rest }: Props = Astro.props;
     background-repeat: no-repeat;
     box-shadow:
       0 18px 35px rgba(0, 0, 0, var(--shadow-alpha, 0.16)),
-      0 0 24px var(--mana-glow, var(--color-shadow-faint)),
-      inset 0 0 0 1px var(--color-fill-ghost);
+      0 0 24px var(--mana-glow, var(--fx-shadow-soft)),
+      inset 0 0 0 1px var(--fx-highlight);
     cursor: pointer;
     transition:
       transform 0.5s ease,
@@ -83,13 +83,13 @@ const { class: className, ...rest }: Props = Astro.props;
   .mana-label {
     z-index: 2;
     font-family: "Gill Sans", "Trebuchet MS", sans-serif;
-    text-shadow: 0 2px 4px var(--color-shadow-sharp);
+    text-shadow: 0 2px 4px var(--fx-shadow-sharp);
   }
 
   .mana-circle.red .mana-label,
   .mana-circle.green .mana-label,
   .mana-circle.blue .mana-label {
-    text-shadow: 0 2px 4px var(--color-shadow-light);
+    text-shadow: 0 2px 4px var(--fx-light-glow);
   }
 
   :global(.slide.is-active) .mana-circle {
@@ -99,7 +99,7 @@ const { class: className, ...rest }: Props = Astro.props;
 
   .mana-circle:active {
     transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(0.95);
-    box-shadow: 0 12px 25px var(--color-shadow-subtle);
+    box-shadow: 0 12px 25px var(--fx-shadow-subtle);
   }
 
   .mana-circle.red {
@@ -107,10 +107,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --y: calc(var(--orbit) * 0.809);
     --delay: 0.2s;
     --mana-image: url("../assets/logos/fire.webp");
-    --mana-base: var(--color-fire-fill);
-    --mana-deep: var(--color-fire-fill-strong);
-    --mana-glow: var(--color-fire-shadow);
-    --mana-text: var(--color-fire-text);
+    --mana-base: var(--token-fire-highlight);
+    --mana-deep: var(--token-fire-full);
+    --mana-glow: var(--token-fire-full);
+    --mana-text: var(--ink);
   }
 
   .mana-circle.green {
@@ -118,10 +118,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --y: calc(var(--orbit) * -0.309);
     --delay: 0.1s;
     --mana-image: url("../assets/logos/plant.webp");
-    --mana-base: var(--color-plant-fill);
-    --mana-deep: var(--color-plant-fill-strong);
-    --mana-glow: var(--color-plant-shadow);
-    --mana-text: var(--color-plant-text);
+    --mana-base: var(--token-plant-highlight);
+    --mana-deep: var(--token-plant-full);
+    --mana-glow: var(--token-plant-full);
+    --mana-text: var(--ink);
   }
 
   .mana-circle.yellow {
@@ -130,10 +130,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --delay: 0.3s;
     --mana-image: url("../assets/logos/sun.webp");
     --shadow-alpha: 0.12;
-    --mana-base: var(--color-stone-fill);
-    --mana-deep: var(--color-stone-fill-strong);
-    --mana-glow: var(--color-stone-shadow);
-    --mana-text: var(--color-stone-text);
+    --mana-base: var(--token-earth-highlight);
+    --mana-deep: var(--token-earth-full);
+    --mana-glow: var(--token-earth-full);
+    --mana-text: var(--ink);
   }
 
   .mana-circle.blue {
@@ -141,10 +141,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --y: calc(var(--orbit) * -1);
     --delay: 0s;
     --mana-image: url("../assets/logos/water.webp");
-    --mana-base: var(--color-water-fill);
-    --mana-deep: var(--color-water-fill-strong);
-    --mana-glow: var(--color-water-shadow);
-    --mana-text: var(--color-water-text);
+    --mana-base: var(--token-water-highlight);
+    --mana-deep: var(--token-water-full);
+    --mana-glow: var(--token-water-full);
+    --mana-text: var(--ink);
   }
 
   .mana-circle.black {
@@ -153,10 +153,10 @@ const { class: className, ...rest }: Props = Astro.props;
     --delay: 0.4s;
     --mana-image: url("../assets/logos/metal.webp");
     --shadow-alpha: 0.12;
-    --mana-base: var(--color-metal-fill);
-    --mana-deep: var(--color-metal-fill-strong);
-    --mana-glow: var(--color-metal-shadow);
-    --mana-text: var(--color-metal-text);
+    --mana-base: var(--token-metal-highlight);
+    --mana-deep: var(--token-metal-full);
+    --mana-glow: var(--token-metal-full);
+    --mana-text: var(--ink);
   }
 
   @media (max-width: 720px) {

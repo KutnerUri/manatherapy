@@ -42,49 +42,42 @@ const {
     background:
       linear-gradient(
         to bottom,
-        var(--color-accent-shadow) 0%,
-        transparent 15%,
-        transparent 85%,
-        var(--color-accent-shadow) 100%
+        rgba(255, 255, 255, 0.22) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(0, 0, 0, 0.08) 100%
       ),
       radial-gradient(
         circle at 85% 85%,
-        var(--color-accent-shadow),
+        var(--full),
         transparent 60%
       ),
       linear-gradient(
         160deg,
-        var(--color-accent-bg) 0%,
-        var(--color-accent-bg-strong) 55%,
-        var(--color-accent-border) 100%
+        var(--wallpaper) 0%,
+        var(--surface) 55%,
+        var(--highlight) 100%
       );
-    color: var(--color-accent-text, var(--color-text));
+    color: var(--ink);
   }
 
   .slide-color.black {
     background:
-      linear-gradient(
-        to bottom,
-        var(--color-metal-mist) 0%,
-        transparent 15%
+      radial-gradient(
+        circle at 50% 45%,
+        var(--full) 0%,
+        transparent 60%
       ),
       radial-gradient(
-        circle at 50% 50%,
-        var(--color-metal-core) 0%,
-        var(--color-metal-core-strong) 40%,
-        transparent 100%
-      ),
-      radial-gradient(
-        circle at 50% 50%,
-        var(--color-metal-aura) 0%,
-        var(--color-metal-aura-soft) 55%,
-        transparent 75%
+        circle at 20% 10%,
+        rgba(255, 255, 255, 0.26) 0%,
+        transparent 60%
       ),
       linear-gradient(
         160deg,
-        var(--color-accent-bg) 0%,
-        var(--color-accent-bg-strong) 55%,
-        var(--color-metal-core) 100%
+        var(--surface) 0%,
+        var(--highlight) 58%,
+        var(--wallpaper) 100%
       );
   }
 

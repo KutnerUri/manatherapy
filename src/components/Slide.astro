@@ -23,14 +23,15 @@ const { class: className, slide, ...rest }: Props = Astro.props;
     background:
       radial-gradient(
         circle at 20% 20%,
-        var(--color-shadow-ghost),
+        var(--fx-shadow-ghost),
         transparent 60%
       ),
       radial-gradient(
         circle at 80% 70%,
-        var(--color-shadow-faint),
+        var(--fx-shadow-soft),
         transparent 60%
-      );
+      ),
+      var(--wallpaper);
   }
 
   .text-slide {

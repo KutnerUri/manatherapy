@@ -7,6 +7,7 @@ import Slide from "../components/Slide.astro";
 import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
+import Manacard from "../components/Manacard.astro";
 import Layout from "../layouts/Layout.astro";
 import gettingWhatYouWantImage from "../assets/getting-what-you-want.webp";
 import settingBordersImage from "../assets/setting-borders.webp";
@@ -19,7 +20,7 @@ const title = "כבוד — מאנה תרפיה";
 const description = "Black mana - honor, pragmatism, and survival.";
 ---
 
-<Layout title={title} description={description} lang="he" class="accent-metal">
+<Layout title={title} description={description} lang="he" data-accent="metal">
   <Slideshow>
     <ManaSlide
       colorClass="black"
@@ -81,112 +82,96 @@ const description = "Black mana - honor, pragmatism, and survival.";
       <SectionTitle>מה כבוד מאפשר לנו</SectionTitle>
       <div class="spell-card-row">
         <SpellCard
-          color="black"
           title="לבחור"
-          costs={["black"]}
-          image={choosingImage}
+          mana="1"
+          imageSrc={choosingImage.src}
           imageAlt="Choosing spell illustration"
+          lines={["דלג על דילמה"]}
           quote="זה קל לבחור כשאתה יודע מה אתה רוצה"
-        >
-          דלג על דילמה
-        </SpellCard>
+        />
         <SpellCard
-          color="black"
           title="להציב גבולות"
-          costs={["black"]}
-          image={settingBordersImage}
+          mana="1"
+          imageSrc={settingBordersImage.src}
           imageAlt="Setting borders spell illustration"
+          lines={["סרב לדרישה או ציפייה"]}
           quote="אני לא מוכן, זה יקר מדי"
-        >
-          סרב לדרישה או ציפייה
-        </SpellCard>
+        />
         <SpellCard
-          color="black"
           title="אמביציה"
-          costs={[
-            "black",
-            { color: "colorless", value: "X", label: "עלות שחור" },
-          ]}
-          image={workDoneImage}
+          mana="X"
+          imageSrc={workDoneImage.src}
           imageAlt="Paying prices spell illustration"
+          lines={[
+            "התמודד עם אי-נוחות זמנית.",
+            "התקדם X צעדים לכיוון היעד שלך.",
+          ]}
           quote="אם זה היה קל, כולם היו עושים את זה"
-        >
-          התמודד עם אי-נוחות זמנית.
-          <br />
-          התקדם X צעדים לכיוון היעד שלך.
-        </SpellCard>
+        />
         <SpellCard
-          color="black"
-          title="להשיג מה שאני רוצה"
-          costs={["black", "black", "black"]}
-          image={gettingWhatYouWantImage}
+          title="להשיג"
+          mana="3"
+          imageSrc={gettingWhatYouWantImage.src}
           imageAlt="Getting what you want spell illustration"
+          lines={[
+            "קח דבר מה שאתה רוצה.",
+            "במקום לשלם מאנה, ניתן להקריב משהו כתמורה.",
+          ]}
           quote="זה מגיע לי"
-        >
-          קח דבר מה שאתה רוצה.
-          <br />
-          <br />
-          במקום לשלם מאנה, ניתן להקריב משהו כתמורה.
-        </SpellCard>
+        />
       </div>
     </Slide>
 
     <Slide class="slide-metal" slide={5}>
       <div class="spell-card-row">
         <SpellCard
-          color="black"
           title="מניפולציה"
+          mana="2"
+          imageSrc={workDoneImage.src}
+          imageAlt="Manipulation spell illustration"
+          lines={[
+            "השפע על מישהו לטובתך.",
+            "שלם עוד 2 מאנה אם אין לו אינטרס.",
+            "ועוד 3 אם זה נוגד את האינטרס שלו.",
+          ]}
           quote="הוא לא צריך לדעת הכל... כל עוד הוא מרוויח"
-          costs={["black", "black"]}
-        >
-          השפע על מישהו לטובתך.
-          <br />
-          <br />
-          שלם עוד 2 מאנה אם אין לו אינטרס.
-          <br />
-          ועוד 3 אם זה נוגד את האינטרס שלו.
-        </SpellCard>
+        />
         <SpellCard
-          color="black"
           title="הלוואה"
+          mana="1"
+          imageSrc={settingBordersImage.src}
+          imageAlt="Loan spell illustration"
+          lines={["קבל כסף עכשיו, והחזר פי שתיים בעוד 10 תורות."]}
           quote="העתיד יכול לחכות, אני צריך את זה עכשיו"
-          costs={["black"]}
-        >
-          קבל כסף עכשיו, והחזר פי שתיים בעוד 10 תורות.
-        </SpellCard>
+        />
         <SpellCard
-          color="black"
           title="הפק תועלת"
-          quote="אם ככה, לפחות אני אצא מזה עם משהו"
-          costs={["black"]}
-          image={extractionImage}
+          mana="1"
+          imageSrc={extractionImage.src}
           imageAlt="Extraction spell illustration"
-        >
-          קח מצב רע, או משהו שנגמר, ותוציא ממנו ערך.
-        </SpellCard>
+          lines={["קח מצב רע, או משהו שנגמר, ותוציא ממנו ערך."]}
+          quote="אם ככה, לפחות אני אצא מזה עם משהו"
+        />
       </div>
     </Slide>
 
     <Slide class="text-slide slide-metal" slide={6}>
       <SlideInner>
         <SectionTitle>יצירה של מאנה שחורה</SectionTitle>
-        <div class="creation-grid">
-          <article class="creation-card">
-            <h3>בדיקת רצון</h3>
-            <p>בכל פעם שיש ספק, לשאול - מה אני רוצה?</p>
-          </article>
-          <article class="creation-card">
-            <h3>הערכה לרצון</h3>
-            <p>אם אני רוצה את זה, זה חשוב</p>
-          </article>
-          <article class="creation-card">
-            <h3>מודעות למחיר</h3>
-            <p>מה המחיר המלא למה שאני רוצה? האם אני מוכן לשלם אותו?</p>
-          </article>
-          <article class="creation-card">
-            <h3>הערכה לסיפוק</h3>
-            <p>האם אני מרוצה ממה שקיבלתי?</p>
-          </article>
+        <div class="creation-panel">
+          <Manacard
+            class="creation-manacard"
+            title="איך לייצר מאנה שחורה"
+            mana="1"
+            imageSrc={gettingWhatYouWantImage.src}
+            imageAlt="Black mana generation illustration"
+            lines={[
+              "בכל פעם שיש ספק: מה אני רוצה?",
+              "אם אני רוצה את זה, זה חשוב.",
+              "מה המחיר המלא? האם אני מוכן לשלם אותו?",
+              "האם אני מרוצה ממה שקיבלתי?",
+            ]}
+          />
         </div>
       </SlideInner>
     </Slide>
@@ -223,7 +208,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
 
 <style>
   .slide-metal {
-    background: var(--color-bg-gradient) !important;
+    background: var(--app-bg) !important;
   }
 
   .spell-card-row {
@@ -231,11 +216,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
     gap: 1.6rem;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     justify-items: center;
-    max-width: 86%;
-  }
-
-  .spell-card-row .spell-card {
-    transform: none !important;
+    max-width: 95%;
   }
 
   @media (max-width: 1100px) {
@@ -250,39 +231,14 @@ const description = "Black mana - honor, pragmatism, and survival.";
     }
   }
 
-
-  .creation-grid {
+  .creation-panel {
+    margin-top: 1.2rem;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1.2rem, 3vw, 2rem);
-    margin-top: 1.5rem;
+    justify-items: center;
   }
 
-  .creation-card {
-    padding: clamp(1.2rem, 2.6vw, 2rem);
-    border-radius: 18px;
-    background: var(--color-metal-panel-bg);
-    box-shadow:
-      0 18px 35px var(--color-shadow-dense),
-      inset 0 0 0 1px var(--color-border-subtle);
-  }
-
-  .creation-card h3 {
-    margin: 0 0 0.6rem;
-    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-    letter-spacing: 0.05em;
-  }
-
-  .creation-card p {
-    margin: 0;
-    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 720px) {
-    .creation-grid {
-      grid-template-columns: 1fr;
-    }
+  .creation-manacard {
+    max-width: 340px;
   }
 
   .development-grid {
@@ -295,10 +251,10 @@ const description = "Black mana - honor, pragmatism, and survival.";
   .development-card {
     padding: clamp(1.4rem, 3vw, 2.2rem);
     border-radius: 20px;
-    background: var(--color-metal-panel-bg);
+    background: var(--surface);
     box-shadow:
-      0 18px 35px var(--color-shadow-dense),
-      inset 0 0 0 1px var(--color-border-subtle);
+      0 18px 35px var(--fx-shadow-dense),
+      inset 0 0 0 1px var(--fx-border-subtle);
   }
 
   .development-card h3 {
@@ -321,11 +277,5 @@ const description = "Black mana - honor, pragmatism, and survival.";
     .development-grid {
       grid-template-columns: 1fr;
     }
-  }
-</style>
-
-<style is:global>
-  :root {
-    background: black;
   }
 </style>

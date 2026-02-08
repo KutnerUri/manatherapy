@@ -10,7 +10,6 @@ interface Props extends Omit<HTMLAttributes<"article">, "data-accent"> {
   imageSrc: string;
   imageAlt?: string;
   lines?: string[];
-  quote?: string;
 }
 
 const {
@@ -20,36 +19,30 @@ const {
   imageSrc,
   imageAlt = "Driving card artwork",
   lines = ["control the vehicle", "obey road signs", "blend in traffic"],
-  quote,
   class: className,
   ...rest
 }: Props = Astro.props;
 ---
 
-<article
-  {...rest}
-  data-accent={accent}
-  class:list={["spellcard-template", className]}
->
-  <div class="spellcard-header">
-    <strong class="spellcard-title">{title}</strong>
+<article {...rest} data-accent={accent} class:list={["manacard-template", className]}>
+  <div class="manacard-header">
+    <strong class="manacard-title">{title}</strong>
     <ManaBadge value={mana} accent={accent} />
   </div>
 
-  <div class="spellcard-image-slot" aria-label="Card artwork">
-    <img class="spellcard-image" src={imageSrc} alt={imageAlt} />
+  <div class="manacard-image-slot" aria-label="Card artwork">
+    <img class="manacard-image" src={imageSrc} alt={imageAlt} />
   </div>
 
-  <div class="spellcard-content">
-    <div class="spellcard-lines" aria-label="Card text">
+  <div class="manacard-content">
+    <div class="manacard-lines" aria-label="Card text">
       {lines.map((line) => <p>{line}</p>)}
     </div>
-    {quote && <p class="spellcard-quote">{quote}</p>}
   </div>
 </article>
 
 <style>
-  .spellcard-template {
+  .manacard-template {
     --color-card-surface: var(--color-accent-surface);
     --color-card-highlight: var(--color-accent-highlight);
     --color-card-content-surface: var(--color-content-surface);
@@ -71,52 +64,44 @@ const {
     display: grid;
     grid-template-rows: 9fr 38fr 53fr;
     align-content: stretch;
-    gap: 0;
+    gap: 0.52em;
+    padding: 0.64em;
   }
 
-  .spellcard-header,
-  .spellcard-image-slot,
-  .spellcard-content {
+  .manacard-header,
+  .manacard-image-slot,
+  .manacard-content {
     min-height: 0;
   }
 
-  .spellcard-header {
-    border-radius: 0.72em 0.72em 0 0;
-    background: var(--color-card-surface);
+  .manacard-header {
+    border-radius: 0.72em;
+    background: var(--color-card-highlight);
     color: var(--ink);
-    padding-block: 0;
-    padding-inline: 0.62em;
+    border: 0;
+    padding: 0 0.12em 0 0.95em;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.7em;
   }
 
-  .spellcard-title {
+  .manacard-title {
     font-size: 1.16em;
     letter-spacing: 0.01em;
   }
 
-  .spellcard-image-slot {
-    border-radius: 0;
+  .manacard-image-slot {
+    border-radius: 0.72em;
     position: relative;
     overflow: hidden;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.18)
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        rgba(0, 0, 0, 0.03) 0 8px,
-        rgba(0, 0, 0, 0.06) 8px 16px
-      );
+      linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.18)),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.03) 0 8px, rgba(0, 0, 0, 0.06) 8px 16px);
   }
 
-  .spellcard-image {
+  .manacard-image {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -126,42 +111,27 @@ const {
     object-position: center;
   }
 
-  .spellcard-content {
-    border-radius: 0 0 0.72em 0.72em;
-    background: var(--color-card-content-surface);
+  .manacard-content {
+    border-radius: 0.72em;
+    background: transparent;
     color: var(--ink);
-    border-top: 0;
-    padding: 0.38em 0.62em;
+    border: 0;
+    padding: 0;
     overflow: auto;
+    align-content: start;
     display: grid;
     gap: 0.4em;
   }
 
-  .spellcard-lines {
+  .manacard-lines {
     display: grid;
     gap: 0.35em;
   }
 
-  .spellcard-lines p {
+  .manacard-lines p {
     margin: 0;
     font-size: 1em;
     line-height: 1.25;
     opacity: 0.9;
-  }
-
-  .spellcard-quote {
-    margin: auto 0 0 0;
-    font-size: 0.76em;
-    line-height: 1.35;
-    font-style: italic;
-    opacity: 0.62;
-  }
-
-  .spellcard-quote::before {
-    content: '"';
-  }
-
-  .spellcard-quote::after {
-    content: '"';
   }
 </style>

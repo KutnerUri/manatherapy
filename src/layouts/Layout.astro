@@ -71,169 +71,209 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
 <style is:global>
   body {
     margin: 0;
+    color: var(--ink);
+    background: var(--wallpaper);
   }
 
   .theme-main {
     font-family: "Georgia", "Times New Roman", "Times", serif;
-    --color-bg: #f8f2e8;
-    --color-bg-strong: #efe7d8;
-    --color-bg-flat: #ffffff;
-    --color-bg-gradient: linear-gradient(
-      140deg,
-      #f7f1eb 0%,
-      #efe2d2 60%,
-      #f2d9d3
-    );
-    --color-text: #141414;
-    --color-text-ghost: rgba(42, 42, 36, 0.6);
-    --color-fg: #141414;
-    --color-fill: #f1efe6;
-    --color-fill-ghost: rgba(255, 255, 255, 0.22);
-    --color-border-subtle: rgba(0, 0, 0, 0.08);
-    --color-border-strong: rgba(0, 0, 0, 0.12);
-    --color-shadow-ghost: rgba(0, 0, 0, 0.08);
-    --color-shadow-faint: rgba(0, 0, 0, 0.12);
-    --color-shadow-subtle: rgba(0, 0, 0, 0.18);
-    --color-shadow-strong: rgba(0, 0, 0, 0.28);
-    --color-shadow-dense: rgba(0, 0, 0, 0.35);
-    --color-shadow-sharp: rgba(0, 0, 0, 0.45);
-    --color-shadow-full: rgba(0, 0, 0, 0.5);
-    --color-favicon-fill-full: #424242;
-    --color-water-bg: #e6f0fb;
-    --color-water-bg-strong: #c7d7ec;
-    --color-water-fill: #d7e6f4;
-    --color-water-fill-strong: #9fb8d6;
-    --color-water-text: #08192a;
-    --color-water-fg: #1b2738;
-    --color-water-shadow: rgba(159, 184, 214, 0.4);
-    --color-water-border: #d2e1f6;
-    --color-plant-bg: #e7f1e2;
-    --color-plant-bg-strong: #cfe3cc;
-    --color-plant-fill: #dfeedd;
-    --color-plant-fill-strong: #9fbf98;
-    --color-plant-text: #0d2b17;
-    --color-plant-fg: #0d2b17;
-    --color-plant-shadow: rgba(159, 191, 152, 0.4);
-    --color-plant-border: #b7d0b3;
-    --color-fire-bg: #f0b4a6;
-    --color-fire-bg-strong: #d47264;
-    --color-fire-fill: #f5c6bb;
-    --color-fire-fill-strong: #f08d7b;
-    --color-fire-text: #3b0f0a;
-    --color-fire-fg: #3b0f0a;
-    --color-fire-shadow: rgba(240, 141, 123, 0.4);
-    --color-fire-border: #dfab9f;
-    --color-stone-bg: #fffef9;
-    --color-stone-bg-strong: #fff7e6;
-    --color-stone-fill: #fff2d6;
-    --color-stone-fill-strong: #ffe7bf;
-    --color-stone-text: #4a3512;
-    --color-stone-fg: #4a3512;
-    --color-stone-shadow: rgba(242, 200, 95, 0.4);
-    --color-stone-border: #f1db9b;
-    --color-metal-bg: #240a34;
-    --color-metal-bg-strong: #120012;
-    --color-metal-fill: #3a3f4a;
-    --color-metal-fill-strong: #16181f;
-    --color-metal-text: #f1efe6;
-    --color-metal-fg: #f1efe6;
-    --color-metal-shadow: rgba(22, 24, 31, 0.35);
-    --color-metal-border: #3b2a4a;
-    --color-shadow-light: rgba(255, 255, 255, 0.35);
-    --color-glow-strong: rgba(255, 255, 255, 0.85);
-    --color-glow: rgba(255, 255, 255, 0.65);
-    color: var(--color-text);
-    background: var(--color-bg-gradient);
+    --ink: #141414;
+    --ink-soft: rgba(20, 20, 20, 0.68);
+    --fx-border-subtle: rgba(0, 0, 0, 0.08);
+    --fx-border-strong: rgba(0, 0, 0, 0.14);
+    --fx-shadow-ghost: rgba(0, 0, 0, 0.08);
+    --fx-shadow-soft: rgba(0, 0, 0, 0.14);
+    --fx-shadow-subtle: rgba(0, 0, 0, 0.2);
+    --fx-shadow-strong: rgba(0, 0, 0, 0.28);
+    --fx-shadow-dense: rgba(0, 0, 0, 0.36);
+    --fx-shadow-sharp: rgba(0, 0, 0, 0.45);
+    --fx-shadow-full: rgba(0, 0, 0, 0.52);
+    --fx-light-glow: rgba(255, 255, 255, 0.65);
+    --fx-light-glow-strong: rgba(255, 255, 255, 0.85);
+    --fx-highlight: rgba(255, 255, 255, 0.7);
+
+    --token-colorless-wallpaper: #fbfbfb;
+    --token-colorless-surface: #f2f2f2;
+    --token-colorless-content: #fefefe;
+    --token-colorless-highlight: #e9e9e9;
+    --token-colorless-full: #d7d7d7;
+
+    --token-earth-wallpaper: #fefbe8;
+    --token-earth-surface: #f8f3d5;
+    --token-earth-content: #fefdf7;
+    --token-earth-highlight: #f2eab4;
+    --token-earth-full: #e6d35c;
+
+    --token-water-wallpaper: #f8fafd;
+    --token-water-surface: #eaf3ff;
+    --token-water-content: #fbfdff;
+    --token-water-highlight: #d6e7ff;
+    --token-water-full: #a2c7ff;
+
+    --token-plant-wallpaper: #f0fff0;
+    --token-plant-surface: #d2f1d4;
+    --token-plant-content: #f9fef9;
+    --token-plant-highlight: #a9e8ad;
+    --token-plant-full: #63c96b;
+
+    --token-fire-wallpaper: #fef9f8;
+    --token-fire-surface: #ffe3e1;
+    --token-fire-content: #fffbfb;
+    --token-fire-highlight: #ffc4c5;
+    --token-fire-full: #ff3d49;
+
+    --token-metal-wallpaper: #f7f0ff;
+    --token-metal-surface: #ecd9ff;
+    --token-metal-content: #fdfcff;
+    --token-metal-highlight: #d6b8ff;
+    --token-metal-full: #9a5dff;
+
+    --wallpaper: var(--token-earth-wallpaper);
+    --surface: var(--token-earth-surface);
+    --content-surface: var(--token-earth-content);
+    --highlight: var(--token-earth-highlight);
+    --full: var(--token-earth-full);
+    --app-bg: var(--wallpaper);
+    --card-bg: var(--surface);
+    --card-content-bg: var(--content-surface);
+    --card-header-bg: var(--highlight);
+    --mana-bg: var(--full);
+    --color-accent-wallpaper: var(--wallpaper);
+    --color-accent-surface: var(--surface);
+    --color-content-surface: var(--content-surface);
+    --color-accent-highlight: var(--highlight);
+    --color-accent-full: var(--full);
+
+    color: var(--ink);
+    background: var(--wallpaper);
   }
 
-  .accent-metal,
-  .accent-black {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    --color-bg: #120012;
-    --color-bg-strong: #1a0d24;
-    --color-bg-flat: #0c0612;
-    --color-bg-gradient: radial-gradient(circle at top, #1b0a24, #0c0612);
-    --color-text: #f1efe6;
-    --color-text-ghost: rgba(241, 239, 230, 0.65);
-    --color-fg: #f1efe6;
-    --color-fill: #f1efe6;
-    --color-fill-ghost: rgba(255, 255, 255, 0.22);
-    --color-border-subtle: rgba(255, 255, 255, 0.08);
-    --color-border-strong: rgba(255, 255, 255, 0.16);
-    --color-shadow-ghost: rgba(255, 255, 255, 0.08);
-    --color-shadow-faint: rgba(0, 0, 0, 0.5);
-    --color-metal-mist: rgba(40, 24, 56, 0.18);
-    --color-metal-core: #080008;
-    --color-metal-core-strong: rgba(8, 0, 8, 0.92);
-    --color-metal-aura: rgba(78, 38, 112, 0.32);
-    --color-metal-aura-soft: rgba(78, 38, 112, 0.12);
-    --color-metal-panel-bg: rgba(10, 6, 16, 0.55);
-    /* TODO: improve naming for metal gradient tokens */
-    --color-accent-bg: var(--color-metal-bg);
-    --color-accent-bg-strong: var(--color-metal-bg-strong);
-    --color-accent-fill: var(--color-metal-fill);
-    --color-accent-fill-strong: var(--color-metal-fill-strong);
-    --color-accent-text: var(--color-metal-text);
-    --color-accent-fg: var(--color-metal-fg);
-    --color-accent-shadow: var(--color-metal-shadow);
-    --color-accent-border: var(--color-metal-border);
-    color: var(--color-text);
-    background: var(--color-bg-gradient);
+  [data-accent="colorless"],
+  .accent-colorless {
+    --wallpaper: var(--token-colorless-wallpaper);
+    --surface: var(--token-colorless-surface);
+    --content-surface: var(--token-colorless-content);
+    --highlight: var(--token-colorless-highlight);
+    --full: var(--token-colorless-full);
+    --app-bg: var(--wallpaper);
+    --card-bg: var(--surface);
+    --card-content-bg: var(--content-surface);
+    --card-header-bg: var(--highlight);
+    --mana-bg: var(--full);
+    --color-accent-wallpaper: var(--wallpaper);
+    --color-accent-surface: var(--surface);
+    --color-content-surface: var(--content-surface);
+    --color-accent-highlight: var(--highlight);
+    --color-accent-full: var(--full);
   }
 
+  [data-accent="earth"],
+  [data-accent="yellow"],
+  [data-accent="white"],
+  [data-accent="stone"],
+  .accent-earth,
+  .accent-yellow,
+  .accent-white,
+  .accent-stone {
+    --wallpaper: var(--token-earth-wallpaper);
+    --surface: var(--token-earth-surface);
+    --content-surface: var(--token-earth-content);
+    --highlight: var(--token-earth-highlight);
+    --full: var(--token-earth-full);
+    --app-bg: var(--wallpaper);
+    --card-bg: var(--surface);
+    --card-content-bg: var(--content-surface);
+    --card-header-bg: var(--highlight);
+    --mana-bg: var(--full);
+    --color-accent-wallpaper: var(--wallpaper);
+    --color-accent-surface: var(--surface);
+    --color-content-surface: var(--content-surface);
+    --color-accent-highlight: var(--highlight);
+    --color-accent-full: var(--full);
+  }
+
+  [data-accent="water"],
+  [data-accent="blue"],
   .accent-water,
   .accent-blue {
-    font-family: Arial, Helvetica, sans-serif;
-    --color-accent-bg: var(--color-water-bg);
-    --color-accent-bg-strong: var(--color-water-bg-strong);
-    --color-accent-fill: var(--color-water-fill);
-    --color-accent-fill-strong: var(--color-water-fill-strong);
-    --color-accent-text: var(--color-water-text);
-    --color-accent-fg: var(--color-water-fg);
-    --color-accent-shadow: var(--color-water-shadow);
-    --color-accent-border: var(--color-water-border);
+    --wallpaper: var(--token-water-wallpaper);
+    --surface: var(--token-water-surface);
+    --content-surface: var(--token-water-content);
+    --highlight: var(--token-water-highlight);
+    --full: var(--token-water-full);
+    --app-bg: var(--wallpaper);
+    --card-bg: var(--surface);
+    --card-content-bg: var(--content-surface);
+    --card-header-bg: var(--highlight);
+    --mana-bg: var(--full);
+    --color-accent-wallpaper: var(--wallpaper);
+    --color-accent-surface: var(--surface);
+    --color-content-surface: var(--content-surface);
+    --color-accent-highlight: var(--highlight);
+    --color-accent-full: var(--full);
   }
 
+  [data-accent="plant"],
+  [data-accent="green"],
   .accent-plant,
   .accent-green {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    --color-accent-bg: var(--color-plant-bg);
-    --color-accent-bg-strong: var(--color-plant-bg-strong);
-    --color-accent-fill: var(--color-plant-fill);
-    --color-accent-fill-strong: var(--color-plant-fill-strong);
-    --color-accent-text: var(--color-plant-text);
-    --color-accent-fg: var(--color-plant-fg);
-    --color-accent-shadow: var(--color-plant-shadow);
-    --color-accent-border: var(--color-plant-border);
+    --wallpaper: var(--token-plant-wallpaper);
+    --surface: var(--token-plant-surface);
+    --content-surface: var(--token-plant-content);
+    --highlight: var(--token-plant-highlight);
+    --full: var(--token-plant-full);
+    --app-bg: var(--wallpaper);
+    --card-bg: var(--surface);
+    --card-content-bg: var(--content-surface);
+    --card-header-bg: var(--highlight);
+    --mana-bg: var(--full);
+    --color-accent-wallpaper: var(--wallpaper);
+    --color-accent-surface: var(--surface);
+    --color-content-surface: var(--content-surface);
+    --color-accent-highlight: var(--highlight);
+    --color-accent-full: var(--full);
   }
 
+  [data-accent="fire"],
+  [data-accent="red"],
   .accent-fire,
   .accent-red {
-    font-family:
-      "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
-      Arial, sans-serif;
-    --color-accent-bg: var(--color-fire-bg);
-    --color-accent-bg-strong: var(--color-fire-bg-strong);
-    --color-accent-fill: var(--color-fire-fill);
-    --color-accent-fill-strong: var(--color-fire-fill-strong);
-    --color-accent-text: var(--color-fire-text);
-    --color-accent-fg: var(--color-fire-fg);
-    --color-accent-shadow: var(--color-fire-shadow);
-    --color-accent-border: var(--color-fire-border);
+    --wallpaper: var(--token-fire-wallpaper);
+    --surface: var(--token-fire-surface);
+    --content-surface: var(--token-fire-content);
+    --highlight: var(--token-fire-highlight);
+    --full: var(--token-fire-full);
+    --app-bg: var(--wallpaper);
+    --card-bg: var(--surface);
+    --card-content-bg: var(--content-surface);
+    --card-header-bg: var(--highlight);
+    --mana-bg: var(--full);
+    --color-accent-wallpaper: var(--wallpaper);
+    --color-accent-surface: var(--surface);
+    --color-content-surface: var(--content-surface);
+    --color-accent-highlight: var(--highlight);
+    --color-accent-full: var(--full);
   }
 
-  .accent-stone,
-  .accent-yellow,
-  .accent-white {
-    font-family: "Times New Roman", Times, Georgia, serif;
-    --color-accent-bg: var(--color-stone-bg);
-    --color-accent-bg-strong: var(--color-stone-bg-strong);
-    --color-accent-fill: var(--color-stone-fill);
-    --color-accent-fill-strong: var(--color-stone-fill-strong);
-    --color-accent-text: var(--color-stone-text);
-    --color-accent-fg: var(--color-stone-fg);
-    --color-accent-shadow: var(--color-stone-shadow);
-    --color-accent-border: var(--color-stone-border);
+  [data-accent="metal"],
+  [data-accent="black"],
+  .accent-metal,
+  .accent-black {
+    --wallpaper: var(--token-metal-wallpaper);
+    --surface: var(--token-metal-surface);
+    --content-surface: var(--token-metal-content);
+    --highlight: var(--token-metal-highlight);
+    --full: var(--token-metal-full);
+    --app-bg: var(--wallpaper);
+    --card-bg: var(--surface);
+    --card-content-bg: var(--content-surface);
+    --card-header-bg: var(--highlight);
+    --mana-bg: var(--full);
+    --color-accent-wallpaper: var(--wallpaper);
+    --color-accent-surface: var(--surface);
+    --color-content-surface: var(--content-surface);
+    --color-accent-highlight: var(--highlight);
+    --color-accent-full: var(--full);
   }
 
   *,
