@@ -89,21 +89,21 @@ const accents: AccentPreview[] = [
 function styleForAccent(tokens: AccentTokens) {
   return [
     `--ink:${INK}`,
-    `--app-bg:${tokens.appBg}`,
-    `--card-bg:${tokens.cardBg}`,
-    `--card-content-bg:${tokens.cardContentBg}`,
-    `--card-header-bg:${tokens.cardHeaderBg}`,
-    `--mana-bg:${tokens.manaBg}`,
+    `--color-accent-wallpaper:${tokens.appBg}`,
+    `--color-accent-surface:${tokens.cardBg}`,
+    `--color-content-surface:${tokens.cardContentBg}`,
+    `--color-accent-highlight:${tokens.cardHeaderBg}`,
+    `--color-accent-full:${tokens.manaBg}`,
   ].join(";");
 }
 
 function tokenRows(tokens: AccentTokens) {
   return [
-    { name: "--app-bg", value: tokens.appBg },
-    { name: "--card-bg", value: tokens.cardBg },
-    { name: "--card-content-bg", value: tokens.cardContentBg },
-    { name: "--card-header-bg", value: tokens.cardHeaderBg },
-    { name: "--mana-bg", value: tokens.manaBg },
+    { name: "--color-accent-wallpaper", value: tokens.appBg },
+    { name: "--color-accent-surface", value: tokens.cardBg },
+    { name: "--color-content-surface", value: tokens.cardContentBg },
+    { name: "--color-accent-highlight", value: tokens.cardHeaderBg },
+    { name: "--color-accent-full", value: tokens.manaBg },
   ];
 }
 ---
@@ -205,7 +205,7 @@ function tokenRows(tokens: AccentTokens) {
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
-    background: var(--app-bg);
+    background: var(--color-accent-wallpaper);
     border: 1px solid rgba(0, 0, 0, 0.06);
     min-height: 360px;
   }
@@ -222,7 +222,7 @@ function tokenRows(tokens: AccentTokens) {
     position: relative;
     margin: 1.1rem;
     border-radius: 14px;
-    background: var(--card-bg);
+    background: var(--color-accent-surface);
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow:
       0 18px 46px rgba(0, 0, 0, 0.12),
@@ -238,7 +238,7 @@ function tokenRows(tokens: AccentTokens) {
     justify-content: space-between;
     gap: 0.75rem;
     padding: 0.85rem 0.9rem;
-    background: var(--card-header-bg);
+    background: var(--color-accent-highlight);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     color: var(--ink);
   }
@@ -252,7 +252,7 @@ function tokenRows(tokens: AccentTokens) {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: var(--mana-bg);
+    background: var(--color-accent-full);
     color: var(--ink);
     border: 1px solid rgba(0, 0, 0, 0.12);
     display: grid;
@@ -265,7 +265,7 @@ function tokenRows(tokens: AccentTokens) {
   }
 
   .accent-content {
-    background: var(--card-content-bg);
+    background: var(--color-content-surface);
     padding: 0.95rem;
     color: var(--ink);
     display: grid;
