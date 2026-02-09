@@ -3,10 +3,20 @@ import type { HTMLAttributes } from "astro/types";
 import type { AccentKey } from "../data/paletteSnapshots";
 import ManaBadge from "./ManaBadge.astro";
 
+type ManaItem =
+  | string
+  | number
+  | {
+      value: string | number;
+      accent?: AccentKey;
+      label?: string;
+    };
+
 interface Props extends Omit<HTMLAttributes<"article">, "data-accent"> {
   accent?: AccentKey;
   title?: string;
   mana?: string | number;
+  manas?: ManaItem[];
   imageSrc: string;
   imageAlt?: string;
   lines?: string[];
@@ -17,6 +27,7 @@ const {
   accent,
   title = "Driving",
   mana = "1",
+  manas,
   imageSrc,
   imageAlt = "Driving card artwork",
   lines = ["control the vehicle", "obey road signs", "blend in traffic"],
@@ -24,6 +35,22 @@ const {
   class: className,
   ...rest
 }: Props = Astro.props;
+
+const manaItems = (manas && manas.length > 0 ? manas : [mana]).map((item) => {
+  if (typeof item === "string" || typeof item === "number") {
+    return {
+      value: item,
+      accent,
+      label: "Mana cost",
+    };
+  }
+
+  return {
+    value: item.value,
+    accent: item.accent ?? accent,
+    label: item.label ?? "Mana cost",
+  };
+});
 ---
 
 <article
@@ -33,7 +60,17 @@ const {
 >
   <div class="spellcard-header">
     <strong class="spellcard-title">{title}</strong>
-    <ManaBadge value={mana} accent={accent} />
+    <span class="spellcard-mana-group" aria-label="Mana costs">
+      {
+        manaItems.map((item) => (
+          <ManaBadge
+            value={item.value}
+            accent={item.accent}
+            aria-label={item.label}
+          />
+        ))
+      }
+    </span>
   </div>
 
   <div class="spellcard-image-slot" aria-label="Card artwork">
@@ -55,11 +92,10 @@ const {
     --color-card-content-surface: var(--color-content-surface);
 
     font-size: 0.86em;
-    width: min(13em, 100%);
+    width: 13em;
+    height: 21em;
     margin: 0;
     min-height: 0;
-    height: auto;
-    aspect-ratio: 13 / 21;
     position: relative;
     border-radius: 1em;
     background: var(--color-card-surface);
@@ -72,6 +108,7 @@ const {
     grid-template-rows: 9fr 38fr 53fr;
     align-content: stretch;
     gap: 0;
+    flex: none;
   }
 
   .spellcard-header,
@@ -95,6 +132,19 @@ const {
   .spellcard-title {
     font-size: 1.16em;
     letter-spacing: 0.01em;
+  }
+
+  .spellcard-mana-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.12em;
+    flex: none;
+    direction: ltr;
+    line-height: 1;
+    white-space: nowrap;
   }
 
   .spellcard-image-slot {
@@ -135,11 +185,6 @@ const {
     overflow: auto;
     display: grid;
     gap: 0.4em;
-  }
-
-  .spellcard-lines {
-    display: grid;
-    gap: 0.35em;
   }
 
   .spellcard-lines p {

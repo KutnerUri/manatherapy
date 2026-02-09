@@ -148,7 +148,7 @@ import water from "../assets/logos/water.webp";
       <SpellCard
         accent="earth"
         title="נהיגה"
-        mana="1"
+        manas={["1"]}
         imageSrc={drivingImage.src}
         imageAlt="Driving spell illustration"
         lines={["שליטה ברכב", "ציות לתמרורים", "השתלבות בתנועה"]}
@@ -162,7 +162,7 @@ import water from "../assets/logos/water.webp";
             accent="earth"
             class="base"
             title="מתכון"
-            mana="1"
+            manas={["1"]}
             imageSrc={recipeImage.src}
             imageAlt="Recipe spell illustration"
             lines={[
@@ -175,7 +175,7 @@ import water from "../assets/logos/water.webp";
             accent="fire"
             class="overlap"
             title="בישול"
-            mana="2"
+            manas={["1", "1"]}
             imageSrc={bakingImage.src}
             imageAlt="Baking spell illustration"
             lines={["עבד מרכיבים", "הכנס לתבנית", "השתמש בתנור"]}
@@ -184,9 +184,14 @@ import water from "../assets/logos/water.webp";
 
         <div class="combo-equals">=</div>
         <SpellCard
+          class="mix-card"
           accent="earth"
           title="אפיית עוגה"
-          mana="3"
+          manas={[
+            { value: "1", accent: "earth", label: "Earth mana" },
+            { value: "1", accent: "fire", label: "Fire mana" },
+            { value: "1", accent: "fire", label: "Fire mana" },
+          ]}
           imageSrc={bakingCakeImage.src}
           imageAlt="Bake a cake spell illustration"
           lines={["צור עוגה טעימה", "ומוכנה להגשה"]}
@@ -227,48 +232,15 @@ import water from "../assets/logos/water.webp";
     }
   }
 
-  .slide-intro {
-    background: var(--wallpaper);
-  }
-
-  .slide-spell {
-    background: var(--wallpaper) !important;
-  }
-
-  .slide-colors {
-    background: var(--wallpaper) !important;
-  }
-
   .slide-finale {
     background:
-      radial-gradient(
-        circle at 50% 14%,
-        var(--token-fire-full),
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at 18% 33%,
-        var(--token-plant-full),
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at 82% 33%,
-        var(--token-earth-full),
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at 25% 78%,
-        var(--token-water-full),
-        transparent 60%
-      ),
-      radial-gradient(
-        circle at 75% 78%,
-        var(--token-metal-full),
-        transparent 60%
-      ),
-      var(--wallpaper) !important;
+      radial-gradient(circle at 50% 14%, var(--token-fire-wallpaper)),
+      radial-gradient(circle at 18% 33%, var(--token-plant-wallpaper)),
+      radial-gradient(circle at 82% 33%, var(--token-earth-wallpaper)),
+      radial-gradient(circle at 25% 78%, var(--token-water-wallpaper)),
+      radial-gradient(circle at 75% 78%, var(--token-metal-wallpaper)),
+      var(--color-bg-gradient);
   }
-
   .finale-title {
     margin: 0;
   }
@@ -286,19 +258,33 @@ import water from "../assets/logos/water.webp";
     font-size: clamp(2rem, 6vw, 3rem);
   }
 
-  .slide-card {
-    background: var(--content-surface) !important;
-  }
-
-  .slide-combo {
-    background: var(--content-surface) !important;
-  }
-
   .combo-row {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0;
+  }
+
+  .base {
+    transform: rotate(-4deg);
+  }
+
+  [dir="rtl"] .base {
+    transform: rotate(4deg);
+  }
+
+  .overlap {
+    margin-inline-start: -8em;
+    margin-top: 2em;
+    transform: rotate(4deg);
+  }
+
+  [dir="rtl"] .overlap {
+    transform: rotate(-4deg);
+  }
+
+  .spellcard-template.mix-card {
+    --color-accent-surface: linear-gradient(90deg, var(--token-earth-surface) 23%, var(--token-fire-surface));
   }
 
   .card-stack {

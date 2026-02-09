@@ -7,6 +7,7 @@ interface Props extends Omit<HTMLAttributes<"article">, "data-accent"> {
   accent?: AccentKey;
   title?: string;
   mana?: string | number;
+  showMana?: boolean;
   imageSrc: string;
   imageAlt?: string;
   lines?: string[];
@@ -16,6 +17,7 @@ const {
   accent,
   title = "Driving",
   mana = "1",
+  showMana = true,
   imageSrc,
   imageAlt = "Driving card artwork",
   lines = ["control the vehicle", "obey road signs", "blend in traffic"],
@@ -27,7 +29,7 @@ const {
 <article {...rest} data-accent={accent} class:list={["manacard-template", className]}>
   <div class="manacard-header">
     <strong class="manacard-title">{title}</strong>
-    <ManaBadge value={mana} accent={accent} />
+    {showMana && <ManaBadge value={mana} accent={accent} />}
   </div>
 
   <div class="manacard-image-slot" aria-label="Card artwork">
@@ -48,7 +50,9 @@ const {
     --color-card-content-surface: var(--color-content-surface);
 
     font-size: 0.86em;
-    width: min(13em, 100%);
+    width: 13em;
+    min-width: 0;
+    flex: none;
     margin: 0;
     min-height: 0;
     height: auto;
@@ -75,11 +79,11 @@ const {
   }
 
   .manacard-header {
-    border-radius: 0.72em;
+    border-radius: 0.62em;
     background: var(--color-card-highlight);
     color: var(--ink);
     border: 0;
-    padding: 0 0.12em 0 0.95em;
+    padding: 0 0.38em;
     display: flex;
     align-items: center;
     justify-content: space-between;

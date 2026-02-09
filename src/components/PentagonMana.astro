@@ -31,6 +31,44 @@ const { class: className, ...rest }: Props = Astro.props;
     aspect-ratio: 1 / 1;
     margin: 0;
     --orbit: 23vmin;
+    isolation: isolate;
+  }
+
+  .pentagon::before {
+    content: "";
+    position: absolute;
+    inset: calc(var(--orbit) * -0.72);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.42;
+    filter: blur(26px) saturate(0.88);
+    background:
+      radial-gradient(
+        circle at calc(50% + 0px) calc(50% - var(--orbit)),
+        color-mix(in srgb, var(--token-water-full) 34%, transparent),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at calc(50% + (var(--orbit) * 0.951)) calc(50% + (var(--orbit) * -0.309)),
+        color-mix(in srgb, var(--token-plant-full) 34%, transparent),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at calc(50% + (var(--orbit) * 0.588)) calc(50% + (var(--orbit) * 0.809)),
+        color-mix(in srgb, var(--token-fire-full) 34%, transparent),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at calc(50% + (var(--orbit) * -0.588)) calc(50% + (var(--orbit) * 0.809)),
+        color-mix(in srgb, var(--token-earth-full) 34%, transparent),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at calc(50% + (var(--orbit) * -0.951)) calc(50% + (var(--orbit) * -0.309)),
+        color-mix(in srgb, var(--token-metal-full) 34%, transparent),
+        transparent 28%
+      );
   }
 
   .mana-circle {
@@ -78,6 +116,7 @@ const { class: className, ...rest }: Props = Astro.props;
     opacity: 0;
 
     user-select: none;
+    z-index: 1;
   }
 
   .mana-label {
@@ -160,6 +199,10 @@ const { class: className, ...rest }: Props = Astro.props;
   }
 
   @media (max-width: 720px) {
+    .pentagon::before {
+      display: none;
+    }
+
     .pentagon {
       width: 100%;
       aspect-ratio: auto;

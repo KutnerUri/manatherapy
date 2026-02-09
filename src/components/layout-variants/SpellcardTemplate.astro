@@ -24,7 +24,11 @@ const {
 }: Props = Astro.props;
 ---
 
-<article {...rest} data-accent={accent} class:list={["spellcard-template", className]}>
+<article
+  {...rest}
+  data-accent={accent}
+  class:list={["spellcard-template", className]}
+>
   <div class="spellcard-header">
     <strong class="spellcard-title">{title}</strong>
     <ManaBadge value={mana} accent={accent} />
@@ -96,8 +100,16 @@ const {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.18)),
-      repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.03) 0 8px, rgba(0, 0, 0, 0.06) 8px 16px);
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.18)
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(0, 0, 0, 0.03) 0 8px,
+        rgba(0, 0, 0, 0.06) 8px 16px
+      );
   }
 
   .spellcard-image {
@@ -120,11 +132,6 @@ const {
     align-content: start;
     display: grid;
     gap: 0.4em;
-  }
-
-  .spellcard-lines {
-    display: grid;
-    gap: 0.35em;
   }
 
   .spellcard-lines p {
