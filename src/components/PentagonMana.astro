@@ -1,27 +1,33 @@
 ---
-type Props = {
-  class?: string;
-};
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {}
 
 const { class: className, ...rest }: Props = Astro.props;
+const baseUrl = new URL(import.meta.env.BASE_URL, Astro.url);
+const homePath = baseUrl.pathname;
 ---
 
 <div class:list={["pentagon", className]} {...rest}>
-  <div class="mana-circle blue">
-    <span class="mana-label">כחול</span>
-  </div>
-  <div class="mana-circle green">
-    <span class="mana-label">ירוק</span>
-  </div>
-  <div class="mana-circle red">
-    <span class="mana-label">אדום</span>
-  </div>
-  <div class="mana-circle yellow">
-    <span class="mana-label">צהוב</span>
-  </div>
-  <div class="mana-circle black">
-    <span class="mana-label">שחור</span>
-  </div>
+  <a class="mana-circle water" href={`${homePath}#water`} aria-label="טוהר">
+    <span class="mana-label">טוהר</span>
+  </a>
+  <a class="mana-circle plant" href={`${homePath}#plant`} aria-label="נאמנות">
+    <span class="mana-label">נאמנות</span>
+  </a>
+  <a class="mana-circle fire" href={`${homePath}#fire`} aria-label="חופש">
+    <span class="mana-label">חופש</span>
+  </a>
+  <a class="mana-circle earth" href={`${homePath}#earth`} aria-label="הוגנות">
+    <span class="mana-label">הוגנות</span>
+  </a>
+  <a
+    class="mana-circle metal"
+    href={new URL("respect/", baseUrl).pathname}
+    aria-label="כבוד"
+  >
+    <span class="mana-label">כבוד</span>
+  </a>
 </div>
 
 <style>
@@ -50,22 +56,26 @@ const { class: className, ...rest }: Props = Astro.props;
         transparent 28%
       ),
       radial-gradient(
-        circle at calc(50% + (var(--orbit) * 0.951)) calc(50% + (var(--orbit) * -0.309)),
+        circle at calc(50% + (var(--orbit) * 0.951))
+          calc(50% + (var(--orbit) * -0.309)),
         color-mix(in srgb, var(--token-plant-full) 34%, transparent),
         transparent 28%
       ),
       radial-gradient(
-        circle at calc(50% + (var(--orbit) * 0.588)) calc(50% + (var(--orbit) * 0.809)),
+        circle at calc(50% + (var(--orbit) * 0.588))
+          calc(50% + (var(--orbit) * 0.809)),
         color-mix(in srgb, var(--token-fire-full) 34%, transparent),
         transparent 28%
       ),
       radial-gradient(
-        circle at calc(50% + (var(--orbit) * -0.588)) calc(50% + (var(--orbit) * 0.809)),
+        circle at calc(50% + (var(--orbit) * -0.588))
+          calc(50% + (var(--orbit) * 0.809)),
         color-mix(in srgb, var(--token-earth-full) 34%, transparent),
         transparent 28%
       ),
       radial-gradient(
-        circle at calc(50% + (var(--orbit) * -0.951)) calc(50% + (var(--orbit) * -0.309)),
+        circle at calc(50% + (var(--orbit) * -0.951))
+          calc(50% + (var(--orbit) * -0.309)),
         color-mix(in srgb, var(--token-metal-full) 34%, transparent),
         transparent 28%
       );
@@ -106,6 +116,7 @@ const { class: className, ...rest }: Props = Astro.props;
       0 0 24px var(--mana-glow, var(--fx-shadow-soft)),
       inset 0 0 0 1px var(--fx-highlight);
     cursor: pointer;
+    text-decoration: none;
     transition:
       transform 0.5s ease,
       opacity 0.5s ease,
@@ -122,13 +133,14 @@ const { class: className, ...rest }: Props = Astro.props;
   .mana-label {
     z-index: 2;
     font-family: "Gill Sans", "Trebuchet MS", sans-serif;
-    text-shadow: 0 2px 4px var(--fx-shadow-sharp);
+    text-shadow:
+      0 0px 2px var(--fx-light-glow),
+      0 2px 4px var(--fx-light-glow);
   }
 
-  .mana-circle.red .mana-label,
-  .mana-circle.green .mana-label,
-  .mana-circle.blue .mana-label {
-    text-shadow: 0 2px 4px var(--fx-light-glow);
+  .mana-circle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
   }
 
   :global(.slide.is-active) .mana-circle {
@@ -141,7 +153,7 @@ const { class: className, ...rest }: Props = Astro.props;
     box-shadow: 0 12px 25px var(--fx-shadow-subtle);
   }
 
-  .mana-circle.red {
+  .mana-circle.fire {
     --x: calc(var(--orbit) * 0.588);
     --y: calc(var(--orbit) * 0.809);
     --delay: 0.2s;
@@ -152,7 +164,7 @@ const { class: className, ...rest }: Props = Astro.props;
     --mana-text: var(--ink);
   }
 
-  .mana-circle.green {
+  .mana-circle.plant {
     --x: calc(var(--orbit) * 0.951);
     --y: calc(var(--orbit) * -0.309);
     --delay: 0.1s;
@@ -163,7 +175,7 @@ const { class: className, ...rest }: Props = Astro.props;
     --mana-text: var(--ink);
   }
 
-  .mana-circle.yellow {
+  .mana-circle.earth {
     --x: calc(var(--orbit) * -0.588);
     --y: calc(var(--orbit) * 0.809);
     --delay: 0.3s;
@@ -175,7 +187,7 @@ const { class: className, ...rest }: Props = Astro.props;
     --mana-text: var(--ink);
   }
 
-  .mana-circle.blue {
+  .mana-circle.water {
     --x: 0px;
     --y: calc(var(--orbit) * -1);
     --delay: 0s;
@@ -186,7 +198,7 @@ const { class: className, ...rest }: Props = Astro.props;
     --mana-text: var(--ink);
   }
 
-  .mana-circle.black {
+  .mana-circle.metal {
     --x: calc(var(--orbit) * -0.951);
     --y: calc(var(--orbit) * -0.309);
     --delay: 0.4s;

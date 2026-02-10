@@ -6,4 +6,7 @@ const base = process.env.ASTRO_BASE ?? "/";
 // https://astro.build/config
 export default defineConfig({
   base,
+  redirects: {
+    "/metal/": "/respect/",
+  },
 });
