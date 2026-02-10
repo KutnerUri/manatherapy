@@ -17,7 +17,7 @@ interface Props extends Omit<HTMLAttributes<"article">, "data-accent"> {
   title?: string;
   mana?: string | number;
   manas?: ManaItem[];
-  imageSrc: string;
+  imageSrc?: string;
   imageAlt?: string;
   lines?: string[];
   quote?: string;
@@ -29,7 +29,7 @@ const {
   mana = "1",
   manas,
   imageSrc,
-  imageAlt = "Driving card artwork",
+  imageAlt = "Card artwork",
   lines = ["control the vehicle", "obey road signs", "blend in traffic"],
   quote,
   class: className,
@@ -73,8 +73,11 @@ const manaItems = (manas && manas.length > 0 ? manas : [mana]).map((item) => {
     </span>
   </div>
 
-  <div class="spellcard-image-slot" aria-label="Card artwork">
-    <img class="spellcard-image" src={imageSrc} alt={imageAlt} />
+  <div
+    class="spellcard-image-slot"
+    aria-hidden={imageSrc ? "false" : "true"}
+  >
+    {imageSrc && <img class="spellcard-image" src={imageSrc} alt={imageAlt} />}
   </div>
 
   <div class="spellcard-content">
@@ -154,6 +157,7 @@ const manaItems = (manas && manas.length > 0 ? manas : [mana]).map((item) => {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     background:
+      rgba(255, 255, 255, 0.32),
       linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.5),

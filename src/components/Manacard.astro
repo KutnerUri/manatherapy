@@ -8,7 +8,7 @@ interface Props extends Omit<HTMLAttributes<"article">, "data-accent"> {
   title?: string;
   mana?: string | number;
   showMana?: boolean;
-  imageSrc: string;
+  imageSrc?: string;
   imageAlt?: string;
   lines?: string[];
 }
@@ -19,7 +19,7 @@ const {
   mana = "1",
   showMana = true,
   imageSrc,
-  imageAlt = "Driving card artwork",
+  imageAlt = "Card artwork",
   lines = ["control the vehicle", "obey road signs", "blend in traffic"],
   class: className,
   ...rest
@@ -32,8 +32,11 @@ const {
     {showMana && <ManaBadge value={mana} accent={accent} />}
   </div>
 
-  <div class="manacard-image-slot" aria-label="Card artwork">
-    <img class="manacard-image" src={imageSrc} alt={imageAlt} />
+  <div
+    class="manacard-image-slot"
+    aria-hidden={imageSrc ? "false" : "true"}
+  >
+    {imageSrc && <img class="manacard-image" src={imageSrc} alt={imageAlt} />}
   </div>
 
   <div class="manacard-content">
@@ -101,6 +104,7 @@ const {
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background:
+      rgba(255, 255, 255, 0.32),
       linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.18)),
       repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.03) 0 8px, rgba(0, 0, 0, 0.06) 8px 16px);
   }

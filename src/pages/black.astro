@@ -14,6 +14,7 @@ import settingBordersImage from "../assets/setting-borders.webp";
 import workDoneImage from "../assets/work-done.webp";
 import choosingImage from "../assets/choosing.webp";
 import extractionImage from "../assets/extraction.webp";
+import thinkingImage from "../assets/thinking.jpg";
 import metalLogo from "../assets/logos/metal.webp";
 
 const title = "כבוד — מאנה תרפיה";
@@ -23,7 +24,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
 <Layout title={title} description={description} lang="he" data-accent="metal">
   <Slideshow>
     <ManaSlide
-      colorClass="black"
+      colorClass="metal"
       logo={metalLogo}
       logoAlt="Black mana logo"
       sub="כבוד"
@@ -104,7 +105,7 @@ const description = "Black mana - honor, pragmatism, and survival.";
             { value: "X", accent: "colorless", label: "Colorless mana" },
           ]}
           imageSrc={workDoneImage.src}
-          imageAlt="Paying prices spell illustration"
+          imageAlt="Work done spell illustration"
           lines={[
             "התמודד עם אי-נוחות זמנית.",
             "התקדם X צעדים לכיוון היעד שלך.",
@@ -130,8 +131,6 @@ const description = "Black mana - honor, pragmatism, and survival.";
         <SpellCard
           title="מניפולציה"
           manas={["1", "1"]}
-          imageSrc={workDoneImage.src}
-          imageAlt="Manipulation spell illustration"
           lines={[
             "השפע על מישהו לטובתך.",
             "שלם עוד 2 מאנה אם אין לו אינטרס.",
@@ -142,8 +141,6 @@ const description = "Black mana - honor, pragmatism, and survival.";
         <SpellCard
           title="הלוואה"
           manas={["1"]}
-          imageSrc={settingBordersImage.src}
-          imageAlt="Loan spell illustration"
           lines={["קבל כסף עכשיו, והחזר פי שתיים בעוד 10 תורות."]}
           quote="העתיד יכול לחכות, אני צריך את זה עכשיו"
         />
@@ -164,29 +161,23 @@ const description = "Black mana - honor, pragmatism, and survival.";
         <Manacard
           title="בדיקת רצון"
           showMana={false}
-          imageSrc={choosingImage.src}
-          imageAlt="Intent check illustration"
+          imageSrc={thinkingImage.src}
+          imageAlt="Thinking illustration"
           lines={["בכל פעם שיש ספק:", "לשאול מה אני רוצה?"]}
         />
         <Manacard
           title="הערכה לרצון"
           showMana={false}
-          imageSrc={gettingWhatYouWantImage.src}
-          imageAlt="Value your desire illustration"
           lines={["אם אני רוצה את זה,", "זה חשוב."]}
         />
         <Manacard
           title="מודעות למחיר"
           showMana={false}
-          imageSrc={workDoneImage.src}
-          imageAlt="Price awareness illustration"
           lines={["מה המחיר המלא?", "האם אני מוכן לשלם אותו?"]}
         />
         <Manacard
           title="הערכה לסיפוק"
           showMana={false}
-          imageSrc={extractionImage.src}
-          imageAlt="Satisfaction review illustration"
           lines={["האם אני מרוצה", "ממה שקיבלתי?"]}
         />
       </div>
