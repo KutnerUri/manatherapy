@@ -149,12 +149,10 @@ const manaItems = (manas && manas.length > 0 ? manas : [mana]).map((item) => {
 
   .spellcard-image-slot {
     border-radius: 0;
-    position: relative;
     overflow: hidden;
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     background:
-      rgba(255, 255, 255, 0.32),
       linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.23),
@@ -162,13 +160,12 @@ const manaItems = (manas && manas.length > 0 ? manas : [mana]).map((item) => {
       ),
       repeating-linear-gradient(
         -45deg,
-        rgba(0, 0, 0, 0.03) 0 8px,
+        rgba(0, 0, 0, 0.15) 0 8px,
         rgba(0, 0, 0, 0.06) 8px 16px
       );
   }
 
   .spellcard-image {
-    position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;

@@ -1,0 +1,276 @@
+---
+import LineFade from "../components/LineFade.astro";
+import ManaSlide from "../components/ManaSlide.astro";
+import ScrollHint from "../components/ScrollHint.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Slide from "../components/Slide.astro";
+import SlideInner from "../components/SlideInner.astro";
+import Slideshow from "../components/Slideshow.astro";
+import SpellCard from "../components/SpellCard.astro";
+import Manacard from "../components/Manacard.astro";
+import Layout from "../layouts/Layout.astro";
+import plantLogo from "../assets/logos/plant.webp";
+
+const title = "נאמנות — מאנה תרפיה";
+const description = "Green mana - loyalty, identity growth, and belonging.";
+---
+
+<Layout title={title} description={description} lang="he" data-accent="plant">
+  <Slideshow>
+    <ManaSlide
+      colorClass="plant"
+      logo={plantLogo}
+      logoAlt="Green mana logo"
+      sub="נאמנות"
+      subtitle="צמיחת זהויות"
+      slide={0}
+    >
+      <ScrollHint />
+    </ManaSlide>
+
+    <Slide class="text-slide slide-plant" slide={1}>
+      <SlideInner>
+        <SectionTitle>נאמנות היא הכוח לדעת מי אני דרך למי אני שייך.</SectionTitle>
+        <LineFade
+        lines={["היא שואלת:", "מי אני?", "ולאיזה קהילה הזהות הזו מחברת אותי?"]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-plant" slide={2}>
+      <SlideInner>
+        <SectionTitle>תפיסת עולם</SectionTitle>
+        <LineFade
+          lines={[
+            "נאמנות מניחה שהזהות שלנו נוצרת בתוך קהילה,",
+            "וששייכות היא מקור כוח, משמעות ויציבות.",
+            "אני בן אדם = אני שייך לקבוצת בני האדם.",
+            "אני מפתח = אני שייך לקהילת המפתחים.",
+            "",
+            "מתוך ההנחה הזו, נאמנות מעריכה:",
+            "שייכות,",
+            "מחויבות הדדית,",
+            "והמשכיות לאורך זמן.",
+            "נאמנות לא שואלת רק מה נכון לי, אלא גם מה מחזק את המעגל שאני חלק ממנו.",
+            "מאנה ירוקה נוצרת כשאני מקבל: זה מי שאני, ואלה האנשים שלי.",
+            "",
+            "היא אומרת:",
+            "לדעת למי אני שייך",
+            "ולפעול לטובת השלם",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-plant" slide={3}>
+      <SlideInner>
+        <SectionTitle>למה צריך נאמנות</SectionTitle>
+        <LineFade
+          lines={[
+            "נאמנות נותנת לנו יציבות -",
+            "תחושת זהות, שייכות, ותמיכה הדדית בזמנים קשים.",
+            "בלעדיה - אנחנו מתנתקים מהקבוצה ונשארים לבד מול העומס.",
+            "בלי קבלה של הזהות, השייכות נשארת רעיון בלי שורש.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="slide-plant" slide={4}>
+      <SectionTitle>מה נאמנות מאפשרת לנו</SectionTitle>
+      <div class="spell-card-row">
+        <SpellCard
+          title="להגדיר זהות"
+          manas={["1"]}
+          lines={["אמור משפט זהות: אני ___, ולכן אני שייך ל___."]}
+          quote="זהות ברורה יוצרת שייכות ברורה"
+        />
+        <SpellCard
+          title="לטפח קבוצה"
+          manas={["1"]}
+          lines={["השקע פעולה קבועה שמחזקת את המעגל שלך."]}
+          quote="קבוצה מתחזקת ממה שחוזר"
+        />
+        <SpellCard
+          title="מחויבות"
+          manas={[
+            "1",
+            { value: "X", accent: "colorless", label: "Colorless mana" },
+          ]}
+          lines={[
+            "בצע X פעולות קטנות שמחזקות אמון בקבוצה.",
+            "זהות קבוצתית נוצרת ממעשים עקביים.",
+          ]}
+          quote="מה שנשמר לאורך זמן - נהיה חלק מאיתנו"
+        />
+        <SpellCard
+          title="להצמיח קהילה"
+          manas={["1", "1", "1"]}
+          lines={[
+            "חזק קשרים שמחזקים גם אותך וגם את האחרים.",
+            "קהילה בריאה מצמיחה את כולם.",
+          ]}
+          quote="כשכולם גדלים, גם אני גדל"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-plant" slide={5}>
+      <div class="spell-card-row">
+        <SpellCard
+          title="עמידה בהבטחה"
+          manas={["1", "1"]}
+          lines={[
+            "קיים התחייבות אחת כלפי הקבוצה.",
+            "גם כשלא נוח.",
+          ]}
+          quote="אמון נבנה מהבטחות שמקוימות"
+        />
+        <SpellCard
+          title="ללמוד ממסורת"
+          manas={["1"]}
+          lines={["קח פרקטיקה אחת שעבדה לדורות, ויישם אותה היום."]}
+          quote="לא כל דבר צריך להמציא מחדש"
+        />
+        <SpellCard
+          title="להגן על המעגל"
+          manas={["1"]}
+          lines={["זהה מה מחליש את הקבוצה שלך, ופעל לחיזוק שלה."]}
+          quote="כשהמעגל יציב, כולם מתחזקים"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-plant" slide={6}>
+      <SectionTitle>יצירה של מאנה ירוקה</SectionTitle>
+      <div class="creation-card-row">
+        <Manacard
+          title="בדיקת שייכות"
+          showMana={false}
+          lines={["בכל החלטה חשובה:", "מי אני כאן, ולאיזה מעגל אני שייך?"]}
+        />
+        <Manacard
+          title="משפט זהות"
+          showMana={false}
+          lines={["נסח זהות אחת שאני מקבל:", "אני ___ ואני חלק מ___."]}
+        />
+        <Manacard
+          title="פעולת מחויבות"
+          showMana={false}
+          lines={["עשה פעולה אחת", "שמחזקת אמון הדדי."]}
+        />
+        <Manacard
+          title="בדיקת הדדיות"
+          showMana={false}
+          lines={["איך המעגל מחזק אותי,", "ואיך אני מחזק אותו?"]}
+        />
+      </div>
+    </Slide>
+
+    <Slide class="text-slide slide-plant" slide={7}>
+      <SlideInner>
+        <SectionTitle>התפתחות</SectionTitle>
+        <div class="development-grid">
+          <article class="development-card">
+            <h3>נאמנות ילדותית</h3>
+            <p>
+              מחפשת תווית זהות מבחוץ, בלי לקבל אותה באמת מבפנים.
+            </p>
+            <p>
+              היא מבלבלת שייכות עם תלות, ופוחדת להציב גבולות בתוך הקבוצה.
+            </p>
+          </article>
+          <article class="development-card">
+            <h3>נאמנות בוגרת</h3>
+            <p>מקבלת זהות באופן מודע ופועלת מתוכה בעקביות.</p>
+            <p>
+              היא מאזנת בין טובת היחיד לטובת הקבוצה, שומרת על הדדיות, ויודעת
+              גם להיפרד ממעגלים שלא משרתים צמיחה.
+            </p>
+          </article>
+        </div>
+      </SlideInner>
+    </Slide>
+  </Slideshow>
+</Layout>
+
+<style>
+  .slide-plant {
+    background: var(--color-wallpaper) !important;
+  }
+
+  .spell-card-row {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    max-width: 95%;
+  }
+
+  @media (max-width: 1100px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .creation-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .creation-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .creation-card-row {
+    width: 100%;
+    max-width: 95%;
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+  }
+
+  .development-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.4rem);
+    margin-top: 1.5rem;
+  }
+
+  .development-card {
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border-radius: 20px;
+    background: var(--color-accent-surface);
+    box-shadow:
+      0 18px 35px var(--fx-shadow-dense),
+      inset 0 0 0 1px var(--fx-border-subtle);
+  }
+
+  .development-card h3 {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    letter-spacing: 0.05em;
+  }
+
+  .development-card p {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    line-height: 1.7;
+  }
+
+  .development-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 720px) {
+    .development-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

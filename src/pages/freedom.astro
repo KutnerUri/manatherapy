@@ -1,0 +1,269 @@
+---
+import LineFade from "../components/LineFade.astro";
+import ManaSlide from "../components/ManaSlide.astro";
+import ScrollHint from "../components/ScrollHint.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Slide from "../components/Slide.astro";
+import SlideInner from "../components/SlideInner.astro";
+import Slideshow from "../components/Slideshow.astro";
+import SpellCard from "../components/SpellCard.astro";
+import Manacard from "../components/Manacard.astro";
+import Layout from "../layouts/Layout.astro";
+import fireLogo from "../assets/logos/fire.webp";
+
+const title = "חופש — מאנה תרפיה";
+const description = "Red mana - freedom, impulse, and authentic expression.";
+---
+
+<Layout title={title} description={description} lang="he" data-accent="fire">
+  <Slideshow>
+    <ManaSlide
+      colorClass="fire"
+      logo={fireLogo}
+      logoAlt="Red mana logo"
+      sub="חופש"
+      subtitle="מימוש דחפים"
+      slide={0}
+    >
+      <ScrollHint />
+    </ManaSlide>
+
+    <Slide class="text-slide slide-fire" slide={1}>
+      <SlideInner>
+        <SectionTitle>חופש הוא הכוח לבטא את עצמנו באמת.</SectionTitle>
+        <LineFade
+          lines={["הוא שואל:", "מה אני מרגיש עכשיו?", "ומה אני רוצה ליצור?"]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-fire" slide={2}>
+      <SlideInner>
+        <SectionTitle>תפיסת עולם</SectionTitle>
+        <LineFade
+          lines={[
+            "חופש מניח שהחיים קצרים מדי לדיכוי מתמשך,",
+            "ושאנרגיה חיה היא מקור של יצירה ושינוי.",
+            "",
+            "מתוך ההנחה הזו, חופש מעריך:",
+            "אותנטיות,",
+            "אומץ,",
+            "ופעולה ספונטנית.",
+            "חופש לא מחכה לאישור; הוא בודק דרך עשייה.",
+            "",
+            "הוא אומר:",
+            "להרגיש עד הסוף",
+            "ולפעול מהלב",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-fire" slide={3}>
+      <SlideInner>
+        <SectionTitle>למה צריך חופש</SectionTitle>
+        <LineFade
+          lines={[
+            "חופש נותן לנו חיוניות -",
+            "אנרגיה לנוע, לנסות, ולהתחבר לרצון האמיתי שלנו.",
+            "בלעדיו - החיים נהיים מכניים, כבדים, וחסרי תשוקה.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="slide-fire" slide={4}>
+      <SectionTitle>מה חופש מאפשר לנו</SectionTitle>
+      <div class="spell-card-row">
+        <SpellCard
+          title="לבטא"
+          manas={["1"]}
+          lines={["אמור בקול את מה שבאמת חשוב לך."]}
+          quote="אמת חיה משחררת אנרגיה"
+        />
+        <SpellCard
+          title="לנסות"
+          manas={["1"]}
+          lines={["נסה משהו חדש בלי לדעת איך יצא."]}
+          quote="פעולה קודמת לבהירות"
+        />
+        <SpellCard
+          title="ספונטניות"
+          manas={[
+            "1",
+            { value: "X", accent: "colorless", label: "Colorless mana" },
+          ]}
+          lines={[
+            "פנה X דקות לרעיון שמדליק אותך עכשיו.",
+            "תן לאש לעבוד.",
+          ]}
+          quote="הניצוץ מוביל"
+        />
+        <SpellCard
+          title="ליצור"
+          manas={["1", "1", "1"]}
+          lines={[
+            "הפוך דחף גולמי למעשה קטן בעולם.",
+            "פחות לדבר, יותר לעשות.",
+          ]}
+          quote="יצירה היא שפה של חופש"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-fire" slide={5}>
+      <div class="spell-card-row">
+        <SpellCard
+          title="להעז"
+          manas={["1", "1"]}
+          lines={["קח סיכון יצירתי קטן, למרות הפחד."]}
+          quote="אומץ הוא שריר"
+        />
+        <SpellCard
+          title="לשחרר לחץ"
+          manas={["1"]}
+          lines={["פרוק מתח בגוף: תנועה, קול, נשימה."]}
+          quote="רגש שזז - לא נתקע"
+        />
+        <SpellCard
+          title="להדליק מוטיבציה"
+          manas={["1"]}
+          lines={["קח רגע כבוי, ותמצא בו ניצוץ שמניע לפעולה."]}
+          quote="גם גחל קטן מצית אש"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-fire" slide={6}>
+      <SectionTitle>יצירה של מאנה אדומה</SectionTitle>
+      <div class="creation-card-row">
+        <Manacard
+          title="בדיקת דופק"
+          showMana={false}
+          lines={["מה אני מרגיש עכשיו,", "בלי לצנזר?"]}
+        />
+        <Manacard
+          title="שם לרגש"
+          showMana={false}
+          lines={["תן שם מדויק", "לרגש המרכזי."]}
+        />
+        <Manacard
+          title="פעולה חיה"
+          showMana={false}
+          lines={["המר רגש", "לפעולה יצירתית קטנה."]}
+        />
+        <Manacard
+          title="שחרור ומנוחה"
+          showMana={false}
+          lines={["אחרי הבעירה - לעצור,", "להקשיב לגוף, ולהתאזן."]}
+        />
+      </div>
+    </Slide>
+
+    <Slide class="text-slide slide-fire" slide={7}>
+      <SlideInner>
+        <SectionTitle>התפתחות</SectionTitle>
+        <div class="development-grid">
+          <article class="development-card">
+            <h3>חופש ילדותי</h3>
+            <p>
+              רץ אחרי כל דחף רגעי, גם כשזה פוגע בעצמו ובאחרים.
+            </p>
+            <p>
+              הוא מתבלבל בין אותנטיות לאימפולסיביות, ונשרף מהר בלי כיוון.
+            </p>
+          </article>
+          <article class="development-card">
+            <h3>חופש בוגר</h3>
+            <p>נותן מקום מלא לרגש, ובוחר איך לבטא אותו.</p>
+            <p>
+              הוא מתעל אנרגיה ליצירה, משלב תשוקה עם אחריות, ושומר על אש יציבה
+              לאורך זמן.
+            </p>
+          </article>
+        </div>
+      </SlideInner>
+    </Slide>
+  </Slideshow>
+</Layout>
+
+<style>
+  .slide-fire {
+    background: var(--color-wallpaper) !important;
+  }
+
+  .spell-card-row {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    max-width: 95%;
+  }
+
+  @media (max-width: 1100px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .creation-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .creation-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .creation-card-row {
+    width: 100%;
+    max-width: 95%;
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+  }
+
+  .development-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.4rem);
+    margin-top: 1.5rem;
+  }
+
+  .development-card {
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border-radius: 20px;
+    background: var(--color-accent-surface);
+    box-shadow:
+      0 18px 35px var(--fx-shadow-dense),
+      inset 0 0 0 1px var(--fx-border-subtle);
+  }
+
+  .development-card h3 {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    letter-spacing: 0.05em;
+  }
+
+  .development-card p {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    line-height: 1.7;
+  }
+
+  .development-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 720px) {
+    .development-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

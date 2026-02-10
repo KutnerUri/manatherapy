@@ -10,6 +10,10 @@ const baseUrl = new URL(import.meta.env.BASE_URL, Astro.url);
 
 const links = [
   { href: baseUrl.pathname, label: "דף הבית" },
+  { href: new URL("purity/", baseUrl).pathname, label: "טוהר" },
+  { href: new URL("loyalty/", baseUrl).pathname, label: "נאמנות" },
+  { href: new URL("freedom/", baseUrl).pathname, label: "חופש" },
+  { href: new URL("fairness/", baseUrl).pathname, label: "הוגנות" },
   { href: new URL("respect/", baseUrl).pathname, label: "כבוד" },
 ];
 ---
@@ -35,7 +39,10 @@ const links = [
         </a>
       ))
     }
-    <ThemeToggle />
+    <div class="menu-separator" role="separator" aria-hidden="true"></div>
+    <div class="menu-theme-section">
+      <ThemeToggle />
+    </div>
   </div>
 </nav>
 
@@ -190,6 +197,15 @@ const links = [
     padding: 0.35rem 0.5rem;
     border-radius: 8px;
     transition: background 0.2s ease;
+  }
+
+  .menu-separator {
+    margin-top: 0.35rem;
+    border-top: 1px solid var(--menu-border);
+  }
+
+  .menu-theme-section {
+    margin-top: 0.35rem;
   }
 
   .menu-theme-toggle {

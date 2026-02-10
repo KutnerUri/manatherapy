@@ -1,0 +1,269 @@
+---
+import LineFade from "../components/LineFade.astro";
+import ManaSlide from "../components/ManaSlide.astro";
+import ScrollHint from "../components/ScrollHint.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Slide from "../components/Slide.astro";
+import SlideInner from "../components/SlideInner.astro";
+import Slideshow from "../components/Slideshow.astro";
+import SpellCard from "../components/SpellCard.astro";
+import Manacard from "../components/Manacard.astro";
+import Layout from "../layouts/Layout.astro";
+import sunLogo from "../assets/logos/sun.webp";
+
+const title = "הוגנות — מאנה תרפיה";
+const description = "White mana - order, justice, and shared responsibility.";
+---
+
+<Layout title={title} description={description} lang="he" data-accent="earth">
+  <Slideshow>
+    <ManaSlide
+      colorClass="earth"
+      logo={sunLogo}
+      logoAlt="Earth mana logo"
+      sub="הוגנות"
+      subtitle="ניהול סיכונים"
+      slide={0}
+    >
+      <ScrollHint />
+    </ManaSlide>
+
+    <Slide class="text-slide slide-earth" slide={1}>
+      <SlideInner>
+        <SectionTitle>הוגנות היא הכוח לסדר.</SectionTitle>
+        <LineFade
+          lines={["היא שואלת:", "מה נכון?", "ואיזה כלל שומר על כולם?"]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-earth" slide={2}>
+      <SlideInner>
+        <SectionTitle>תפיסת עולם</SectionTitle>
+        <LineFade
+          lines={[
+            "הוגנות מניחה שחיים משותפים דורשים כללים משותפים,",
+            "ושצדק הוא מערכת יציבה, לא מצב רוח רגעי.",
+            "",
+            "מתוך ההנחה הזו, הוגנות מעריכה:",
+            "סדר,",
+            "שוויון בפני הכללים,",
+            "ואחריות הדדית.",
+            "ניהול סיכונים הוא כלי של הוגנות, אבל לא המרכז שלה.",
+            "",
+            "היא אומרת:",
+            "לקבוע מסגרת ברורה",
+            "ולעמוד בה באופן עקבי",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-earth" slide={3}>
+      <SlideInner>
+        <SectionTitle>למה צריך הוגנות</SectionTitle>
+        <LineFade
+          lines={[
+            "הוגנות נותנת לנו אמון -",
+            "יכולת לשתף פעולה, לחלק אחריות, ולהגן גם על מי שפחות חזק.",
+            "בלעדיה - הכוח קובע, הכללים נשברים, והחלשים משלמים את המחיר.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="slide-earth" slide={4}>
+      <SectionTitle>מה הוגנות מאפשרת לנו</SectionTitle>
+      <div class="spell-card-row">
+        <SpellCard
+          title="לקבוע סטנדרט"
+          manas={["1"]}
+          lines={["הגדר כלל ברור שמשרת את כולם."]}
+          quote="כשהכלל ברור, יש קרקע משותפת"
+        />
+        <SpellCard
+          title="ליישם בשוויון"
+          manas={["1"]}
+          lines={["החל את אותו כלל על כולם, כולל על עצמך."]}
+          quote="צדק מתחיל בעקביות"
+        />
+        <SpellCard
+          title="לתאם מערכת"
+          manas={[
+            "1",
+            { value: "X", accent: "colorless", label: "Colorless mana" },
+          ]}
+          lines={[
+            "חבר בין X תפקידים למסגרת עבודה אחת.",
+            "הגדר ציפיות ברורות לכולם.",
+          ]}
+          quote="סדר טוב מייצר שיתוף פעולה"
+        />
+        <SpellCard
+          title="להגן על החלש"
+          manas={["1", "1", "1"]}
+          lines={[
+            "זהה פער כוח, והוסף מנגנון הגנה הוגן.",
+            "מערכת טובה נמדדת בדרך שבה היא מגנה על הפגיעים.",
+          ]}
+          quote="צדק אמיתי נבחן בקצה"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-earth" slide={5}>
+      <div class="spell-card-row">
+        <SpellCard
+          title="בדיקת הוגנות"
+          manas={["1", "1"]}
+          lines={["בדוק מי נהנה, מי משלם, והאם החלוקה צודקת."]}
+          quote="הוגנות היא חלוקה, לא רק כוונה"
+        />
+        <SpellCard
+          title="מניעת עוול"
+          manas={["1"]}
+          lines={["זהה כלל שיוצר פגיעה, ותקן אותו לפני שהוא הופך להרגל."]}
+          quote="עוול קטן שלא טופל נהיה נורמה"
+        />
+        <SpellCard
+          title="ניהול סיכון אחראי"
+          manas={["1"]}
+          lines={["זהה סיכון מערכתי, ובנה מניעה ששומרת על כולם."]}
+          quote="ניהול סיכון משרת צדק יציב"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-earth" slide={6}>
+      <SectionTitle>יצירה של מאנה לבנה</SectionTitle>
+      <div class="creation-card-row">
+        <Manacard
+          title="הבהרת כלל"
+          showMana={false}
+          lines={["מהו הכלל כאן,", "והאם הוא ברור לכולם?"]}
+        />
+        <Manacard
+          title="בדיקת שוויון"
+          showMana={false}
+          lines={["האם אני מיישם את אותו סטנדרט", "על כולם וגם על עצמי?"]}
+        />
+        <Manacard
+          title="אכיפה עקבית"
+          showMana={false}
+          lines={["איזו פעולה עכשיו", "מחזקת אמון במסגרת?"]}
+        />
+        <Manacard
+          title="שיפור מסגרת"
+          showMana={false}
+          lines={["מה יגרום לכלל להיות", "גם צודק וגם ישים לאורך זמן?"]}
+        />
+      </div>
+    </Slide>
+
+    <Slide class="text-slide slide-earth" slide={7}>
+      <SlideInner>
+        <SectionTitle>התפתחות</SectionTitle>
+        <div class="development-grid">
+          <article class="development-card">
+            <h3>הוגנות ילדותית</h3>
+            <p>
+              נאחזת בכללים בצורה נוקשה, בלי לראות את ההקשר האנושי.
+            </p>
+            <p>
+              היא מבלבלת צדק עם ענישה, ומעדיפה שליטה על פני אחריות משותפת.
+            </p>
+          </article>
+          <article class="development-card">
+            <h3>הוגנות בוגרת</h3>
+            <p>בונה כללים כדי לשרת חיים משותפים הוגנים.</p>
+            <p>
+              היא משלבת עקביות עם חמלה, מתקנת עיוותים בזמן, ומשתמשת בניהול
+              סיכונים כדי להגן על הסדר הצודק.
+            </p>
+          </article>
+        </div>
+      </SlideInner>
+    </Slide>
+  </Slideshow>
+</Layout>
+
+<style>
+  .slide-earth {
+    background: var(--color-wallpaper) !important;
+  }
+
+  .spell-card-row {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    max-width: 95%;
+  }
+
+  @media (max-width: 1100px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .creation-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .creation-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .creation-card-row {
+    width: 100%;
+    max-width: 95%;
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+  }
+
+  .development-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.4rem);
+    margin-top: 1.5rem;
+  }
+
+  .development-card {
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border-radius: 20px;
+    background: var(--color-accent-surface);
+    box-shadow:
+      0 18px 35px var(--fx-shadow-dense),
+      inset 0 0 0 1px var(--fx-border-subtle);
+  }
+
+  .development-card h3 {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    letter-spacing: 0.05em;
+  }
+
+  .development-card p {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    line-height: 1.7;
+  }
+
+  .development-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 720px) {
+    .development-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
