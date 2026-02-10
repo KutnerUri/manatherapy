@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import ThemeToggle from "./ThemeToggle.astro";
 
 interface Props extends HTMLAttributes<"nav"> {}
 
@@ -34,15 +35,12 @@ const links = [
         </a>
       ))
     }
+    <ThemeToggle />
   </div>
 </nav>
 
 <script>
   const menus = document.querySelectorAll("[data-hamburger-menu]");
-
-  function handleClick() {
-    console.log("clicked");
-  }
 
   menus.forEach((menu) => {
     const toggle = menu.querySelector(".hamburger-toggle");
@@ -194,8 +192,23 @@ const links = [
     transition: background 0.2s ease;
   }
 
+  .menu-theme-toggle {
+    color: inherit;
+    font-size: 0.9rem;
+    font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+    background: transparent;
+    border: none;
+    text-align: start;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
   .menu-link:hover,
-  .menu-link:focus-visible {
+  .menu-link:focus-visible,
+  .menu-theme-toggle:hover,
+  .menu-theme-toggle:focus-visible {
     background: var(--menu-bg-strong);
     outline: none;
   }

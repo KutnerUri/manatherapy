@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import HamburgerMenu from "../components/HamburgerMenu.astro";
+import ThemeScript from "../components/ThemeScript.astro";
 import defaultOgImage from "../assets/5-elem.jpg";
 import defaultFavicon from "../favicon.svg";
 
@@ -60,6 +61,7 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
     }
     {twitterImageSrc && <meta name="twitter:image" content={twitterImageSrc} />}
     {faviconSrc && <link rel="icon" href={faviconSrc} type="image/svg+xml" />}
+    <ThemeScript />
     <title>{title}</title>
   </head>
   <body dir={dir} class:list={["theme-main", className]} {...rest}>
@@ -77,20 +79,26 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
 
   .theme-main {
     font-family: "Georgia", "Times New Roman", "Times", serif;
+    --color-bg-gradient: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 56%),
+      var(--color-wallpaper)
+    );
     --ink: #141414;
-    --ink-soft: rgba(20, 20, 20, 0.68);
-    --fx-border-subtle: rgba(0, 0, 0, 0.08);
-    --fx-border-strong: rgba(0, 0, 0, 0.14);
-    --fx-shadow-ghost: rgba(0, 0, 0, 0.08);
-    --fx-shadow-soft: rgba(0, 0, 0, 0.14);
-    --fx-shadow-subtle: rgba(0, 0, 0, 0.2);
-    --fx-shadow-strong: rgba(0, 0, 0, 0.28);
-    --fx-shadow-dense: rgba(0, 0, 0, 0.36);
-    --fx-shadow-sharp: rgba(0, 0, 0, 0.45);
-    --fx-shadow-full: rgba(0, 0, 0, 0.52);
+    --ink-soft: rgb(32 32 32 / 72%);
+    --fx-border-subtle: rgb(0 0 0 / 10%);
+    --fx-border-strong: rgb(0 0 0 / 16%);
+    --fx-shadow-ghost: rgb(0 0 0 / 5%);
+    --fx-shadow-soft: rgb(0 0 0 / 10%);
+    --fx-shadow-subtle: rgb(0 0 0 / 12%);
+    --fx-shadow-strong: rgb(0 0 0 / 18%);
+    --fx-shadow-dense: rgb(0 0 0 / 18%);
+    --fx-shadow-sharp: rgb(0 0 0 / 18%);
+    --fx-shadow-full: rgb(0 0 0 / 52%);
     --fx-light-glow: rgba(255, 255, 255, 0.65);
     --fx-light-glow-strong: rgba(255, 255, 255, 0.85);
     --fx-highlight: rgba(255, 255, 255, 0.7);
+    color-scheme: light;
 
     --token-colorless-wallpaper: #fbfbfb;
     --token-colorless-surface: #f2f2f2;
@@ -100,31 +108,31 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
 
     --token-earth-wallpaper: #fefbe8;
     --token-earth-surface: #f8f3d5;
-    --token-earth-content: #fefdf7;
+    --token-earth-content: #fefefe;
     --token-earth-highlight: #f2eab4;
     --token-earth-full: #e6d35c;
 
     --token-water-wallpaper: #f8fafd;
     --token-water-surface: #eaf3ff;
-    --token-water-content: #fbfdff;
+    --token-water-content: #fefefe;
     --token-water-highlight: #d6e7ff;
     --token-water-full: #a2c7ff;
 
     --token-plant-wallpaper: #f0fff0;
     --token-plant-surface: #d2f1d4;
-    --token-plant-content: #f9fef9;
+    --token-plant-content: #fefefe;
     --token-plant-highlight: #a9e8ad;
     --token-plant-full: #63c96b;
 
     --token-fire-wallpaper: #fef9f8;
     --token-fire-surface: #ffe3e1;
-    --token-fire-content: #fffbfb;
+    --token-fire-content: #fefefe;
     --token-fire-highlight: #ffc4c5;
     --token-fire-full: #ff3d49;
 
     --token-metal-wallpaper: #f7f0ff;
     --token-metal-surface: #ecd9ff;
-    --token-metal-content: #fdfcff;
+    --token-metal-content: #fefefe;
     --token-metal-highlight: #d6b8ff;
     --token-metal-full: #9a5dff;
 
@@ -137,6 +145,65 @@ const faviconSrc = favicon && (favicon.src ?? favicon);
 
     color: var(--ink);
     background: var(--color-wallpaper);
+  }
+
+  .theme-main[data-theme="dark"],
+  [data-theme="dark"] .theme-main {
+    --color-bg-gradient: linear-gradient(
+      180deg,
+      rgb(25 25 25 / 84%),
+      var(--color-wallpaper)
+    );
+    --ink: #f5f5f5;
+    --ink-soft: rgb(245 245 245 / 76%);
+    --fx-border-subtle: rgb(255 255 255 / 22%);
+    --fx-border-strong: rgb(255 255 255 / 31%);
+    --fx-shadow-ghost: rgb(255 255 255 / 7%);
+    --fx-shadow-soft: rgb(0 0 0 / 24%);
+    --fx-shadow-subtle: rgb(0 0 0 / 42%);
+    --fx-shadow-strong: rgb(0 0 0 / 52%);
+    --fx-shadow-dense: rgb(0 0 0 / 52%);
+    --fx-shadow-sharp: rgb(0 0 0 / 52%);
+    --fx-shadow-full: rgb(255 255 255 / 72%);
+    --fx-light-glow: rgb(245 245 245 / 76%);
+    --fx-light-glow-strong: rgb(245 245 245 / 88%);
+    --fx-highlight: rgb(255 255 255 / 31%);
+    color-scheme: dark;
+    --token-colorless-wallpaper: #121316;
+    --token-colorless-surface: #1f2229;
+    --token-colorless-content: #171717;
+    --token-colorless-highlight: #4c525e;
+    --token-colorless-full: #616977;
+
+    --token-earth-wallpaper: #120f08;
+    --token-earth-surface: #2c2414;
+    --token-earth-content: #171717;
+    --token-earth-highlight: #5a4b23;
+    --token-earth-full: #886b10;
+
+    --token-water-wallpaper: #081226;
+    --token-water-surface: #182a49;
+    --token-water-content: #171717;
+    --token-water-highlight: #385880;
+    --token-water-full: #316fc8;
+
+    --token-plant-wallpaper: #07150e;
+    --token-plant-surface: #183428;
+    --token-plant-content: #171717;
+    --token-plant-highlight: #3a654b;
+    --token-plant-full: #2b7e4a;
+
+    --token-fire-wallpaper: #180b11;
+    --token-fire-surface: #3a1724;
+    --token-fire-content: #171717;
+    --token-fire-highlight: #7e4657;
+    --token-fire-full: #c53d5a;
+
+    --token-metal-wallpaper: #0f0a1d;
+    --token-metal-surface: #251a42;
+    --token-metal-content: #171717;
+    --token-metal-highlight: #5b487f;
+    --token-metal-full: #7f53ce;
   }
 
   [data-accent="colorless"],

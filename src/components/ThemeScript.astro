@@ -1,0 +1,59 @@
+<script is:inline>
+  (() => {
+    const storageKey = "manatheory-theme";
+    const root = document.documentElement;
+
+    const isTheme = (value) => value === "light" || value === "dark";
+    const readStoredTheme = () => {
+      try {
+        return localStorage.getItem(storageKey);
+      } catch {
+        return null;
+      }
+    };
+    const systemTheme = () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    const resolveTheme = () => {
+      const stored = readStoredTheme();
+      return isTheme(stored) ? stored : systemTheme();
+    };
+    let activeTheme = resolveTheme();
+
+    const applyTheme = (theme) => {
+      root.dataset.theme = theme;
+      window.dispatchEvent(
+        new CustomEvent("themechange", { detail: { theme } }),
+      );
+    };
+
+    const setTheme = (theme) => {
+      if (!isTheme(theme)) return;
+
+      try {
+        localStorage.setItem(storageKey, theme);
+      } catch {}
+      activeTheme = theme;
+
+      applyTheme(activeTheme);
+    };
+
+    window.__themeManager = {
+      getTheme: () => activeTheme,
+      toggleTheme: (next = activeTheme === "dark" ? "light" : "dark") => {
+        setTheme(next);
+        return activeTheme;
+      },
+      clearTheme: () => {
+        try {
+          localStorage.removeItem(storageKey);
+        } catch {}
+        activeTheme = resolveTheme();
+        applyTheme(activeTheme);
+      },
+    };
+
+    applyTheme(activeTheme);
+  })();
+</script>

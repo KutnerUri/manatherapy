@@ -1,0 +1,67 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  lightLabel?: string;
+  darkLabel?: string;
+}
+
+const {
+  lightLabel = "מצב בהיר",
+  darkLabel = "מצב כהה",
+  class: className,
+  ...rest
+}: Props = Astro.props;
+---
+
+<button
+  {...rest}
+  type="button"
+  data-theme-toggle
+  data-theme-label-light={lightLabel}
+  data-theme-label-dark={darkLabel}
+  aria-pressed="false"
+  class:list={["menu-theme-toggle", className]}
+>
+  {lightLabel}
+</button>
+
+<script>
+  const themeToggles = document.querySelectorAll("[data-theme-toggle]");
+
+  const getThemeManager = () => {
+    if (!("__themeManager" in window))
+      throw new Error("missing theme manager)");
+
+    return window.__themeManager as {
+      getTheme: () => "light" | "dark";
+      toggleTheme: (next?: "light" | "dark") => void;
+    };
+  };
+
+  const setToggleState = (toggle: Element) => {
+    const isDark = getThemeManager().getTheme() === "dark";
+    const lightLabel =
+      toggle.getAttribute("data-theme-label-light") ?? "מצב בהיר";
+    const darkLabel = toggle.getAttribute("data-theme-label-dark") ?? "מצב כהה";
+
+    toggle.setAttribute("aria-pressed", String(isDark));
+    toggle.textContent = isDark ? darkLabel : lightLabel;
+  };
+
+  themeToggles.forEach((toggle) => {
+    if (toggle.getAttribute("data-theme-bound") === "true") return;
+    toggle.setAttribute("data-theme-bound", "true");
+
+    setToggleState(toggle);
+
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      getThemeManager().toggleTheme();
+      setToggleState(toggle);
+    });
+
+    window.addEventListener("themechange", () => setToggleState(toggle));
+  });
+</script>
