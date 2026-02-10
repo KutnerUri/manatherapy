@@ -26,16 +26,17 @@ const {
 }: Props = Astro.props;
 ---
 
-<article {...rest} data-accent={accent} class:list={["manacard-template", className]}>
+<article
+  {...rest}
+  data-accent={accent}
+  class:list={["manacard-template", className]}
+>
   <div class="manacard-header">
     <strong class="manacard-title">{title}</strong>
     {showMana && <ManaBadge value={mana} accent={accent} />}
   </div>
 
-  <div
-    class="manacard-image-slot"
-    aria-hidden={imageSrc ? "false" : "true"}
-  >
+  <div class="manacard-image-slot" aria-hidden={imageSrc ? "false" : "true"}>
     {imageSrc && <img class="manacard-image" src={imageSrc} alt={imageAlt} />}
   </div>
 
@@ -104,9 +105,16 @@ const {
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background:
-      rgba(255, 255, 255, 0.32),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.18)),
-      repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.03) 0 8px, rgba(0, 0, 0, 0.06) 8px 16px);
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.23),
+        rgba(255, 255, 255, 0)
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(0, 0, 0, 0.03) 0 8px,
+        rgba(0, 0, 0, 0.06) 8px 16px
+      );
   }
 
   .manacard-image {

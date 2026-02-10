@@ -73,10 +73,7 @@ const manaItems = (manas && manas.length > 0 ? manas : [mana]).map((item) => {
     </span>
   </div>
 
-  <div
-    class="spellcard-image-slot"
-    aria-hidden={imageSrc ? "false" : "true"}
-  >
+  <div class="spellcard-image-slot" aria-hidden={imageSrc ? "false" : "true"}>
     {imageSrc && <img class="spellcard-image" src={imageSrc} alt={imageAlt} />}
   </div>
 
@@ -160,8 +157,8 @@ const manaItems = (manas && manas.length > 0 ? manas : [mana]).map((item) => {
       rgba(255, 255, 255, 0.32),
       linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.18)
+        rgba(255, 255, 255, 0.23),
+        rgba(255, 255, 255, 0)
       ),
       repeating-linear-gradient(
         -45deg,
