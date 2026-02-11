@@ -14,6 +14,7 @@ import settingBordersImage from "../assets/metal/setting-borders.webp";
 import workDoneImage from "../assets/metal/work-done.webp";
 import choosingImage from "../assets/metal/choosing.webp";
 import extractionImage from "../assets/metal/extraction.webp";
+import loanImage from "../assets/metal/loan.webp";
 import thinkingImage from "../assets/metal/thinking.jpg";
 import metalLogo from "../assets/logos/metal.webp";
 
@@ -141,6 +142,8 @@ const description = "Black mana - honor, pragmatism, and survival.";
         <SpellCard
           title="הלוואה"
           manas={["1"]}
+          imageSrc={loanImage.src}
+          imageAlt="Loan spell illustration"
           lines={["קבל כסף עכשיו, והחזר פי שתיים בעוד 10 תורות."]}
           quote="העתיד יכול לחכות, אני צריך את זה עכשיו"
         />
@@ -164,16 +167,13 @@ const description = "Black mana - honor, pragmatism, and survival.";
           imageSrc={thinkingImage.src}
           imageAlt="Thinking illustration"
           lines={["בכל פעם שיש ספק:", "לשאול מה אני רוצה?"]}
-        />
-        <Manacard
-          title="הערכה לרצון"
-          showMana={false}
-          lines={["אם אני רוצה את זה,", "זה חשוב."]}
+          quote="אם אני רוצה את זה, זה חשוב"
         />
         <Manacard
           title="מודעות למחיר"
           showMana={false}
           lines={["מה המחיר המלא?", "האם אני מוכן לשלם אותו?"]}
+          quote="...ואני רוצה פרארי"
         />
         <Manacard
           title="הערכה לסיפוק"
