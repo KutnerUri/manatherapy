@@ -11,8 +11,8 @@ import Manacard from "../components/Manacard.astro";
 import Layout from "../layouts/Layout.astro";
 import sunLogo from "../assets/logos/sun.webp";
 
-const title = "סדר — מאנה תרפיה";
-const description = "White mana - order, justice, and shared responsibility.";
+const title = "סימטריה — מאנה תרפיה";
+const description = "White mana - symmetry, shared order, and service to the whole.";
 ---
 
 <Layout title={title} description={description} lang="he" data-accent="earth">
@@ -21,8 +21,8 @@ const description = "White mana - order, justice, and shared responsibility.";
       colorClass="earth"
       logo={sunLogo}
       logoAlt="Earth mana logo"
-      sub="סדר"
-      subtitle="ניהול סיכונים"
+      sub="סימטריה"
+      subtitle="שירות הכלל"
       slide={0}
     >
       <ScrollHint />
@@ -30,30 +30,40 @@ const description = "White mana - order, justice, and shared responsibility.";
 
     <Slide class="text-slide slide-earth" slide={1}>
       <SlideInner>
-        <SectionTitle>סדר הוא הכוח לסדר.</SectionTitle>
+        <SectionTitle>מהות</SectionTitle>
         <LineFade
-          lines={["הוא שואל:", "למה בעצם?", "איזה כלל חל כאן?"]}
+          lines={[
+            "סימטריה היא הכוח",
+            "לראות הכל בתוך אותה מסגרת.",
+            "",
+            "היא מאפשרת לך ליצור שלווה וביטחון.",
+          ]}
         />
       </SlideInner>
     </Slide>
 
     <Slide class="text-slide slide-earth" slide={2}>
       <SlideInner>
-        <SectionTitle>תפיסת עולם</SectionTitle>
+        <SectionTitle>ראיית עולם</SectionTitle>
         <LineFade
           lines={[
-            "סדר מניח שחיים משותפים דורשים כללים משותפים,",
-            "ושצדק הוא מערכת יציבה, לא מצב רוח רגעי.",
+            "בעולם הזה יש סדר.",
+            "כיוון לדברים.",
+            "אם נשמור עליו -",
+            "יהיה מספיק שפע לכולם.",
             "",
-            "מתוך ההנחה הזו, סדר מעריך:",
-            "סדר,",
-            "שוויון בפני הכללים,",
-            "ואחריות הדדית.",
-            "ניהול סיכונים הוא כלי של סדר, אבל לא המרכז שלה.",
+            "אם דבר אחד אינו במקומו -",
+            "שום דבר לא במקומו.",
+            "אם מישהו רעב,",
+            "זה רק כי מישהו רימה.",
             "",
-            "הוא אומר:",
-            "לקבוע מסגרת ברורה",
-            "ולעמוד בה באופן עקבי",
+            "כמו שהארץ מקיפה את השמש,",
+            "כך גם אתה כפוף לחוקי היקום וחוקי האדם.",
+            "",
+            "תאמין בסדר,",
+            "או צור אותו בעצמך.",
+            "זו הדרך היחידה",
+            "להביא שלווה.",
           ]}
         />
       </SlideInner>
@@ -61,125 +71,90 @@ const description = "White mana - order, justice, and shared responsibility.";
 
     <Slide class="text-slide slide-earth" slide={3}>
       <SlideInner>
-        <SectionTitle>למה צריך סדר</SectionTitle>
+        <SectionTitle>הוגנות - שורש מוסרי</SectionTitle>
         <LineFade
           lines={[
-            "סדר נותן לנו אמון -",
-            "יכולת לשתף פעולה, לחלק אחריות, ולהגן גם על מי שפחות חזק.",
-            "בלעדיה - הכוח קובע, הכללים נשברים, והחלשים משלמים את המחיר.",
+            "אם היית מקים היום חברה מאפס",
+            "מבלי לדעת מי תהיה בתוכה,",
+            "חזק או חלש, עשיר או עני,",
+            "איזו חברה היית בונה?",
+            "",
+            "האם היית מצטרף אליה",
+            "גם אם היית בתחתית?",
           ]}
         />
       </SlideInner>
     </Slide>
 
     <Slide class="slide-earth" slide={4}>
-      <SectionTitle>מה סדר מאפשר לנו</SectionTitle>
+      <SectionTitle>מהלכים</SectionTitle>
       <div class="spell-card-row">
         <SpellCard
-          title="לקבוע סטנדרט"
-          manas={["1"]}
-          lines={["הגדר כלל ברור שמשרת את כולם."]}
-          quote="כשהכלל ברור, יש קרקע משותפת"
-        />
-        <SpellCard
-          title="ליישם בשוויון"
-          manas={["1"]}
-          lines={["החל את אותו כלל על כולם, כולל על עצמך."]}
-          quote="צדק מתחיל בעקביות"
-        />
-        <SpellCard
-          title="לתאם מערכת"
-          manas={[
-            "1",
-            { value: "X", accent: "colorless", label: "Colorless mana" },
-          ]}
-          lines={[
-            "חבר בין X תפקידים למסגרת עבודה אחת.",
-            "הגדר ציפיות ברורות לכולם.",
-          ]}
-          quote="סדר טוב מייצר שיתוף פעולה"
-        />
-        <SpellCard
-          title="להגן על החלש"
+          title="כלל"
           manas={["1", "1", "1"]}
-          lines={[
-            "זהה פער כוח, והוסף מנגנון הגנה הוגן.",
-            "מערכת טובה נמדדת בדרך שבה היא מגנה על הפגיעים.",
-          ]}
-          quote="צדק אמיתי נבחן בקצה"
+          lines={["קבע עיקרון שחל על כולם (כולל עצמך)."]}
+          quote="לקבוע כלל זה קל, לאכוף פחות"
+        />
+        <SpellCard
+          title="סטנדרט"
+          manas={["1"]}
+          lines={["קבע תקן על מנת להבטיח אחידות."]}
+          quote="אי אפשר להשוות תפוחים לתפוזים"
+        />
+        <SpellCard
+          title="חוזה"
+          manas={["1", "1"]}
+          lines={["קבע והסכם מראש מה עושים לפני שדברים קורים."]}
+        />
+        <SpellCard
+          title="גירוש"
+          manas={["1"]}
+          lines={["הרחק דבר שלא נראה נכון."]}
+          quote="מה שמפר את השלום - יוגלה את השכחה"
         />
       </div>
     </Slide>
 
     <Slide class="slide-earth" slide={5}>
+      <SectionTitle>איך משיגים אנרגיית סימטריה?</SectionTitle>
       <div class="spell-card-row">
-        <SpellCard
-          title="בדיקת סדר"
-          manas={["1", "1"]}
-          lines={["בדוק מי נהנה, מי משלם, והאם החלוקה צודקת."]}
-          quote="סדר הוא חלוקה, לא רק כוונה"
+        <Manacard
+          title="טקס"
+          showMana={false}
+          lines={["חזור על אותם הדברים בזמנים קבועים."]}
+          quote="כל פעם מחדש אני ..."
         />
-        <SpellCard
-          title="מניעת עוול"
-          manas={["1"]}
-          lines={["זהה כלל שיוצר פגיעה, ותקן אותו לפני שהוא הופך להרגל."]}
-          quote="עוול קטן שלא טופל נהיה נורמה"
+        <Manacard
+          title="הצהרת כוונות"
+          showMana={false}
+          lines={["כתוב את מה שחשוב במקום שכולם יראו."]}
         />
-        <SpellCard
-          title="ניהול סיכון אחראי"
-          manas={["1"]}
-          lines={["זהה סיכון מערכתי, ובנה מניעה ששומרת על כולם."]}
-          quote="ניהול סיכון משרת צדק יציב"
+        <Manacard
+          title="מיון"
+          showMana={false}
+          lines={["סדר וחלק את הכלים בבית."]}
         />
       </div>
     </Slide>
 
-    <Slide class="slide-earth" slide={6}>
-      <SectionTitle>יצירה של מאנה לבנה</SectionTitle>
-      <div class="spell-card-row">
-        <Manacard
-          title="הבהרת כלל"
-          showMana={false}
-          lines={["מהו הכלל כאן,", "והאם הוא ברור לכולם?"]}
-        />
-        <Manacard
-          title="בדיקת שוויון"
-          showMana={false}
-          lines={["האם אני מיישם את אותו סטנדרט", "על כולם וגם על עצמי?"]}
-        />
-        <Manacard
-          title="אכיפה עקבית"
-          showMana={false}
-          lines={["איזו פעולה עכשיו", "מחזקת אמון במסגרת?"]}
-        />
-        <Manacard
-          title="שיפור מסגרת"
-          showMana={false}
-          lines={["מה יגרום לכלל להיות", "גם צודק וגם ישים לאורך זמן?"]}
-        />
-      </div>
-    </Slide>
-
-    <Slide class="text-slide slide-earth" slide={7}>
+    <Slide class="text-slide slide-earth" slide={6}>
       <SlideInner>
         <SectionTitle>התפתחות</SectionTitle>
         <div class="development-grid">
           <article class="development-card">
-            <h3>סדר ילדותי</h3>
-            <p>
-              נאחז בכללים בצורה נוקשה, בלי לראות את ההקשר האנושי.
-            </p>
-            <p>
-              הוא מבלבל צדק עם ענישה, ומעדיף שליטה על פני אחריות משותפת.
-            </p>
+            <h3>סימטריה בלתי מפותחת</h3>
+            <p>מאמינה שיש תשובה נכונה אחת לכל שאלה.</p>
+            <p>מיישמת כללים בלי לשאול למה.</p>
+            <p>לא מסוגלת להתמודד עם יוצאים מן הכלל.</p>
+            <p>כשהמציאות לא מתאימה לכלל - היא מתעלמת מהמציאות.</p>
+            <p>משתמשת בסדר כתירוץ לא לחשוב.</p>
           </article>
           <article class="development-card">
-            <h3>סדר בוגר</h3>
-            <p>בונה כללים כדי לשרת חיים משותפים הוגנים.</p>
-            <p>
-              הוא משלב עקביות עם חמלה, מתקן עיוותים בזמן, ומשתמש בניהול
-              סיכונים כדי להגן על הסדר הצודק.
-            </p>
+            <h3>סימטריה בוגרת</h3>
+            <p>מבינה שסדר הוא כלי, לא מטרה.</p>
+            <p>כלל טוב הוא כלל שאפשר לעמוד בו.</p>
+            <p>רואה את האנשים שמולה, ואיך היא משפיעה עליהם.</p>
+            <p>פועלת לפי רוח החוק, ולא הטקסט שלו.</p>
           </article>
         </div>
       </SlideInner>
@@ -204,29 +179,12 @@ const description = "White mana - order, justice, and shared responsibility.";
     .spell-card-row {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    .creation-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 
   @media (max-width: 720px) {
     .spell-card-row {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    .creation-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .creation-card-row {
-    width: 100%;
-    max-width: 95%;
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
   }
 
   .development-grid {
