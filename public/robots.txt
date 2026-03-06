@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Allow indexing and general crawling, but opt out of Google AI training.
+User-agent: Google-Extended
+Disallow: /
+
+Sitemap: https://mana.nefzen.workers.dev/sitemap-index.xml
