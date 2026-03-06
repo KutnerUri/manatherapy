@@ -8,11 +8,15 @@ const { class: className, ...rest }: Props = Astro.props;
 
 const baseUrl = new URL(import.meta.env.BASE_URL, Astro.url);
 
-const links = [
+const primaryLinks = [
   { href: baseUrl.pathname, label: "דף הבית" },
   { href: new URL("purity/", baseUrl).pathname, label: "תודעה" },
   { href: new URL("fairness/", baseUrl).pathname, label: "סימטריה" },
   { href: new URL("respect/", baseUrl).pathname, label: "יחידוּת" },
+];
+
+const secondaryLinks = [
+  { href: new URL("parallelism/", baseUrl).pathname, label: "הקבלות" },
 ];
 ---
 
@@ -31,7 +35,15 @@ const links = [
 
   <div class="menu-panel" id="site-menu" role="menu">
     {
-      links.map((link) => (
+      primaryLinks.map((link) => (
+        <a class="menu-link" href={link.href} role="menuitem">
+          {link.label}
+        </a>
+      ))
+    }
+    <div class="menu-separator" role="separator" aria-hidden="true"></div>
+    {
+      secondaryLinks.map((link) => (
         <a class="menu-link" href={link.href} role="menuitem">
           {link.label}
         </a>
