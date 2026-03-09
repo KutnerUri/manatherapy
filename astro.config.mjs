@@ -10,6 +10,7 @@ export default defineConfig({
   site: "https://mana.nefzen.workers.dev",
   integrations: [sitemap()],
   redirects: {
-    "/metal/": "/respect/",
+    "/metal/": "/bond/",
+    "/respect/": "/bond/",
   },
 });

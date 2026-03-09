@@ -1,0 +1,194 @@
+---
+import LineFade from "../components/LineFade.astro";
+import ManaSlide from "../components/ManaSlide.astro";
+import ScrollHint from "../components/ScrollHint.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Slide from "../components/Slide.astro";
+import SlideInner from "../components/SlideInner.astro";
+import Slideshow from "../components/Slideshow.astro";
+import Layout from "../layouts/Layout.astro";
+import metalLogo from "../assets/logos/metal.webp";
+
+const title = "אגד — מאנה תרפיה";
+const description = "Black mana - bond, responsibility, and chosen outcomes.";
+---
+
+<Layout title={title} description={description} lang="he" data-accent="metal">
+  <Slideshow>
+    <ManaSlide
+      colorClass="metal"
+      logo={metalLogo}
+      logoAlt="Black mana logo"
+      sub="אגד"
+      subtitle="בחירת תוצאות"
+      slide={0}
+    >
+      <ScrollHint />
+    </ManaSlide>
+
+    <Slide class="text-slide slide-metal" slide={1}>
+      <SlideInner>
+        <SectionTitle>מהות</SectionTitle>
+        <LineFade
+          lines={[
+            "האגד הוא הכוח לקשור דברים יחד.",
+            "מתוך תוצאה.",
+            "",
+            "בעזרתו,",
+            "אני יודע איפה אני נגמר",
+            "ואיפה העולם מתחיל.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-metal" slide={2}>
+      <SlideInner>
+        <SectionTitle>ראיית עולם</SectionTitle>
+        <LineFade
+          lines={[
+            "שום דבר לא נשאר יחד מעצמו.",
+            "",
+            "אנשים עוזבים, הבטחות נשברות, קשרים מתרופפים.",
+            "ערבות הדדית היא רק כשהתוצאה הדדית.",
+            "",
+            "אני לא בונה על כוונות טובות.",
+            "אני נאמן רק לעצמי,",
+            "מה שכואב לי - הוא חלק ממני.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-metal" slide={3}>
+      <SlideInner>
+        <SectionTitle>נאמנות - שורש מוסרי</SectionTitle>
+        <LineFade
+          lines={[
+            "לכל דבר יש תוצאות.",
+            "אני בוחר לנשום, כי אחרת אחדול לחיות.",
+            "",
+            "נאמנות מאגדת דברים ביחד לקבוצה, למטרה.",
+            "התוצאה מכריחה אותנו, אבל תמיד נשארת הבחירה.",
+            "אם אני בוחר באגד אני נאמן,",
+            "אם אני בוחר לנתק, אני משלם את המחיר.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-metal" slide={4}>
+      <SlideInner>
+        <SectionTitle>נאמנות עצמית</SectionTitle>
+        <LineFade
+          lines={[
+            "לפני כל אגד אחר - בא החוב שלי לעצמי.",
+            "",
+            "גם כאן, נאמנות לא באה בחינם.",
+            "היא באה עם המחירים שאני בוחר לשאת.",
+            "ולעיתים מתנגשת עם נאמנות לאחרים.",
+            "",
+            "נאמנות לעצמי היא לדאוג לתוצאה שאני רוצה.",
+            "היא אומרת לדעת מה העלות של כל בחירה",
+            "ולחיות איתה בעיניים פתוחות.",
+            "",
+            "הנאמנות לעצמי היא הבסיס.",
+            "בלעדיו, אני נאבד בקבוצה.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-metal" slide={5}>
+      <SlideInner>
+        <SectionTitle>התפתחות</SectionTitle>
+        <div class="development-grid">
+          <article class="development-card">
+            <h3>אגד בלתי מפותח</h3>
+            <p>
+              מנסה לכפות קשרים דרך איום בלבד, או בנדיבות וחנופה מוגזמים.
+            </p>
+            <p>לא יכול לעמוד במילה שלו, ומזיק לסביבה.</p>
+            <p>
+              הוא לא מבין שאגד חד כיווני הוא לא קשר, הוא כלא. ואנשים בכלא לא
+              משרתים אותך, הם ממתינים להזדמנות לברוח.
+            </p>
+          </article>
+          <article class="development-card">
+            <h3>אגד בוגר</h3>
+            <p>אני מבין את משקל ההחלטות שאני מקבל, מה אני רוצה, ומה אני אקבל.</p>
+            <p>
+              אני מבין שהגנה על מי שקשור אלי היא השקעה, לא נדיבות. אם קורה לו
+              משהו, אני מפסיד אותו.
+            </p>
+            <p>
+              אני יודע שקשרים חזקים נבנים בשני הכיוונים. תוצאה משותפת שמחזיקה
+              אותנו, ומעשים קטנים - שבונים אמון לאורך זמן.
+            </p>
+          </article>
+        </div>
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-metal" slide={6}>
+      <SlideInner>
+        <SectionTitle>הזמנה</SectionTitle>
+        <LineFade
+          lines={[
+            "האגד הוא חלק ממך.",
+            "בחר את התוצאות שאתה יכול לחיות איתן.",
+            "בחר למי אתה באמת נאמן.",
+            "בחר מי שייך לך ולמי אתה שייך.",
+            "",
+            "בחר -",
+            "לפני שמישהו אחר יחליט בשבילך.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+  </Slideshow>
+</Layout>
+
+<style>
+  .slide-metal {
+    background: var(--color-wallpaper) !important;
+  }
+
+  .development-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.4rem);
+    margin-top: 1.5rem;
+  }
+
+  .development-card {
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border-radius: 20px;
+    background: var(--color-accent-surface);
+    box-shadow:
+      0 18px 35px var(--fx-shadow-dense),
+      inset 0 0 0 1px var(--fx-border-subtle);
+  }
+
+  .development-card h3 {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    letter-spacing: 0.05em;
+  }
+
+  .development-card p {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    line-height: 1.7;
+  }
+
+  .development-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 720px) {
+    .development-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
