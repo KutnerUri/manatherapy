@@ -8,7 +8,14 @@ const base = process.env.ASTRO_BASE ?? "/";
 export default defineConfig({
   base,
   site: "https://mana.nefzen.workers.dev",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !["/purity/", "/fairness/", "/loyalty/", "/freedom/"].some((path) =>
+          page.endsWith(path),
+        ),
+    }),
+  ],
   redirects: {
     "/metal/": "/bond/",
     "/respect/": "/bond/",

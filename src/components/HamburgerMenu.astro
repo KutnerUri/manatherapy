@@ -10,8 +10,6 @@ const baseUrl = new URL(import.meta.env.BASE_URL, Astro.url);
 
 const primaryLinks = [
   { href: baseUrl.pathname, label: "דף הבית" },
-  { href: new URL("purity/", baseUrl).pathname, label: "תודעה" },
-  { href: new URL("fairness/", baseUrl).pathname, label: "סימטריה" },
   { href: new URL("bond/", baseUrl).pathname, label: "אגד" },
 ];
 
