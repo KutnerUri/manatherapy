@@ -6,7 +6,16 @@ import SectionTitle from "../components/SectionTitle.astro";
 import Slide from "../components/Slide.astro";
 import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
+import SpellCard from "../components/SpellCard.astro";
+import Manacard from "../components/Manacard.astro";
 import Layout from "../layouts/Layout.astro";
+import gettingWhatYouWantImage from "../assets/metal/getting-what-you-want.webp";
+import settingBordersImage from "../assets/metal/setting-borders.webp";
+import workDoneImage from "../assets/metal/work-done.webp";
+import choosingImage from "../assets/metal/choosing.webp";
+import extractionImage from "../assets/metal/extraction.webp";
+import loanImage from "../assets/metal/loan.webp";
+import thinkingImage from "../assets/metal/thinking.jpg";
 import metalLogo from "../assets/logos/metal.webp";
 
 const title = "אגד — מאנה תרפיה";
@@ -99,7 +108,120 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
       </SlideInner>
     </Slide>
 
-    <Slide class="text-slide slide-metal" slide={5}>
+    <Slide class="slide-metal" slide={5}>
+      <SectionTitle>מה יחידוּת מאפשרת לנו</SectionTitle>
+      <div class="spell-card-row">
+        <SpellCard
+          accent="metal"
+          title="לבחור"
+          manas={["1"]}
+          imageSrc={choosingImage.src}
+          imageAlt="Choosing spell illustration"
+          lines={["דלג על דילמה"]}
+          quote="זה קל לבחור כשאתה יודע מה אתה רוצה"
+        />
+        <SpellCard
+          accent="metal"
+          title="להציב גבולות"
+          manas={["1"]}
+          imageSrc={settingBordersImage.src}
+          imageAlt="Setting borders spell illustration"
+          lines={["סרב לדרישה או ציפייה"]}
+          quote="אני לא מוכן, זה יקר מדי"
+        />
+        <SpellCard
+          accent="metal"
+          title="אמביציה"
+          manas={[
+            "1",
+            { value: "X", accent: "colorless", label: "Colorless mana" },
+          ]}
+          imageSrc={workDoneImage.src}
+          imageAlt="Work done spell illustration"
+          lines={[
+            "התמודד עם אי-נוחות זמנית.",
+            "התקדם X צעדים לכיוון היעד שלך.",
+          ]}
+          quote="אם זה היה קל, כולם היו עושים את זה"
+        />
+        <SpellCard
+          accent="metal"
+          title="להשיג"
+          manas={["1", "1", "1"]}
+          imageSrc={gettingWhatYouWantImage.src}
+          imageAlt="Getting what you want spell illustration"
+          lines={[
+            "קח דבר מה שאתה רוצה.",
+            "במקום לשלם מאנה, ניתן להקריב משהו כתמורה.",
+          ]}
+          quote="זה מגיע לי"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-metal" slide={6}>
+      <div class="spell-card-row">
+        <SpellCard
+          accent="metal"
+          title="מניפולציה"
+          manas={["1", "1"]}
+          lines={[
+            "השפע על מישהו לטובתך.",
+            "שלם עוד 2 מאנה אם אין לו אינטרס.",
+            "ועוד 3 אם זה נוגד את האינטרס שלו.",
+          ]}
+          quote="הוא לא צריך לדעת הכל... כל עוד הוא מרוויח"
+        />
+        <SpellCard
+          accent="metal"
+          title="הלוואה"
+          manas={["1"]}
+          imageSrc={loanImage.src}
+          imageAlt="Loan spell illustration"
+          lines={["קבל כסף עכשיו, והחזר פי שתיים בעוד 10 תורות."]}
+          quote="העתיד יכול לחכות, אני צריך את זה עכשיו"
+        />
+        <SpellCard
+          accent="metal"
+          title="הפק תועלת"
+          manas={["1"]}
+          imageSrc={extractionImage.src}
+          imageAlt="Extraction spell illustration"
+          lines={["קח מצב רע, או משהו שנגמר, ותוציא ממנו ערך."]}
+          quote="אם ככה, לפחות אני אצא מזה עם משהו"
+        />
+      </div>
+    </Slide>
+
+    <Slide class="slide-metal" slide={7}>
+      <SectionTitle>יצירה של מאנה שחורה</SectionTitle>
+      <div class="spell-card-row">
+        <Manacard
+          accent="metal"
+          title="בדיקת רצון"
+          showMana={false}
+          imageSrc={thinkingImage.src}
+          imageAlt="Thinking illustration"
+          lines={["בכל פעם שיש ספק:", "לשאול מה אני רוצה?"]}
+          quote="אם אני רוצה את זה, זה חשוב"
+        />
+        <Manacard
+          accent="metal"
+          title="מודעות למחיר"
+          showMana={false}
+          lines={["מה המחיר המלא?", "האם אני מוכן לשלם אותו?"]}
+          quote="...ואני רוצה פרארי"
+        />
+        <Manacard
+          accent="metal"
+          title="הערכה לסיפוק"
+          showMana={false}
+          lines={["האם אני מרוצה", "ממה שקיבלתי?"]}
+        />
+      </div>
+    </Slide>
+
+    <Slide class="text-slide slide-metal" slide={8}>
       <SlideInner>
         <SectionTitle>התפתחות</SectionTitle>
         <div class="development-grid">
@@ -130,7 +252,7 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
       </SlideInner>
     </Slide>
 
-    <Slide class="text-slide slide-metal" slide={6}>
+    <Slide class="text-slide slide-metal" slide={9}>
       <SlideInner>
         <SectionTitle>הזמנה</SectionTitle>
         <LineFade
@@ -152,6 +274,20 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
 <style>
   .slide-metal {
     background: var(--color-wallpaper) !important;
+  }
+
+  .spell-card-row {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    max-width: 95%;
+  }
+
+  @media (max-width: 1100px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   .development-grid {
@@ -187,6 +323,10 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
   }
 
   @media (max-width: 720px) {
+    .spell-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .development-grid {
       grid-template-columns: 1fr;
     }
