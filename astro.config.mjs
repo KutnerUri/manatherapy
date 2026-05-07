@@ -11,13 +11,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) =>
-        !["/purity/", "/fairness/", "/loyalty/", "/freedom/"].some((path) =>
+        !["/purity/", "/fairness/", "/freedom/"].some((path) =>
           page.endsWith(path),
         ),
     }),
   ],
-  redirects: {
-    "/metal/": "/bond/",
-    "/respect/": "/bond/",
-  },
 });

@@ -10,6 +10,7 @@ const baseUrl = new URL(import.meta.env.BASE_URL, Astro.url);
 
 const primaryLinks = [
   { href: baseUrl.pathname, label: "דף הבית" },
+  { href: new URL("graph/", baseUrl).pathname, label: "הגרף" },
   { href: new URL("bond/", baseUrl).pathname, label: "אגד" },
 ];
 

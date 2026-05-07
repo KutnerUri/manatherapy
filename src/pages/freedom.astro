@@ -8,6 +8,7 @@ import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
 import Manacard from "../components/Manacard.astro";
+import CardRow from "../components/CardRow.astro";
 import Layout from "../layouts/Layout.astro";
 import fireLogo from "../assets/logos/fire.webp";
 
@@ -74,7 +75,7 @@ const description = "Red mana - vitality, impulse, and authentic expression.";
 
     <Slide class="slide-fire" slide={4}>
       <SectionTitle>מה חיוּת מאפשרת לנו</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <SpellCard
           title="לבטא"
           manas={["1"]}
@@ -108,11 +109,11 @@ const description = "Red mana - vitality, impulse, and authentic expression.";
           ]}
           quote="יצירה היא שפה של חיוּת"
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="slide-fire" slide={5}>
-      <div class="spell-card-row">
+      <CardRow>
         <SpellCard
           title="להעז"
           manas={["1", "1"]}
@@ -131,12 +132,12 @@ const description = "Red mana - vitality, impulse, and authentic expression.";
           lines={["קח רגע כבוי, ותמצא בו ניצוץ שמניע לפעולה."]}
           quote="גם גחל קטן מצית אש"
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="slide-fire" slide={6}>
       <SectionTitle>יצירה של מאנה אדומה</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <Manacard
           title="בדיקת דופק"
           showMana={false}
@@ -157,7 +158,7 @@ const description = "Red mana - vitality, impulse, and authentic expression.";
           showMana={false}
           lines={["אחרי הבעירה - לעצור,", "להקשיב לגוף, ולהתאזן."]}
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="text-slide slide-fire" slide={7}>
@@ -190,43 +191,6 @@ const description = "Red mana - vitality, impulse, and authentic expression.";
 <style>
   .slide-fire {
     background: var(--color-wallpaper) !important;
-  }
-
-  .spell-card-row {
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
-    max-width: 95%;
-  }
-
-  @media (max-width: 1100px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .creation-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 720px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .creation-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .creation-card-row {
-    width: 100%;
-    max-width: 95%;
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
   }
 
   .development-grid {

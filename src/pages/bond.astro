@@ -8,6 +8,7 @@ import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
 import Manacard from "../components/Manacard.astro";
+import CardRow from "../components/CardRow.astro";
 import Layout from "../layouts/Layout.astro";
 import gettingWhatYouWantImage from "../assets/metal/getting-what-you-want.webp";
 import settingBordersImage from "../assets/metal/setting-borders.webp";
@@ -110,7 +111,7 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
 
     <Slide class="slide-metal" slide={5}>
       <SectionTitle>מה האגד מאפשר לנו</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <SpellCard
           accent="metal"
           title="לבחור"
@@ -156,11 +157,11 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
           ]}
           quote="זה מגיע לי"
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="slide-metal" slide={6}>
-      <div class="spell-card-row">
+      <CardRow>
         <SpellCard
           accent="metal"
           title="מניפולציה"
@@ -190,12 +191,12 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
           lines={["קח מצב רע, או משהו שנגמר, ותוציא ממנו ערך."]}
           quote="אם ככה, לפחות אני אצא מזה עם משהו"
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="slide-metal" slide={7}>
       <SectionTitle>יצירה של מאנת אגד</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <Manacard
           accent="metal"
           title="בדיקת רצון"
@@ -218,7 +219,7 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
           showMana={false}
           lines={["האם אני מרוצה", "ממה שקיבלתי?"]}
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="text-slide slide-metal" slide={8}>
@@ -276,20 +277,6 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
     background: var(--color-wallpaper) !important;
   }
 
-  .spell-card-row {
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
-    max-width: 95%;
-  }
-
-  @media (max-width: 1100px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
   .development-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -323,10 +310,6 @@ const description = "Black mana - bond, responsibility, and chosen outcomes.";
   }
 
   @media (max-width: 720px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .development-grid {
       grid-template-columns: 1fr;
     }

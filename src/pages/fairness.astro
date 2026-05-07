@@ -8,6 +8,7 @@ import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
 import Manacard from "../components/Manacard.astro";
+import CardRow from "../components/CardRow.astro";
 import Layout from "../layouts/Layout.astro";
 import sunLogo from "../assets/logos/sun.webp";
 
@@ -88,7 +89,7 @@ const description = "White mana - symmetry, shared order, and service to the who
 
     <Slide class="slide-earth" slide={4}>
       <SectionTitle>מהלכים</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <SpellCard
           title="כלל"
           manas={["1", "1", "1"]}
@@ -112,12 +113,12 @@ const description = "White mana - symmetry, shared order, and service to the who
           lines={["הרחק דבר שלא נראה נכון."]}
           quote="מה שמפר את השלום - יוגלה את השכחה"
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="slide-earth" slide={5}>
       <SectionTitle>איך משיגים אנרגיית סימטריה?</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <Manacard
           title="טקס"
           showMana={false}
@@ -134,7 +135,7 @@ const description = "White mana - symmetry, shared order, and service to the who
           showMana={false}
           lines={["סדר וחלק את הכלים בבית."]}
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="text-slide slide-earth" slide={6}>
@@ -181,26 +182,6 @@ const description = "White mana - symmetry, shared order, and service to the who
 <style>
   .slide-earth {
     background: var(--color-wallpaper) !important;
-  }
-
-  .spell-card-row {
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
-    max-width: 95%;
-  }
-
-  @media (max-width: 1100px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 720px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 
   .development-grid {

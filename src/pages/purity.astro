@@ -8,6 +8,7 @@ import SlideInner from "../components/SlideInner.astro";
 import Slideshow from "../components/Slideshow.astro";
 import SpellCard from "../components/SpellCard.astro";
 import Manacard from "../components/Manacard.astro";
+import CardRow from "../components/CardRow.astro";
 import Layout from "../layouts/Layout.astro";
 import waterLogo from "../assets/logos/water.webp";
 
@@ -90,7 +91,7 @@ const description = "Blue mana - mind, clarity, and completion of knowledge.";
 
     <Slide class="slide-water" slide={4}>
       <SectionTitle>מהלכי תודעה</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <SpellCard
           title="תחזית"
           manas={["1"]}
@@ -112,11 +113,11 @@ const description = "Blue mana - mind, clarity, and completion of knowledge.";
           ]}
           quote="אם הניסוי מתנהג אחרת.. התאוריה שלך שגויה"
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="slide-water" slide={5}>
-      <div class="spell-card-row">
+      <CardRow>
         <SpellCard
           title="זיהוי"
           manas={["1"]}
@@ -132,12 +133,12 @@ const description = "Blue mana - mind, clarity, and completion of knowledge.";
           ]}
           quote="שלמות מושגת לא כשאין מה להוסיף, אלא כשאין מה להסיר."
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="slide-water" slide={6}>
       <SectionTitle>יצירה של מאנה כחולה</SectionTitle>
-      <div class="spell-card-row">
+      <CardRow>
         <Manacard
           title="שאלת הבהרה"
           showMana={false}
@@ -158,7 +159,7 @@ const description = "Blue mana - mind, clarity, and completion of knowledge.";
           showMana={false}
           lines={["מה למדתי הפעם,", "ומה אשנה בפעם הבאה?"]}
         />
-      </div>
+      </CardRow>
     </Slide>
 
     <Slide class="text-slide slide-water" slide={7}>
@@ -206,43 +207,6 @@ const description = "Blue mana - mind, clarity, and completion of knowledge.";
 <style>
   .slide-water {
     background: var(--color-wallpaper) !important;
-  }
-
-  .spell-card-row {
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
-    max-width: 95%;
-  }
-
-  @media (max-width: 1100px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .creation-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 720px) {
-    .spell-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .creation-card-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .creation-card-row {
-    width: 100%;
-    max-width: 95%;
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
   }
 
   .development-grid {
