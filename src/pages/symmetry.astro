@@ -1,0 +1,246 @@
+---
+import LineFade from "../components/LineFade.astro";
+import ManaSlide from "../components/ManaSlide.astro";
+import ScrollHint from "../components/ScrollHint.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Slide from "../components/Slide.astro";
+import SlideInner from "../components/SlideInner.astro";
+import Slideshow from "../components/Slideshow.astro";
+import SpellCard from "../components/SpellCard.astro";
+import Manacard from "../components/Manacard.astro";
+import CardRow from "../components/CardRow.astro";
+import DevelopmentCards from "../components/DevelopmentCards.astro";
+import Layout from "../layouts/Layout.astro";
+import waterLogo from "../assets/logos/water.webp";
+
+const title = "סימטריה — מאנה תרפיה";
+const description = "Blue mana - symmetry, feedback, and risk understanding.";
+---
+
+<Layout title={title} description={description} lang="he" data-accent="water">
+  <Slideshow>
+    <ManaSlide
+      colorClass="water"
+      logo={waterLogo}
+      logoAlt="Blue mana logo"
+      sub="סימטריה"
+      subtitle="הבנת סיכונים"
+      slide={0}
+    >
+      <ScrollHint />
+    </ManaSlide>
+
+    <Slide class="text-slide slide-water" slide={1}>
+      <SlideInner>
+        <SectionTitle>מהות</SectionTitle>
+        <LineFade
+          lines={[
+            "סימטריה היא לולאת משוב,",
+            "שאומרת לנו מה מדויק ומה שגוי.",
+            "",
+            "היא נותנת לי אובייקטיביות,",
+            "ודרך לנווט בין כל הנתיבים האפשריים.",
+            "",
+            "בעזרתה, אני מגלה ערך.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-water" slide={2}>
+      <SlideInner>
+        <SectionTitle>ראיית עולם</SectionTitle>
+        <LineFade
+          lines={[
+            "הכל מתחיל כדף חלק,",
+            "הערך שלו ממתין להתגלות.",
+            "הדרך היחידה לזהות אותו היא לבדוק,",
+            "לתת לרעיונות להתחרות, ולאנשים לנסות.",
+            "",
+            "היקום אינו אחיד -",
+            "היכן שנמצאות הסטיות הגדולות ביותר,",
+            "הסימטריה חושפת יותר מכל.",
+            "יש שפע של ערך ביקום רק מחכה להתגלות.",
+            "",
+            "שחיתות היא עיוות של המדידה.",
+            "כאשר הערכה אובייקטיבית קורסת,",
+            "החברה הופכת חירשת ומאבדת קשר עם המציאות,",
+            "היא אינה יודעת מתי היא גוועת ברעב או",
+            "שולחת ידה אל תוך האש.",
+            "בעולם מלא רעש, זיהוי האות הוא הכל.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-water" slide={3}>
+      <SlideInner>
+        <SectionTitle>שורש מוסרי - הוגנות</SectionTitle>
+        <LineFade
+          lines={[
+            "החיים הם משחק חוזר,",
+            "מה שאתה יכול לעשות, גם אחרים יכולים,",
+            "לא כעונש, כמבנה של מציאות.",
+            "",
+            "כל מבחן, מרוץ או מסחר",
+            "הוא ניסוי למצוא משהו אמיתי.",
+            "רמאות היא תשובה שמגלה מאומה.",
+            "היא אכן משיגה את הפרס, אך משמידה את הידע.",
+            "מישהו תמיד משלם את המחיר.",
+            "השאלה שהתחרות תוכננה לפתור",
+            "נשארת פתוחה.",
+            "",
+            "בעולם עקבי,",
+            "הוגנות היא הדרך היחידה קדימה.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-water" slide={4}>
+      <SlideInner>
+        <SectionTitle>שווי לעומת שוויון</SectionTitle>
+        <LineFade
+          lines={[
+            "ישנו מתח פנימי בתוך ערך ההוגנות.",
+            "",
+            "ערך אובייקטיבי מתקיים",
+            "במתח שבין שני צירים מנוגדים:",
+            "",
+            "מידתיות - דיוק המדידה.",
+            "התגמול מתאים להשקעה, והמחיר מתאים לערך.",
+            "בלעדיו, התמריץ נעלם, ואוכלי חינם מנצלים את החרוצים.",
+            "",
+            "שוויון - אחידות המדידה.",
+            "האפשרויות פתוחות לכולם,",
+            "הערך זהה בכל מקום,",
+            "וכל אחד יכול להציע ערך יותר טוב.",
+            "בלעדיו, מונופולים מגדירים את הערך לטובתם.",
+            "",
+            "הוגנות נוצרת כאשר שני אלה מגיעים לאיזון.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+
+    <Slide class="slide-water" slide={5}>
+      <SectionTitle>מהלכי תודעה</SectionTitle>
+      <CardRow>
+        <SpellCard
+          title="תחזית"
+          manas={["1"]}
+          lines={["צפה את העתיד."]}
+          quote="העתיד שייך למי שיודע אותו מראש."
+        />
+        <SpellCard
+          title="הנדסת תוצאה"
+          manas={["1", "1"]}
+          lines={["שנה מסלול כדי להגיע ליעד אחר."]}
+          quote="הריקוד הוא קל אם אתה שומע את המנגינה"
+        />
+        <SpellCard
+          title="ניסוי"
+          manas={["1"]}
+          lines={["פתור דיון בעזרת ניסוי.", "הגדר מראש מה התוצאה הצפויה."]}
+          quote="אם הניסוי מתנהג אחרת.. התאוריה שלך שגויה"
+        />
+      </CardRow>
+    </Slide>
+
+    <Slide class="slide-water" slide={6}>
+      <CardRow>
+        <SpellCard
+          title="זיהוי"
+          manas={["1"]}
+          lines={["מצא את הפרט שנותן לך יתרון"]}
+          quote="מה שנראה קטן עלול להיות קריטי"
+        />
+        <SpellCard
+          title="התאמה"
+          manas={["1", { value: "X", accent: "water", label: "Water mana" }]}
+          lines={[
+            "ממש פוטנציאל לא ממומש.",
+            "קח משהו שעובד ״בסדר״ ושפר אותו ב - X צעדים.",
+          ]}
+          quote="שלמות מושגת לא כשאין מה להוסיף, אלא כשאין מה להסיר."
+        />
+      </CardRow>
+    </Slide>
+
+    <Slide class="slide-water" slide={7}>
+      <SectionTitle>יצירה של מאנה כחולה</SectionTitle>
+      <CardRow>
+        <Manacard
+          title="שאלת הבהרה"
+          showMana={false}
+          lines={["בכל פעם שיש בלבול:", "מה בדיוק אני מנסה להבין?"]}
+        />
+        <Manacard
+          title="איסוף מידע"
+          showMana={false}
+          lines={["מה אני כבר יודע?", "ומה עדיין חסר לי?"]}
+        />
+        <Manacard
+          title="ניסוי קטן"
+          showMana={false}
+          lines={["בודקים בקטן", "לפני החלטה גדולה."]}
+        />
+        <Manacard
+          title="סיכום למידה"
+          showMana={false}
+          lines={["מה למדתי הפעם,", "ומה אשנה בפעם הבאה?"]}
+        />
+      </CardRow>
+    </Slide>
+
+    <Slide class="text-slide slide-water" slide={8}>
+      <SlideInner>
+        <SectionTitle>התפתחות</SectionTitle>
+        <DevelopmentCards
+          immatureTitle="סימטריה בלתי מפותחת"
+          matureTitle="סימטריה בוגרת"
+        >
+          <Fragment slot="immature">
+            <li>חרדה ותזזיתית, מרגישה שהיקום נגדה.</li>
+            <li>לא מקבלת את הלא נודע, ומטילה בו את האשמה.</li>
+            <li>נעלבת קשות כשמרמים אותה.</li>
+            <li>רואה את זה הוכחה לאינטלקט כשהיא מרמה.</li>
+            <li>משתמשת בסימטריה ככלי אכיפה.</li>
+          </Fragment>
+          <Fragment slot="mature">
+            <li>יודעת שאי אפשר לדעת הכל, וגם מתי להפסיק לשאול.</li>
+            <li>כשמרמים היא מרגישה טרגדיה, לא עלבון.</li>
+            <li>מבינה שהאמונות שלה הן השערות הממתינות לבדיקה.</li>
+            <li>מקשיבה לאחרים ומפיצה צלילות וידע.</li>
+            <li>מגנה על תנאי המשחק גם לדור הבא.</li>
+          </Fragment>
+        </DevelopmentCards>
+      </SlideInner>
+    </Slide>
+
+    <Slide class="text-slide slide-water" slide={9}>
+      <SlideInner>
+        <SectionTitle>הזמנה</SectionTitle>
+        <LineFade
+          lines={[
+            "העולם מדבר כל הזמן,",
+            "סימטריה היא היכולת להקשיב.",
+            "מי שמבין את המפה,",
+            "מזהה את הסכנה מרחוק וזורם סביבה.",
+            "",
+            "בתוך ים של רעש,",
+            "כל מה שאתה צריך לעשות הוא",
+            "לבנות את המגדלור שלך.",
+          ]}
+        />
+      </SlideInner>
+    </Slide>
+  </Slideshow>
+</Layout>
+
+<style>
+  .slide-water {
+    background: var(--color-wallpaper) !important;
+  }
+
+</style>

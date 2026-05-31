@@ -1,0 +1,71 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  immatureTitle: string;
+  matureTitle: string;
+}
+
+const {
+  immatureTitle,
+  matureTitle,
+  class: className,
+  ...rest
+}: Props = Astro.props;
+---
+
+<div {...rest} class:list={["development-grid", className]}>
+  <article class="development-card">
+    <h3>{immatureTitle}</h3>
+    <ul>
+      <slot name="immature" />
+    </ul>
+  </article>
+  <article class="development-card">
+    <h3>{matureTitle}</h3>
+    <ul>
+      <slot name="mature" />
+    </ul>
+  </article>
+</div>
+
+<style>
+  .development-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8em;
+    margin-top: 1.2em;
+  }
+
+  .development-card {
+    padding: 1.4em;
+    border-radius: 1em;
+    background: var(--color-accent-surface);
+    box-shadow:
+      0 0.72em 1.4em var(--fx-shadow-dense),
+      inset 0 0 0 0.06em var(--fx-border-subtle);
+  }
+
+  .development-card h3 {
+    margin: 0 0 0.9em;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+  }
+
+  .development-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .development-card :global(li) {
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 720px) {
+    .development-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

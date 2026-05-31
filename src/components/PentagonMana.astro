@@ -8,13 +8,13 @@ const baseUrl = new URL(import.meta.env.BASE_URL, Astro.url);
 ---
 
 <div class:list={["pentagon", className]} {...rest}>
-  <div
-    class="mana-circle water is-disabled"
-    role="img"
-    aria-label="תודעה"
+  <a
+    class="mana-circle water"
+    href={new URL("symmetry/", baseUrl).pathname}
+    aria-label="סימטריה"
   >
-    <span class="mana-label">תודעה</span>
-  </div>
+    <span class="mana-label">סימטריה</span>
+  </a>
   <a
     class="mana-circle plant"
     href={new URL("graph/", baseUrl).pathname}

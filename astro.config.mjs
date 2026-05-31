@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) =>
-        !["/purity/", "/fairness/", "/freedom/"].some((path) =>
+        !["/fairness/", "/freedom/"].some((path) =>
           page.endsWith(path),
         ),
     }),
