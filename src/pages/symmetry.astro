@@ -124,7 +124,7 @@ const description = "Blue mana - symmetry, feedback, and risk understanding.";
     </Slide>
 
     <Slide class="slide-water" slide={5}>
-      <SectionTitle>מהלכי תודעה</SectionTitle>
+      <SectionTitle>מהלכי סימטריה</SectionTitle>
       <CardRow>
         <SpellCard
           title="תחזית"
@@ -133,16 +133,16 @@ const description = "Blue mana - symmetry, feedback, and risk understanding.";
           quote="העתיד שייך למי שיודע אותו מראש."
         />
         <SpellCard
-          title="הנדסת תוצאה"
-          manas={["1", "1"]}
-          lines={["שנה מסלול כדי להגיע ליעד אחר."]}
-          quote="הריקוד הוא קל אם אתה שומע את המנגינה"
+          title="וטו"
+          manas={["1"]}
+          lines={["עצור פעולה שמפרה את תנאי המשחק."]}
+          quote="לא כל מה שאפשר לעשות מותר למדוד"
         />
         <SpellCard
-          title="ניסוי"
+          title="שכפול"
           manas={["1"]}
-          lines={["פתור דיון בעזרת ניסוי.", "הגדר מראש מה התוצאה הצפויה."]}
-          quote="אם הניסוי מתנהג אחרת.. התאוריה שלך שגויה"
+          lines={["חזור על פעולה באותם תנאים כדי לבדוק אם התוצאה אמיתית."]}
+          quote="תוצאה שלא חוזרת היא רק רמז"
         />
       </CardRow>
     </Slide>
@@ -150,19 +150,22 @@ const description = "Blue mana - symmetry, feedback, and risk understanding.";
     <Slide class="slide-water" slide={6}>
       <CardRow>
         <SpellCard
+          title="ניווט"
+          manas={["1", "1"]}
+          lines={["בחר נתיב לפי המפה, לא לפי הרעש."]}
+          quote="האות קובע את הכיוון"
+        />
+        <SpellCard
+          title="כיול"
+          manas={["1"]}
+          lines={["בדוק שהמדד מודד את הדבר הנכון."]}
+          quote="מצפן עקום לא מוצא צפון"
+        />
+        <SpellCard
           title="זיהוי"
           manas={["1"]}
           lines={["מצא את הפרט שנותן לך יתרון"]}
           quote="מה שנראה קטן עלול להיות קריטי"
-        />
-        <SpellCard
-          title="התאמה"
-          manas={["1", { value: "X", accent: "water", label: "Water mana" }]}
-          lines={[
-            "ממש פוטנציאל לא ממומש.",
-            "קח משהו שעובד ״בסדר״ ושפר אותו ב - X צעדים.",
-          ]}
-          quote="שלמות מושגת לא כשאין מה להוסיף, אלא כשאין מה להסיר."
         />
       </CardRow>
     </Slide>
@@ -181,14 +184,19 @@ const description = "Blue mana - symmetry, feedback, and risk understanding.";
           lines={["מה אני כבר יודע?", "ומה עדיין חסר לי?"]}
         />
         <Manacard
-          title="ניסוי קטן"
+          title="ניסוי"
           showMana={false}
-          lines={["בודקים בקטן", "לפני החלטה גדולה."]}
+          lines={["בדוק רעיון מול המציאות", "לפני שאתה מאמין לו."]}
         />
         <Manacard
-          title="סיכום למידה"
+          title="לולאת משוב"
           showMana={false}
-          lines={["מה למדתי הפעם,", "ומה אשנה בפעם הבאה?"]}
+          lines={["מה קיבלתי בחזרה,", "ומה זה משנה בפעם הבאה?"]}
+        />
+        <Manacard
+          title="מיפוי"
+          showMana={false}
+          lines={["כתוב מה ידוע,", "מה משוער, ומה מסוכן."]}
         />
       </CardRow>
     </Slide>
